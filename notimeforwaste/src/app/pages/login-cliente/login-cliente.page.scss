@@ -1,0 +1,25 @@
+page-login {
+    .loginPage{
+        background-color: #FFF8F2;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .login-container {
+        border-radius: 10px;
+        opacity: 0.8;
+        width: 80%;
+        text-align: center;
+        background-color: #FFF8F2;
+     }
+     .login-logo{
+         vertical-align: center;
+         text-align: center;
+     }
+     .login-form{
+         opacity: none!important;
+     }
+     .image{
+        align-items: center;
+     }
+ }
