@@ -1,18 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>loginCliente</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content padding class="loginPage" scroll="false">
-  <ion-card>
+
+  <div class="center">
+    <h1>Login</h1>
+  </div>
+
+  <ion-card class="card" class="card-center">
+
     <ion-grid style="height: 100%">
       <ion-row justify-content-center align-items-center style="height: 80%">
         <ion-grid class="login-container">
           <form #loginForm="ngForm" autocomplete="off" class="login-form">
             <ion-row align-items-center>
               <ion-col>
-                <img class="image" src="assets/userProfile.png" width="100px" height="100px">
+                
+                <div class="image">
+                  <img  src="assets/userProfile.png" width="100px" height="100px">
+                </div>
+                
               </ion-col>
             </ion-row>
             <ion-row>
@@ -31,7 +37,7 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <button class="submit-btn" fulltype="submit" [disabled]="!loginForm.form.valid">ENTRAR</button>
+                <ion-button color="primary" expand="block" class="submit" fulltype="submit">ENTRAR</ion-button>
               </ion-col>
             </ion-row>
           </form>

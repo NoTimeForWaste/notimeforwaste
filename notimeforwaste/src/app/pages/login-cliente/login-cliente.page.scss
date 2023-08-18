@@ -1,25 +1,48 @@
 page-login {
-    .loginPage{
+    .loginPage {
         background-color: #FFF8F2;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
+
     .login-container {
         border-radius: 10px;
         opacity: 0.8;
         width: 80%;
         text-align: center;
         background-color: #FFF8F2;
-     }
-     .login-logo{
-         vertical-align: center;
-         text-align: center;
-     }
-     .login-form{
-         opacity: none!important;
-     }
-     .image{
+    }
+
+    .login-logo {
+        justify-content: center;
+        vertical-align: center;
+        text-align: center;
+    }
+
+    .login-form {
+        opacity: none !important;
+    }
+
+    .image {
+        height: 70vh;
         align-items: center;
-     }
- }
+    }
+
+    .card-center{
+        width: 80px; // adjust width on your ion-card suitable on your screen
+        display:block;
+        margin: 0 auto;
+    }
+
+    .center{
+        align-items: center;
+        text-align: center;
+    }
+
+    .card {
+        align-items: center;
+        text-align: center;
+        align-self: center;
+    }
+}
