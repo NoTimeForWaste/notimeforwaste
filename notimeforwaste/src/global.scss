@@ -25,20 +25,24 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-$laranjaLogo: #EA852F;
-$amareloClaro: #FFC94D;
-$brancoFundo: #FFF8F2;
-$marromTerroso: #B7632D;
-$verdePastel: #B7632D;
-$azulPastel: #4A90A4;
-$vermelhoDisabled: #BF8D87;
-$cinzaDisabled: #9098B1;
-$preto: #000000;
-$pretoDisabled: #443D3D;
-$vermelhoTerroso: #C0392B;
-$marromPastel: #9C6745;
-$verdeSucesso:#3D8A45;
-$brancoDisable:#E8EAEC;
+:root {
+  --custom-green: rgb(5, 71, 10); /* Substitua #00FF00 pelo código da cor verde desejada */
+  --laranjaLogo: #EA852F;
+  --amareloClaro: #FFC94D;
+  --brancoFundo: #FFF8F2;
+  --marromTerroso: #B7632D;
+  --verdePastel: #B7632D;
+  --azulPastel: #4A90A4;
+  --vermelhoDisabled: #BF8D87;
+  --cinzaDisabled: #9098B1;
+  --preto: #000000;
+  --pretoDisabled: #443D3D;
+  --vermelhoTerroso: #C0392B;
+  --marromPastel: #9C6745;
+  --verdeSucesso:#3D8A45;
+  --brancoDisable:#E8EAEC;
+}
+
 
 .container-toolbar-bottom {
     display: flex;
@@ -46,11 +50,11 @@ $brancoDisable:#E8EAEC;
     justify-content: center;
     height: 14vh;
   }
-  
+
   .custom-icon {
     font-size: 24px;
   }
-  
+
   .item-toolbar-buttom{
     padding-top: 4vh;
     padding-left: 6vw;
@@ -58,7 +62,8 @@ $brancoDisable:#E8EAEC;
     text-align: center;
     align-items: center;
     font-size: 14px;
-    color: $cinzaDisabled;
+    color: var(--cinzaDisabled);
+    background-color: transparent;
   }
 
   .active-item-toolbar-buttom{
@@ -68,13 +73,13 @@ $brancoDisable:#E8EAEC;
     text-align: center;
     align-items: center;
     font-size: 14px;
-    color: $laranjaLogo;
+    color: var(--laranjaLogo);
+    background-color: transparent;
   }
-  
+
   .custom-toolbar-top{
-    color: $laranjaLogo;
-    padding-top: 4vh;
-    height: 6vh;
+    color: var(--laranjaLogo);
+    height: 100%;
     font-size: 20px;
+    text-align: center;
   }
-  
