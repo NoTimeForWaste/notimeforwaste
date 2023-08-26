@@ -11,11 +11,11 @@ const routes: Routes = [
   {
     path: 'tela-inicial',
     loadChildren: () => import('./pages/tela-inicial/tela-inicial.module').then( m => m.TelaInicialPageModule)
-  },  {
+  },
+  {
     path: 'home',
     loadChildren: () => import('./pages/empresa/home/home.module').then( m => m.HomePageModule)
   },
-
 
 ];
 
