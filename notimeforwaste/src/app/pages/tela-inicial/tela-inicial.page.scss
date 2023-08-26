@@ -1,0 +1,81 @@
+.title {
+  text-align: center;
+  font-size: large;
+  color: var(--vermelhoTerroso);
+  font-family: 'Inter';
+  margin-left: 4vw;
+  margin-right: 4vw;
+  padding-bottom: 4vh;
+}
+
+.area-logo {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  flex: 1;
+  max-width: 35vw;
+  min-width: 30vw;
+}
+
+.card-custom {
+  background-color: var(--laranjaLogo);
+  width: 40vw;
+  height: 40vw;
+  margin-bottom: 3vh;
+  border-radius: 15%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.body{
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding-top: 4vh;
+  background-color: var(--brancoFundo);
+  width: 100%;
+  min-height: 100%;
+}
+
+.body::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 32vh;
+  width: 100%;
+  background-image: url('data:image/svg+xml;charset=utf8,<svg width="390" height="256" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L87.2368 155.393L390 256H0V0Z" fill="%23C0392B"/></svg>'); /* Substitua pelo seu SVG codificado */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.card-custom:hover {
+  background-color: var(--vermelhoTerroso);
+}
+
+.area-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card-icon {
+  padding-top: 2vh;
+  width: 20vw;
+}
+
+h3 {
+  font-size: large;
+}
+
+a{
+  text-decoration: none;
+}
