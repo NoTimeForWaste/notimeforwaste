@@ -13,17 +13,22 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tela-inicial/tela-inicial.module').then( m => m.TelaInicialPageModule)
   },
   {
-    path: 'home',
+    path: 'empresa/home',
     loadChildren: () => import('./pages/empresa/home/home.module').then( m => m.HomePageModule)
   },
     {
-    path: 'login-cliente',
-    loadChildren: () => import('./pages/login-cliente/login-cliente.module').then( m => m.LoginClientePageModule)
+    path: 'clente/login',
+    loadChildren: () => import('./pages/cliente/login-cliente/login-cliente.module').then( m => m.LoginClientePageModule)
   },
   {
-    path: 'pedidos',
+    path: 'empresa/pedidos',
     loadChildren: () => import('./pages/empresa/home/pedido/pedido.module').then( m => m.PedidoPageModule)
   },
+  {
+    path: 'empresa/login',
+    loadChildren: () => import('./pages/empresa/login/login.module').then( m => m.LoginPageModule)
+  },
+
 
 ];
 

@@ -8,11 +8,11 @@
 <ion-footer *ngIf="shouldDisplayFooter()">
   <ion-toolbar>
     <div class="container-toolbar-bottom">
-      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/home'), 'item-toolbar-buttom': !currentRoute.includes('/home')}" routerLink="home">
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/empresa/home'), 'item-toolbar-buttom': !currentRoute.includes('empresa/home')}" routerLink="empresa/home">
         <fa-icon class="custom-icon" icon="home"></fa-icon>
         <p>Home</p>
       </a>
-      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/pedidos'), 'item-toolbar-buttom': !currentRoute.includes('/pedidos')}" routerLink="pedidos">
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/empresa/pedidos'), 'item-toolbar-buttom': !currentRoute.includes('empresa/pedidos')}" routerLink="empresa/pedidos">
         <fa-icon class="custom-icon" icon="list"></fa-icon>
         <p>Pedidos</p>
       </a>

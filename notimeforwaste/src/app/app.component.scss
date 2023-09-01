@@ -1,0 +1,33 @@
+
+.container-toolbar-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 14vh;
+  }
+
+  .custom-icon {
+    font-size: 24px;
+  }
+
+  .item-toolbar-buttom{
+    padding-top: 4vh;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    color: var(--cinzaDisabled);
+    background-color: transparent;
+  }
+
+  .active-item-toolbar-buttom{
+    padding-top: 4vh;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    color: var(--laranjaLogo);
+    background-color: transparent;
+  }
