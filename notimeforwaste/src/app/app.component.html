@@ -1,3 +1,30 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <ion-content>
+    <ion-router-outlet main></ion-router-outlet>
+
+  </ion-content>
+  
+<ion-footer *ngIf="shouldDisplayFooter()">
+  <ion-toolbar>
+    <div class="container-toolbar-bottom">
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/home'), 'item-toolbar-buttom': !currentRoute.includes('/home')}" routerLink="home">
+        <fa-icon class="custom-icon" icon="home"></fa-icon>
+        <p>Home</p>
+      </a>
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/pedidos'), 'item-toolbar-buttom': !currentRoute.includes('/pedidos')}" routerLink="pedidos">
+        <fa-icon class="custom-icon" icon="list"></fa-icon>
+        <p>Pedidos</p>
+      </a>
+      <a class="item-toolbar-buttom">
+        <fa-icon class="custom-icon" icon="bag-shopping"></fa-icon>
+        <p>Pacotes</p>
+      </a>
+      <a class="item-toolbar-buttom">
+        <fa-icon class="custom-icon" icon="shop"></fa-icon>
+        <p>Conta</p>
+      </a>
+    </div>
+  </ion-toolbar>
+</ion-footer>
 </ion-app>
