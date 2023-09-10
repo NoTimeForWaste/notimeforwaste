@@ -1,0 +1,71 @@
+.login-logo {
+    justify-content: center;
+    vertical-align: center;
+    text-align: center;
+}
+
+ion-input {
+    text-align: left;
+}
+
+.login-form {
+    opacity: none !important;
+}
+
+h1 {
+    text-align: center;
+    color: var(--amareloClaro);
+    font-family: Jacques Francois;
+    font-size: xxx-large;
+}
+
+.image {
+    align-items: center;
+}
+
+.center {
+    align-items: center;
+}
+
+.card-custom {
+    background-color: var(--brancoFundo);
+    width: 80vw;
+    height: 50vh;
+    margin-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.area-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.corFundo {
+    background-color: var(--brancoFundo);
+}
+
+.button {
+    padding-top: 3%;
+    width: 70vw;
+}
+
+ion-button {
+    color: var(--brancoFundo);
+    --background: var(--vermelhoTerroso);
+}
+
+a {
+    color: rgb(7, 7, 7);
+    text-decoration: none;
+}
+
+.alinhar {
+    padding-top: 25%;
+   
+}
+

@@ -3,7 +3,7 @@
 
   <div class="alinhar">
     <div class="center">
-      <h1>Login</h1>
+      <h1>Cadastro</h1>
     </div>
 
     <div class="area-cards">
@@ -12,8 +12,8 @@
 
         <ion-grid>
           <ion-row>
-            <ion-grid class="login-container">
-              <form #loginForm="ngForm" autocomplete="off">
+            <ion-grid class="cadastro-container">
+              <form #cadastroForm="ngForm" autocomplete="off">
                 <ion-row align-items-center>
                   <ion-col>
 
@@ -26,8 +26,10 @@
                 <ion-row>
                   <ion-col>
 
-                    <div class="input">
+                    <div>
                       <ion-list>
+                        <ion-input label="Nome" labelPlacement="stacked" fill="outline" placeholder="Digite seu nome"
+                        class="corFundo"></ion-input>
                         <ion-input label="Email" labelPlacement="stacked" fill="outline" placeholder="Digite seu e-mail"
                           class="corFundo"></ion-input>
                         <ion-input label="Senha" labelPlacement="stacked" fill="outline" placeholder="Insira sua senha"
@@ -46,7 +48,7 @@
                   </ion-col>
                 </ion-row>
 
-                <a href="login-cliente.page.html"> <strong> Não tem uma conta? Cadastre-se </strong> </a>
+                <a href="login-cliente"> <strong> Já tem uma conta? Conecte-se </strong> </a>
               </form>
             </ion-grid>
           </ion-row>
