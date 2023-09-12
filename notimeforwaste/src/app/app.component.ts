@@ -20,7 +20,8 @@ export class AppComponent {
   }
 
   shouldDisplayFooter() {
-    const currentRoute = this.router.url;
-    return !currentRoute.includes('/tela-inicial');
+    const currentRoute = this.currentRoute;
+    return !currentRoute.includes('/tela-inicial') && !currentRoute.includes('/empresa/login');
   }
+  
 }
