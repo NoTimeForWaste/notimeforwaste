@@ -1,54 +1,65 @@
-<ion-content class="corFundo" padding scroll="false">
 
-  <div class="center">
-    <h1>Login</h1>
-  </div>
-
-  <div class="center">
-    <ion-card class="card">
-
-      <ion-grid style="height: 100%">
-        <ion-row justify-content-center align-items-center style="height: 80%">
-          <ion-grid class="login-container">
-            <form #loginForm="ngForm" autocomplete="off" class="login-form">
-              <ion-row align-items-center>
-                <ion-col>
-
-                  <div class="image">
-                    <img src="assets/userProfile.png" width="100px" height="100px">
-                  </div>
-
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col>
-
-                  <div class="text">
-                    <ion-list>
-                      <ion-input label="Email" labelPlacement="stacked" fill="outline"
-                        placeholder="Digite seu e-mail"></ion-input>
-                      <ion-input label="Senha" labelPlacement="stacked" fill="outline"
-                        placeholder="Insira sua senha"></ion-input>
-                    </ion-list>
-                  </div>
+  <ion-content>
 
 
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col>
-                  <div class="button">
-                    <ion-button color="primary" class="submit" fulltype="submit">ENTRAR</ion-button>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </form>
+    <div class="alinhar">
+      <div class="center">
+        <h1>Login</h1>
+      </div>
+  
+      <div class="area-cards">
+  
+        <ion-card class="card-custom">
+  
+          <ion-grid>
+            <ion-row>
+              <ion-grid class="login-container">
+                <form #loginForm="ngForm" autocomplete="off">
+                  <ion-row align-items-center>
+                    <ion-col>
+  
+                      <div class="image">
+                        <img src="../../../../assets/imgs/logo.png" width="100px" height="100px">
+                      </div>
+  
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+  
+                      <div class="input">
+                        <ion-list>
+                          <ion-input label="Email" labelPlacement="stacked" fill="outline" placeholder="Digite seu e-mail"
+                            class="corFundo"></ion-input>
+                          <ion-input label="Senha" labelPlacement="stacked" fill="outline" placeholder="Insira sua senha"
+                            class="corFundo"></ion-input>
+                        </ion-list>
+                      </div>
+  
+  
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <div class="button">
+                        <ion-button class="submit" fulltype="submit">ENTRAR</ion-button>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+  
+                  <a href="login-cliente"> <strong> Não tem uma conta? Cadastre-se </strong> </a>
+                </form>
+              </ion-grid>
+            </ion-row>
           </ion-grid>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
+  
+        </ion-card>
+  
+      </div>
+    </div>
+   
 
-  </div>
 
 
-</ion-content>
+
+  </ion-content>

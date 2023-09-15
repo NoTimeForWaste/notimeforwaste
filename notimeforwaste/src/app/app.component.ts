@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   shouldDisplayFooterCompany() {
-    const routesToExclude = ['/tela-inicial', '/cliente', '/cliente/login',]; // Adicione todas as rotas de cliente aqui
+    const routesToExclude = ['/tela-inicial', '/cliente', 'clente/login',]; // Adicione todas as rotas de cliente aqui
     const currentRoute = this.router.url;
     return !routesToExclude.some(route => currentRoute.includes(route));
   }
