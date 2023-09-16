@@ -21,19 +21,19 @@
             <ion-item lines="none">
               <ion-label position="stacked">Email</ion-label>
               <div class="input-border ">
-                <ion-input formControlName="email" form placeholder="Digite swu e-mail" class="custom"></ion-input>
+                <ion-input formControlName="email" type="email" placeholder="Digite swu e-mail" class="custom"></ion-input>
               </div>
             </ion-item>
             <br />
             <ion-item lines="none">
-              <ion-label position="stacked">E-mail</ion-label>
+              <ion-label position="stacked">Senha</ion-label>
               <div class="input-border ">
                 <ion-input formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
               </div>
             </ion-item>
             <br />
             <div class="area-button">
-              <ion-button>Entrar</ion-button>
+              <ion-button [disabled]="!formGroup.valid" type="submit">Entrar</ion-button>
             </div>
           </form>
           <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>

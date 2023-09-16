@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController, NavController } from '@ionic/angular';
+import { Empresa } from 'src/app/model/empresa';
+import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +14,18 @@ export class LoginPage implements OnInit {
   email?: String;
   senha?: String;
   formGroup: FormGroup;
+  empresa: Empresa;
+  
 
-  constructor(private fBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private toastController: ToastController, private navController: NavController) {
-
+  constructor(private empresaService: EmpresaService, private fBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private toastController: ToastController, private navController: NavController) {
+    this.empresa = new Empresa();
     this.formGroup = this.fBuilder.group(
       {
-        'identificacao': [this.email, Validators.compose([
-          Validators.required
+        'email': [this.email, Validators.compose([
+          Validators.required,
+          Validators.email
         ])],
-        'observacao': [this.senha, Validators.compose([
+        'senha': [this.senha, Validators.compose([
           Validators.required
         ])],
 
@@ -28,9 +33,36 @@ export class LoginPage implements OnInit {
     );
   }
 
-  async salvar(){
-    
+  async salvar() {
+    this.email = this.formGroup.value.email;
+    this.senha = this.formGroup.value.senha;
+    this.empresaService.login(this.email!, this.senha!).then((response: any) => {
+      if (response.status === 200) {
+        this.empresa = <Empresa>(response.body)
+        this.empresaService.setEmpresa(this.empresa); 
+        this.navController.navigateBack('/empresa/home');
+        console.log(this.empresa)
+      } else if (response.status === 404) {
+        // E-mail inválido
+        this.exibirMensagem(response.error);
+      } else if (response.status === 409) {
+        // Senha inválida
+        this.exibirMensagem(response.error);
+      }
+    }).catch((erro) => {
+      this.exibirMensagem("Erro ao logar!");
+    });
   }
+  
+
+  async exibirMensagem(texto: string) {
+    const toast = await this.toastController.create({
+      message: texto,
+      duration: 1500
+    });
+    toast.present();
+  }
+
   ngOnInit() {
   }
 
