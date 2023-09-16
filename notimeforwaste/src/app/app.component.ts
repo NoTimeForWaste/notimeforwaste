@@ -18,10 +18,17 @@ export class AppComponent {
         }
       });
   }
-
-  shouldDisplayFooter() {
-    const currentRoute = this.currentRoute;
-    return !currentRoute.includes('/tela-inicial') && !currentRoute.includes('/empresa/login');
+  shouldDisplayFooterCompany() {
+    const routesToExclude = ['/tela-inicial', '/cliente', 'clente/login',]; // Adicione todas as rotas de cliente aqui
+    const currentRoute = this.router.url;
+    return !routesToExclude.some(route => currentRoute.includes(route));
   }
   
+  shouldDisplayFooterClient() {
+    const routesToExclude = ['/tela-inicial', '/empresa/home', '/empresa/pedidos']; // Adicione todas as rotas da empresa aqui
+    const currentRoute = this.router.url;
+    return !routesToExclude.some(route => currentRoute.includes(route));
+  }
+  
+
 }
