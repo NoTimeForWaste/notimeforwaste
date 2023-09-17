@@ -59,7 +59,7 @@ ion-back-button {
 }
 
 .background {
-  background-image: url('background.png');
+  background-image: url('../../../../assets/imgs/background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -72,6 +72,7 @@ ion-back-button {
 .input-border {
   border: 1px solid #2D3325;
   border-radius: 5px;
+  width: 100%;
 }
 
 ion-input.input-border {

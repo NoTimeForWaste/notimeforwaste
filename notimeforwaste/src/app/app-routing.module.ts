@@ -28,6 +28,11 @@ const routes: Routes = [
     path: 'empresa/login',
     loadChildren: () => import('./pages/empresa/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'empresa/cadastro',
+    loadChildren: () => import('./pages/empresa/cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+
 
 
 ];
