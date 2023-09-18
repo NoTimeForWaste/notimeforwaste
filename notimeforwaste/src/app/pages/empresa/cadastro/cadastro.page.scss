@@ -187,4 +187,10 @@
   .col-4 {
     flex: 4;
   }
+
+  .circular-image img {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
   

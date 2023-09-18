@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
       this.exibirMensagem("Erro ao logar!");
     });
   }
-  
+   
 
   async exibirMensagem(texto: string) {
     const toast = await this.toastController.create({
