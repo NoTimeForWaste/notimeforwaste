@@ -1,66 +1,65 @@
-<ion-content padding scroll="false">
+<div class="body" style="overflow-y: auto; height: 100vh;">
+  <div class="background">
+    <div class="row">
+      <ion-buttons slot="start">
+        <ion-button class="back-button ">
+          <fa-icon class="custom-icon" icon="chevron-left"></fa-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
 
 
-  <div class="alinhar">
-    <div class="center">
+    <div class="title">
       <h1>Cadastro</h1>
     </div>
+    <br />
 
-    <div class="area-cards">
-
-      <ion-card class="card-custom">
-
-        <ion-grid>
-          <ion-row>
-            <ion-grid class="cadastro-container">
-              <form #cadastroForm="ngForm" autocomplete="off">
-                <ion-row align-items-center>
-                  <ion-col>
-
-                    <div class="image">
-                      <img src="../../../../src/assets/imgs/userProfile.png" width="100px" height="100px">
-                    </div>
-
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-
-                    <div>
-                      <ion-list>
-                        <ion-input label="Nome" labelPlacement="stacked" fill="outline" placeholder="Digite seu nome"
-                        class="corFundo"></ion-input>
-                        <ion-input label="Email" labelPlacement="stacked" fill="outline" placeholder="Digite seu e-mail"
-                          class="corFundo"></ion-input>
-                        <ion-input label="Senha" labelPlacement="stacked" fill="outline" placeholder="Insira sua senha"
-                          class="corFundo"></ion-input>
-                      </ion-list>
-                    </div>
-
-
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <div class="button">
-                      <ion-button class="submit" fulltype="submit">ENTRAR</ion-button>
-                    </div>
-                  </ion-col>
-                </ion-row>
-
-                <a href="login-cliente"> <strong> Já tem uma conta? Conecte-se </strong> </a>
-              </form>
-            </ion-grid>
-          </ion-row>
-        </ion-grid>
-
-      </ion-card>
-
+    <!-- Step 04 - Dados de login -->
+    <div>
+      <div class="area-card">
+        <div class="big-card-custom">
+          <ion-card-content>
+            <ion-row align-items-center>
+              <ion-col>
+                <div class="circular-image">
+                  <img src="../../../../assets/imgs/userProfile.png" width="100px" height="100px">
+                </div>
+              </ion-col>
+            </ion-row>
+            <form>
+              <ion-item lines="none">
+                <ion-label position="stacked">Nome</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" placeholder="Digite seu nome" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">E-mail</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" placeholder="Digite o seu e-mail" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border "> 
+                  <ion-input placeholder="Digite a senha" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border ">
+                  <ion-input placeholder="Confirme a senha" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <div class="area-button">
+                <ion-button type="submit">CADASTRAR</ion-button>
+                <a> <strong> Já tem uma conta? Conecte-se </strong></a>
+              </div>
+            </form>
+          </ion-card-content>
+        </div>
+      </div>
     </div>
   </div>
- 
-
-
-
-
-</ion-content>
+</div>
