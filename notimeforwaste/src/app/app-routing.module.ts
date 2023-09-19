@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/empresa/home/home.module').then( m => m.HomePageModule)
   },
     {
-    path: 'clente/login',
+    path: 'login-cliente',
     loadChildren: () => import('./pages/cliente/login-cliente/login-cliente.module').then( m => m.LoginClientePageModule)
   },
   {
@@ -27,7 +27,8 @@ const routes: Routes = [
   {
     path: 'empresa/login',
     loadChildren: () => import('./pages/empresa/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'cadastro-cliente',
     loadChildren: () => import('./pages/cliente/cadastro-cliente/cadastro-cliente.module').then( m => m.CadastroClientePageModule)
   },
