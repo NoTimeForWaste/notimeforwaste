@@ -1,0 +1,18 @@
+.body{
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    background-color: var(--brancoDisable);
+    padding-top: 4vh;
+    width: 100%;
+    min-height: 100%;
+}
+
+ion-item{
+    background: var(--brancoFundo);
+}
+
+.rounded-input ion-input {
+    --border-radius: 20px; /* Ajuste o valor conforme necessário */
+  }
+  

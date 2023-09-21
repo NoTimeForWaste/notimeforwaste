@@ -9,6 +9,7 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   currentRoute: string = '';
+
   constructor(private router: Router) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -19,8 +20,15 @@ export class AppComponent {
       });
   }
 
-  shouldDisplayFooter() {
+  shouldDisplayFooterCompany() {
+    const routesToInclude = ['/empresa/home', '/empresa/orders']; // Adicione todas as rotas da empresa aqui
     const currentRoute = this.router.url;
-    return !currentRoute.includes('/tela-inicial');
+    return routesToInclude.some(route => currentRoute.includes(route));
+  }
+  
+  shouldDisplayFooterClient() {
+    const routesToInclude = ['']; // Adicione todas as rotas do cliente aqui
+    const currentRoute = this.router.url;
+    return routesToInclude.some(route => currentRoute.includes(route));
   }
 }
