@@ -1,0 +1,258 @@
+<div class="body" style="overflow-y: auto; height: 100vh;">
+  <div class="background">
+    <div class="row">
+      <ion-buttons slot="start">
+        <ion-button (click)="backStep()" class="back-button ">
+          <fa-icon class="custom-icon" icon="chevron-left"></fa-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+
+
+    <div class="title">
+      <h1>Cadastro</h1>
+    </div>
+    <br />
+    <!-- Step 1 - Dados da Empresa -->
+    <div *ngIf="step === 1">
+      <div class="progress-container">
+        <ion-progress-bar value="0.25"></ion-progress-bar>
+        <h3>1 de 4</h3>
+      </div>
+      <div class="area-card">
+        <div class="card-custom">
+          <h2>Dados da Empresa</h2>
+          <ion-card-content>
+            <form [formGroup]="formGroup" >
+              <ion-item lines="none">
+                <ion-label position="stacked">Nome</ion-label>
+                <div class="input-border ">
+                  <ion-input formControlName="nmEmpresa" type="text" placeholder="Digite o nome da empresa" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">CNPJ</ion-label>
+                <div class="input-border ">
+                  <ion-input formControlName="cnpj" placeholder="Digite o CNPJ da empresa" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Tel</ion-label>
+                <div class="input-border ">
+                  <ion-input formControlName="telefone" placeholder="Digite o telefone da empresa" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <div class="area-button">
+                <ion-button type="submit" (click)="nextStep()">PRÓXIMO</ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </div>
+      </div>
+    </div>
+    <!-- Step 2 - Endereço da Empresa -->
+    <div *ngIf="step === 2">
+      <div class="progress-container">
+        <ion-progress-bar value="0.5"></ion-progress-bar>
+        <h3>2 de 4</h3>
+      </div>
+      <div class="area-card">
+        <div class="big-card-custom">
+          <h2>Endereço da Empresa</h2>
+          <ion-card-content>
+            <form [formGroup]="formGroup" >
+              <!-- linha 01 -->
+              <div class="row">
+                <ion-item lines="none" class="col-3">
+                  <ion-label position="stacked">CEP</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="cep" type="text" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+                <ion-item lines="none" class="col-2">
+                  <ion-label position="stacked">UF</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="uf" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <!-- linha 02 -->
+              <div class="row">
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Bairro</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="bairro" type="text" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <!-- linha 03 -->
+              <div class="row">
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Cidade</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="cidade" type="text" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <!-- linha 04 -->
+              <div class="row">
+                <ion-item lines="none" class="col-2">
+                  <ion-label position="stacked">Rua</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="rua" type="text" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Nº</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="numero" type="number" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+
+              <!-- linha 05 -->
+              <div class="row">
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Complemento</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="complemento" type="text" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <br />
+              <div class="area-button">
+                <ion-button type="submit" (click)="nextStep()">PRÓXIMO</ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 03 - Horários de Funcionamento -->
+    <div *ngIf="step === 3">
+      <div class="progress-container">
+        <ion-progress-bar value="0.75"></ion-progress-bar>
+        <h3>3 de 4</h3>
+      </div>
+      <div class="area-card">
+        <div class="big-card-custom">
+          <h2>Horário de Funcionamento</h2>
+          <ion-card-content>
+            <form [formGroup]="formGroup" >
+              <!-- linha 01 -->
+              <h4>Segunda à sexta:</h4>
+              <div class="row">
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Das</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="hrSegASexI" type="time" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Às</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="hrSegASexF" type="time" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <br />
+
+              <!-- linha 02 -->
+              <h4>Sábado:</h4>
+              <div class="row">
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Das</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="hrSabadoI" type="time" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Às</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="hrSabadoF" type="time" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <br />
+
+              <!-- linha 03 -->
+              <h4>Domingo:</h4>
+              <div class="row">
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Das</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="hrDomingoI" type="time" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+                <ion-item lines="none" class="col-1">
+                  <ion-label position="stacked">Às</ion-label>
+                  <div class="input-border ">
+                    <ion-input formControlName="hrDomingoF" type="time" class="custom"></ion-input>
+                  </div>
+                </ion-item>
+              </div>
+              <br />
+
+              <div class="area-button">
+                <ion-button type="submit" (click)="nextStep()">PRÓXIMO</ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 04 - Dados de login -->
+    <div *ngIf="step === 4">
+      <div class="progress-container">
+        <ion-progress-bar value="1.0"></ion-progress-bar>
+        <h3>4 de 4</h3>
+      </div>
+      <div class="area-card">
+        <div class="big-card-custom">
+          <ion-card-content>
+            <ion-row align-items-center>
+              <ion-col>
+                <div class="circular-image">
+                  <img src="assets/imgs/shop.png" width="100px" height="100px">
+                </div>
+              </ion-col>
+            </ion-row>
+            <form [formGroup]="formGroup" >
+              <ion-item lines="none">
+                <ion-label position="stacked">E-mail</ion-label>
+                <div class="input-border ">
+                  <ion-input formControlName="email" type="text" placeholder="Digite o e-mail da empresa" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border "> 
+                  <ion-input formControlName="senha" placeholder="Digite a senha" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border ">
+                  <ion-input formControlName="confirmarSenha" placeholder="Confirme a senha" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Foto/logo</ion-label>
+                <div class="input-border ">
+                  <input type="file" class="custom" onChange={setImage} />
+                </div>
+              </ion-item>
+              <br />
+              <div class="area-button">
+                <ion-button type="submit" (click)="salvar()">CADASTRAR</ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

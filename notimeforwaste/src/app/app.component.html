@@ -4,7 +4,7 @@
     <ion-router-outlet main></ion-router-outlet>
 
   </ion-content>
-  
+   
 <ion-footer *ngIf="shouldDisplayFooterCompany()">
   <ion-toolbar>
     <div class="container-toolbar-bottom">
@@ -16,12 +16,31 @@
         <fa-icon class="custom-icon" icon="list"></fa-icon>
         <p>Pedidos</p>
       </a>
-      <a class="item-toolbar-buttom">
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/empresa/pacotes'), 'item-toolbar-buttom': !currentRoute.includes('empresa/pacotes')}" routerLink="empresa/pacotes">
         <fa-icon class="custom-icon" icon="bag-shopping"></fa-icon>
         <p>Pacotes</p>
       </a>
-      <a class="item-toolbar-buttom">
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/empresa/perfil'), 'item-toolbar-buttom': !currentRoute.includes('empresa/perfil')}" routerLink="empresa/perfil">
         <fa-icon class="custom-icon" icon="shop"></fa-icon>
+        <p>Conta</p>
+      </a>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-footer *ngIf="shouldDisplayFooterClient()">
+  <ion-toolbar>
+    <div class="container-toolbar-bottom">
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/cliente/home'), 'item-toolbar-buttom': !currentRoute.includes('cliente/home')}" routerLink="cliente/home">
+        <fa-icon class="custom-icon" icon="home"></fa-icon>
+        <p>Home</p>
+      </a>
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/cliente/pedidos'), 'item-toolbar-buttom': !currentRoute.includes('cliente/pedidos')}" routerLink="cliente/pedidos">
+        <fa-icon class="custom-icon" icon="list"></fa-icon>
+        <p>Pedidos</p>
+      </a>
+      <a [ngClass]="{'active-item-toolbar-buttom': currentRoute.includes('/cliente/perfil'), 'item-toolbar-buttom': !currentRoute.includes('cliente/perfil')}" routerLink="cliente/perfil">
+        <fa-icon class="custom-icon" icon="user"></fa-icon>
         <p>Conta</p>
       </a>
     </div>

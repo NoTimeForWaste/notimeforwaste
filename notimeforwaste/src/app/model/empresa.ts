@@ -5,6 +5,8 @@ export class Empresa {
     email: string;
     idFoto: number;
     idEndereco: number;
+    telefone: string;
+
     
     constructor(
     ) {
@@ -14,6 +16,7 @@ export class Empresa {
       this.email = '';
       this.idFoto = 0;
       this.idEndereco = 0;
+      this.telefone = '';
     }
   }
   

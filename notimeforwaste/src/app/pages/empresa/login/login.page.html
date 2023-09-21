@@ -12,7 +12,7 @@
         <ion-card-content>
           <ion-row align-items-center>
             <ion-col>
-              <div class="image">
+              <div class="circular-image">
                 <img src="assets/imgs/shop.png" width="100px" height="100px">
               </div>
             </ion-col>
@@ -28,15 +28,15 @@
             <ion-item lines="none">
               <ion-label position="stacked">Senha</ion-label>
               <div class="input-border ">
-                <ion-input formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
+                <ion-input type="password" formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
               </div>
             </ion-item>
             <br />
             <div class="area-button">
-              <ion-button [disabled]="!formGroup.valid" type="submit">Entrar</ion-button>
+              <ion-button [disabled]="!formGroup.valid" type="submit">ENTRAR</ion-button>
             </div>
           </form>
-          <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
+          <p>Não tem uma conta? <a href="empresa/cadastro">Cadastre-se</a></p>
         </ion-card-content>
       </div>
     </div>
