@@ -27,11 +27,15 @@ const routes: Routes = [
   {
     path: 'empresa/login',
     loadChildren: () => import('./pages/empresa/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'meus-dados',
     loadChildren: () => import('./pages/cliente/meus-dados/meus-dados.module').then( m => m.MeusDadosPageModule)
   },
-
+  {
+    path: 'cadastro-cliente',
+    loadChildren: () => import('./pages/cliente/cadastro-cliente/cadastro-cliente.module').then( m => m.CadastroClientePageModule)
+  },
 
 
 ];

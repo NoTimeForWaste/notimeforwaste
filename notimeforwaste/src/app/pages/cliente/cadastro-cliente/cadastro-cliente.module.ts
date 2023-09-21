@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginClientePageRoutingModule } from './login-cliente-routing.module';
+import { CadastroClientePageRoutingModule } from './cadastro-cliente-routing.module';
 
-import { LoginClientePage } from './login-cliente.page';
+import { CadastroClientePage } from './cadastro-cliente.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -14,10 +14,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginClientePageRoutingModule,
+    CadastroClientePageRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginClientePage]
+  declarations: [CadastroClientePage]
 })
-export class LoginClientePageModule {}
+export class CadastroClientePageModule {}
