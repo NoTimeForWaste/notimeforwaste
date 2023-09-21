@@ -103,7 +103,7 @@ export class CadastroPage implements OnInit {
 
   backStep(){
     if(this.step === 1){
-      this.navController.navigateBack('/tela-inicial');
+      this.navController.navigateBack('/empresa/login');
     }else{
       this.step--;
     }

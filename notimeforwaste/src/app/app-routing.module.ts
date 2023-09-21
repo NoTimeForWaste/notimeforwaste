@@ -105,7 +105,6 @@ const routes: Routes = [
     path: 'cliente/editar-endereco/:idEndereco',
     loadChildren: () => import('./pages/cliente/perfil/endereco/novo-endereco/novo-endereco.module').then( m => m.NovoEnderecoPageModule)
   },
-
   {
     path: 'cliente/meus-dados',
     loadChildren: () => import('./pages/cliente/meus-dados/meus-dados.module').then( m => m.MeusDadosPageModule)

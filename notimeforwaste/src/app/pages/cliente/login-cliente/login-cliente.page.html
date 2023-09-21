@@ -1,13 +1,9 @@
-<div class="body" style="overflow-y: auto; height: 100vh;">
+<div class="body">
   <div class="background">
-    <div class="row">
       <ion-buttons slot="start">
-        <ion-button class="back-button ">
-          <fa-icon class="custom-icon" icon="chevron-left"></fa-icon>
-        </ion-button>
+        <ion-back-button defaultHref="/tela-inicial" text=""></ion-back-button>
       </ion-buttons>
-    </div>
-
+ 
 
     <div class="title">
       <h1>Login</h1>
@@ -42,9 +38,9 @@
               <br />
               <div class="area-button">
                 <ion-button type="submit">Entrar</ion-button>
-                <a> <strong>Não tem uma conta? Cadastre-se</strong></a>
               </div>
             </form>
+            <p>Não tem uma conta? <a [routerLink]="['#']">Cadastre-se</a></p>
           </ion-card-content>
         </div>
       </div>
