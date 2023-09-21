@@ -10,11 +10,11 @@
 
 
     <div class="title">
-      <h1>Login</h1>
+      <h1>Cadastro</h1>
     </div>
     <br />
 
-    <!-- Dados de login -->
+    <!-- Step 04 - Dados de login -->
     <div>
       <div class="area-card">
         <div class="big-card-custom">
@@ -28,6 +28,12 @@
             </ion-row>
             <form>
               <ion-item lines="none">
+                <ion-label position="stacked">Nome</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" placeholder="Digite seu nome" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none">
                 <ion-label position="stacked">E-mail</ion-label>
                 <div class="input-border ">
                   <ion-input type="text" placeholder="Digite o seu e-mail" class="custom"></ion-input>
@@ -39,10 +45,16 @@
                   <ion-input placeholder="Digite a senha" class="custom"></ion-input>
                 </div>
               </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border ">
+                  <ion-input placeholder="Confirme a senha" class="custom"></ion-input>
+                </div>
+              </ion-item>
               <br />
               <div class="area-button">
-                <ion-button type="submit">Entrar</ion-button>
-                <a> <strong>Não tem uma conta? Cadastre-se</strong></a>
+                <ion-button type="submit">CADASTRAR</ion-button>
+                <a> <strong> Já tem uma conta? Conecte-se </strong></a>
               </div>
             </form>
           </ion-card-content>

@@ -106,6 +106,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cliente/perfil/endereco/novo-endereco/novo-endereco.module').then( m => m.NovoEnderecoPageModule)
   },
 
+  {
+    path: 'cliente/meus-dados',
+    loadChildren: () => import('./pages/cliente/meus-dados/meus-dados.module').then( m => m.MeusDadosPageModule)
+  },
+  {
+    path: 'cliente/cadastro',
+    loadChildren: () => import('./pages/cliente/cadastro-cliente/cadastro-cliente.module').then( m => m.CadastroClientePageModule)
+  },
+
 ];
 
 @NgModule({
