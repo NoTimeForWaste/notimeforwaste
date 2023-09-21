@@ -1,37 +1,4 @@
-.title {
-  text-align: center;
-  font-size: large;
-  color: var(--vermelhoTerroso);
-  font-family: 'Inter';
-  margin-left: 4vw;
-  margin-right: 4vw;
-  padding-bottom: 4vh;
-}
 
-.area-logo {
-  width: 100%;
-  text-align: center;
-}
-
-.logo {
-  flex: 1;
-  max-width: 35vw;
-  min-width: 30vw;
-}
-
-.card-custom {
-  background-color: var(--laranjaLogo);
-  width: 40vw;
-  height: 40vw;
-  margin-bottom: 3vh;
-  border-radius: 15%;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s;
-}
 
 .body{
   position: relative;
@@ -55,9 +22,25 @@
   background-size: cover;
 }
 
+.title {
+  text-align: center;
+  font-size: large;
+  color: var(--vermelhoTerroso);
+  font-family: 'Inter';
+  margin-left: 4vw;
+  margin-right: 4vw;
+  padding-bottom: 4vh;
+}
 
-.card-custom:hover {
-  background-color: var(--vermelhoTerroso);
+.area-logo {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  flex: 1;
+  max-width: 35vw;
+  min-width: 30vw;
 }
 
 .area-cards {
@@ -67,9 +50,39 @@
   text-align: center;
 }
 
+.card-custom {
+  background-color: var(--laranjalog);
+  width: 40vw;
+  height: 40vw;
+  margin-bottom: 3vh;
+  border-radius: 15%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.card-content {
+  text-align: center;
+}
+
 .card-icon {
-  padding-top: 2vh;
   width: 20vw;
+  padding: 2vh 0;
+}
+
+.card-text {
+  font-size: large;
+  margin-top: 1vh;
+}
+
+ion-button {
+  --background: var(--laranjaLogo);
+  --background-hover: var(--vermelhoTerroso);
+  --background-activated: var(--vermelhoTerroso);
+  --background-focused: var(--vermelhoTerroso);
 }
 
 h3 {

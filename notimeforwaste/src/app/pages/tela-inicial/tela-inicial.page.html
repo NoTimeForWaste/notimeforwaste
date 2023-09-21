@@ -6,15 +6,20 @@
   <div class="title">
     <h1>Para começar, selecione uma opção</h1>
   </div>
-  <div class="area-cards">
-    <a class="card-custom" href="empresa/login">
-      <img src="../../../../assets/icon/shop.svg" alt="Ícone Empresa" class="card-icon">
-      <h3>Sou empresa</h3>
-    </a>
 
-    <a class="card-custom" href="clente/login"> <img src="../../../../assets/icon/user.svg" alt="Ícone Cliente"
-        class="card-icon">
-      <h3>Sou cliente</h3>
-    </a>
+  <div class="area-cards">
+    <ion-button class="card-custom" [routerLink]="['/empresa/login']">
+      <div class="card-content">
+        <img src="../../../../assets/icon/shop.svg" alt="Ícone Empresa" class="card-icon" />
+        <h3 class="card-text">Sou empresa</h3>
+      </div>
+    </ion-button>
+
+    <ion-button class="card-custom" [routerLink]="['/cliente/login']">
+      <div class="card-content">
+        <img src="../../../../assets/icon/user.svg" alt="Ícone Cliente" class="card-icon" />
+        <h3 class="card-text">Sou cliente</h3>
+      </div>
+    </ion-button>
   </div>
 </div>

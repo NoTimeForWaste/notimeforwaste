@@ -21,13 +21,13 @@ export class AppComponent {
   }
 
   shouldDisplayFooterCompany() {
-    const routesToInclude = ['/empresa/home', '/empresa/orders']; // Adicione todas as rotas da empresa aqui
+    const routesToInclude = ['/empresa/home', '/empresa/pedidos', '/empresa/pacotes', '/empresa/perfil']; // Adicione todas as rotas da empresa que aparecerão o bottom navigation aqui
     const currentRoute = this.router.url;
     return routesToInclude.some(route => currentRoute.includes(route));
   }
   
   shouldDisplayFooterClient() {
-    const routesToInclude = ['']; // Adicione todas as rotas do cliente aqui
+    const routesToInclude = ['/cliente/home', '/cliente/pedidos',  '/cliente/perfil']; // Adicione todas as rotas do cliente que aparecerão o bottom navigation aqui
     const currentRoute = this.router.url;
     return routesToInclude.some(route => currentRoute.includes(route));
   }
