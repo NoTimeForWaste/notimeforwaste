@@ -14,7 +14,7 @@
     </div>
     <br />
     <!-- Step 1 - Dados da Empresa -->
-    <div *ngIf="step == 1">
+    <div *ngIf="step === 1">
       <div class="progress-container">
         <ion-progress-bar value="0.25"></ion-progress-bar>
         <h3>1 de 4</h3>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <!-- Step 2 - Endereço da Empresa -->
-    <div *ngIf="step == 2">
+    <div *ngIf="step === 2">
       <div class="progress-container">
         <ion-progress-bar value="0.5"></ion-progress-bar>
         <h3>2 de 4</h3>
@@ -131,7 +131,7 @@
     </div>
 
     <!-- Step 03 - Horários de Funcionamento -->
-    <div *ngIf="step == 3">
+    <div *ngIf="step === 3">
       <div class="progress-container">
         <ion-progress-bar value="0.75"></ion-progress-bar>
         <h3>3 de 4</h3>
@@ -205,7 +205,7 @@
     </div>
 
     <!-- Step 04 - Dados de login -->
-    <div *ngIf="step == 4">
+    <div *ngIf="step === 4">
       <div class="progress-container">
         <ion-progress-bar value="1.0"></ion-progress-bar>
         <h3>4 de 4</h3>
