@@ -1,13 +1,8 @@
 <div class="body" style="overflow-y: auto; height: 100vh;">
   <div class="background">
-    <div class="row">
-      <ion-buttons slot="start">
-        <ion-button class="back-button ">
-          <fa-icon class="custom-icon" icon="chevron-left"></fa-icon>
-        </ion-button>
-      </ion-buttons>
-    </div>
-
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cliente/login" text=""></ion-back-button>
+    </ion-buttons>
 
     <div class="title">
       <h1>Cadastro</h1>
@@ -54,9 +49,9 @@
               <br />
               <div class="area-button">
                 <ion-button type="submit">CADASTRAR</ion-button>
-                <a> <strong> Já tem uma conta? Conecte-se </strong></a>
               </div>
             </form>
+            <p>Já tem uma conta? <a [routerLink]="['/cliente/login']">Conecte-se</a></p>
           </ion-card-content>
         </div>
       </div>

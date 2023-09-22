@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/services/cliente/cliente.service';
+import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
 
+  constructor(private clienteService: ClienteService) {
+    console.log(this.clienteService.getCliente())
+   }
   ngOnInit() {
   }
+
 
 }
