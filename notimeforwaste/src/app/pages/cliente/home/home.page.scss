@@ -1,0 +1,25 @@
+h3 {
+    font-weight: bold;
+}
+
+#title {
+    padding-left: 4vw;
+}
+
+.custom-toolbar-top{
+    color: var(--vermelhoTerroso);
+    height: 100%;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    display: flex; /* Adicionado para permitir o uso de justify-content */
+    justify-content: center; /* Adicionado para centralizar o conteúdo horizontalmente */
+}
+
+.custom-select{
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Roboto', Courier, monospace;
+    align-items: center;
+}
