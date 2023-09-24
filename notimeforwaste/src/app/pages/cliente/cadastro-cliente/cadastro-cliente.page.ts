@@ -56,6 +56,9 @@ export class CadastroClientePage implements OnInit {
   
   async salvar() {
     try {
+      this.cliente.nmCliente = this.formGroup.value.nmCliente;
+      this.cliente.email = this.formGroup.value.email;
+      this.cliente.senha = this.formGroup.value.senha;
         const response = await this.clienteService.post(this.cliente);
         this.exibirMensagem('Cadastro realizado com sucesso!');
         this.navController.navigateBack('/cliente/login');

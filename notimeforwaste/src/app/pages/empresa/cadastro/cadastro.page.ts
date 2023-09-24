@@ -231,7 +231,7 @@ export class CadastroPage implements OnInit {
   }
 
 
-   isStep4Valid(): boolean {
+  isStep4Valid(): boolean {
     if (this.foto.fotoUrl != '' && this.formGroup.valid && this.checkPasswords() === null) {
       return true;
     }
@@ -254,60 +254,53 @@ export class CadastroPage implements OnInit {
   }
 
   async salvar() {
-    this.enderecoService.post(this.endereco).pipe(
-      switchMap((enderecoResponse) => {
-        this.endereco = enderecoResponse as Endereco;
+    this.enderecoService.post(this.endereco).subscribe(
+      response => {
+        console.log('Resposta da API:', response);
+        this.endereco = response as Endereco;
         this.empresa.idEndereco = this.endereco.idEndereco;
-
         if (this.foto.document) {
-          return this.fotoService.post(this.foto.document).pipe(
-            switchMap((fotoResponse) => {
-              this.foto = fotoResponse as Foto;
+          this.fotoService.post(this.foto.document).subscribe(
+            json => {
+              this.foto = json as Foto;
               this.empresa.idFoto = this.foto.idFoto;
+              console.log('Resposta da API:', json);
               this.empresa.senha = this.formGroup.value.senha;
-              this.empresa.email = this.formGroup.value.email;
-
-              return this.empresaService.post(this.empresa).pipe(
-                catchError((error) => {
-                  this.exibirMensagem('Erro ao cadastrar a empresa!');
-                  console.error('Erro na terceira chamada:', error);
-                  return throwError(error); 
-                })
+              this.empresa.email = this.formGroup.value.email;;
+              this.empresaService.post(this.empresa).subscribe(
+                empresa => {
+                  // Lide com a resposta da API aqui
+                  console.log('Resposta da API:', empresa);
+                },
+                error => {
+                  // Lide com erros aqui
+                  this.exibirMensagem('Erro ao cadastrar a empresa!')
+                  console.error('Erro:', error);
+                }
               );
-            }),
-            catchError((error) => {
-              this.exibirMensagem('Erro ao cadastrar a foto!');
-              console.error('Erro na segunda chamada:', error);
-              return throwError(error); 
-            })
-          );
-        } else {
-          return this.empresaService.post(this.empresa).pipe(
-            catchError((error) => {
-              this.exibirMensagem('Erro ao cadastrar a empresa!');
-              console.error('Erro na terceira chamada:', error);
-              return throwError(error); 
-            })
+            },
+            error => {
+              this.exibirMensagem('Erro ao cadastrar a empresa!')
+              console.error('Erro:', error);
+              return
+            }
+
           );
         }
-      }),
-      catchError((error) => {
-        this.exibirMensagem('Erro ao cadastrar o endereço!');
-        console.error('Erro na primeira chamada:', error);
-        return throwError(error);
-      })
-    ).subscribe(
-      (empresaResponse) => {
-        console.log('Resposta da API:', empresaResponse);
       },
-      (error) => {
-        console.error('Erro final:', error);
+      error => {
+        this.exibirMensagem('Erro ao cadastrar a empresa!')
+        console.error('Erro:', error);
+        return
       }
     );
 
     this.exibirMensagem('Cadastro realizado com sucesso!');
     this.navController.navigateBack("empresa/login")
   }
+
+
+
 
   openImagePicker(event: MouseEvent) {
     const inputElement = (event.currentTarget as HTMLElement).querySelector(
