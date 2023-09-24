@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { NovoPacotePageRoutingModule } from './novo-pacote-routing.module';
 
 import { NovoPacotePage } from './novo-pacote.page';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NovoPacotePageRoutingModule
+    NovoPacotePageRoutingModule,
+    FontAwesomeModule
+
   ],
   declarations: [NovoPacotePage]
 })
-export class NovoPacotePageModule {}
+export class NovoPacotePageModule { }
