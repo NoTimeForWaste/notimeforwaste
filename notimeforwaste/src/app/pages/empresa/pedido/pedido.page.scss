@@ -1,6 +1,7 @@
 .card-filter {
   width: 100%;
-  height: 490px;
+  max-height: 490px;
+  min-height: 40px;
   padding-top: 0;
   padding-left: 6vw;
   margin: 0;
@@ -22,8 +23,7 @@
   align-items: center;
 }
 
-.card-filter-icon-move-up{
-  
+.card-filter-icon-show{
   max-width: 6vw;
   min-width: 4vw;
   height: 4vh;
@@ -51,92 +51,95 @@
 h3 {
     font-weight: bold;
 }
-
 .card-price {
-    color: var(--laranjaLogo);
-    font-size: 16px;
+  color: var(--laranjaLogo);
+  font-size: 16px;
 }
 
 #title {
-    padding-left: 4vw;
+  padding-left: 4vw;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    overflow: hidden;
-    width: 96%;
-    height: 35vh;
-    margin-left: 2%;
-    margin-top: 3vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden;
+  width: 96%;
+  max-width: 450px;
+  height: 150px;
+  max-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vh;
 }
 
 .card-image {
-    flex: 1;
-    max-width: 35vw;
-    min-width: 30vw;
-    height: 20vh;
-    object-fit: cover;
+  flex: 1;
+  max-width: 180px;
+  width: 30vw;
+  object-fit: cover;
 }
 
 .card-content {
-    flex: 2;
-    padding: 2vh;
+  flex: 2;
+  padding: 2vh;
 }
 
 .card-title {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 8px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
 }
 
 .card-paragraph {
-    font-size: 12px;
-    margin: 0 0 4px 0;
+  font-size: 12px;
+  margin: 0 0 4px 0;
 }
 
 .card-buttons {
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 8px;
-    width: 100%;
-    text-align: center;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
 }
 
 .card-button {
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    width: 50%;
-    height: 3.5vh;
-    text-align: center;
-    text-transform: uppercase;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 2vw;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .cancel-button {
-    background-color: var(--vermelhoTerroso);
+  background-color: var(--vermelhoTerroso);
+}
+
+.buy-button {
+  background-color: var(--verdeSucesso);
 }
 
 .card-button-view {
-    color: black;
-    background-color: transparent;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 30px;
-    border: none;
-    cursor: pointer;
+  color: black;
+  background-color: transparent;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
 }
 
 .progress-container {

@@ -6,53 +6,59 @@
 
 <ion-content>
   <div class="card-filter">
-    <div class="card-filter-itens">
-      <div class="icon-and-text">
-        <img class="card-filter-icon" src="../../../../assets/icon/soup.svg"/>
-        <div class="text">
-          <h1>Pendentes</h1>
-          <p>Pedidos feitos ou em preparação</p>
+    <div *ngIf="onFilters">
+      <div class="card-filter-itens">
+        <div class="icon-and-text">
+          <img class="card-filter-icon" src="../../../../assets/icon/soup.svg" />
+          <div class="text">
+            <h1>Pendentes</h1>
+            <p>Pedidos feitos ou em preparação</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="divider"></div>
-     <div class="card-filter-itens">
-      <div class="icon-and-text">
-        <img class="card-filter-icon" src="../../../../assets/icon/bike.svg"/>
-        <div class="text">
-          <h1>À Caminho</h1>
-          <p>Pedidos que já sairam para entrega</p>
+      <div class="divider"></div>
+      <div class="card-filter-itens">
+        <div class="icon-and-text">
+          <img class="card-filter-icon" src="../../../../assets/icon/bike.svg" />
+          <div class="text">
+            <h1>À Caminho</h1>
+            <p>Pedidos que já sairam para entrega</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="divider"></div>
-    <div class="card-filter-itens">
-      <div class="icon-and-text">
-        <img class="card-filter-icon" src="../../../../assets/icon/correct.svg"/>
-        <div class="text">
-          <h1>Entregues</h1>
-          <p>Pedidos que já foram Entregues</p>
+      <div class="divider"></div>
+      <div class="card-filter-itens">
+        <div class="icon-and-text">
+          <img class="card-filter-icon" src="../../../../assets/icon/correct.svg" />
+          <div class="text">
+            <h1>Entregues</h1>
+            <p>Pedidos que já foram Entregues</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="divider"></div>
-    <div class="card-filter-itens">
-      <div class="icon-and-text">
-        <img class="card-filter-icon" src="../../../../assets/icon/cancel.svg"/>
-        <div class="text">
-          <h1>Cancelados</h1>
-          <p>Pedidos que foram cancelados</p>
+      <div class="divider"></div>
+      <div class="card-filter-itens">
+        <div class="icon-and-text">
+          <img class="card-filter-icon" src="../../../../assets/icon/cancel.svg" />
+          <div class="text">
+            <h1>Cancelados</h1>
+            <p>Pedidos que foram cancelados</p>
+          </div>
         </div>
       </div>
+      <div class="divider"></div>
     </div>
-    <div class="divider"></div>
     <div class="card-filter-button-area">
-      <img class="card-filter-icon-move-up" src="../../../../assets/icon/move_up.svg"/>
+      <img *ngIf="onFilters" (click)="showFilters()" class="card-filter-icon-show"
+        src="../../../../assets/icon/move_up.svg" />
+      <img *ngIf="!onFilters" (click)="showFilters()" class="card-filter-icon-show"
+        src="../../../../assets/icon/move_down.svg" />
+
     </div>
   </div>
-  
+
   <div class="body">
-  
+
     <div id="title">
       <h3>Novos Pedidos</h3>
     </div>
@@ -92,10 +98,6 @@
           <button class="card-button cancel-button">CANCELAR</button>
           <button class="card-button-view"> <fa-icon icon="chevron-right"></fa-icon></button>
         </div>
-        <div class="progress-container">
-          <ion-progress-bar value="1.0"></ion-progress-bar>
-          <h3>4 de 4</h3>
-        </div>
       </div>
     </div>
     <div class="card">
@@ -112,11 +114,10 @@
         <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
         <div class="card-buttons">
           <button class="card-button cancel-button">CANCELAR</button>
-          <button class="card-button-view"> <fa-icon icon="chevron-right"></fa-icon></button>
+          <button [routerLink]="['/empresa/detalhes-pedido', 1]" class="card-button-view">
+            <fa-icon icon="chevron-right"></fa-icon>
+          </button>
         </div>
-        <div class="card-area-progress-bar">
-        </div>
-        <!-- Fim da barra de progresso -->
       </div>
     </div>
   </div>

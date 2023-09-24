@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PacotePageRoutingModule } from './pacote-routing.module';
 
 import { PacotePage } from './pacote.page';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PacotePageRoutingModule
+    PacotePageRoutingModule,
+    FontAwesomeModule
   ],
   declarations: [PacotePage]
 })
