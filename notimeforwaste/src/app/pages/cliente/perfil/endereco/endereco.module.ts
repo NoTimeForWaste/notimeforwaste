@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { EnderecoPageRoutingModule } from './endereco-routing.module';
 
 import { EnderecoPage } from './endereco.page';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomePageRoutingModule } from '../../home/home-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EnderecoPageRoutingModule
+    EnderecoPageRoutingModule,
+    HomePageRoutingModule,
+    FontAwesomeModule
   ],
   declarations: [EnderecoPage]
 })

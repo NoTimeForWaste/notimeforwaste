@@ -1,0 +1,53 @@
+.background {
+    background-color: var(--brancoDisable);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 80vh;
+    max-height: 300vh;
+    padding: 0;
+    background-position: center 50%;
+  }
+
+  .area-card {
+    padding-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-paragraph {
+    text-align: left;
+    align-items: flex-start;
+    font-size: 15px;
+    margin: 0 0px 4px 0;
+}
+
+.card-content {
+    flex: 2;
+    padding: 2vh;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+    width: 96%;
+    height: 12vh;
+    margin-top: 35px;
+}
+
+.card-icon {
+    font-size: 16px;
+}
+
+.card-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}

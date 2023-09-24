@@ -27,7 +27,7 @@ export class AppComponent {
   }
   
   shouldDisplayFooterClient() {
-    const routesToInclude = ['/cliente/home', '/cliente/pedidos',  '/cliente/perfil', 'cliente/meus-dados']; // Adicione todas as rotas do cliente que aparecerão o bottom navigation aqui
+    const routesToInclude = ['/cliente/home', '/cliente/pedidos',  '/cliente/perfil', 'cliente/meus-dados', 'cliente/endereco' ,'cliente/novo-endereco']; // Adicione todas as rotas do cliente que aparecerão o bottom navigation aqui
     const currentRoute = this.router.url;
     return routesToInclude.some(route => currentRoute.includes(route));
   }
