@@ -4,7 +4,56 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
   <div class="body">
+    <div class="card-profile">
+      <div class="photo">
+        <!-- Conteúdo da foto aqui -->
+        <img src="../../../../assets/icon/shop.svg" alt="Foto do perfil">
+      </div>
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <h2>{{empresa.nmEmpresa}}</h2>
+        <p>{{empresa.cnpj}}</p>
+        <p>{{empresa.telefone}}</p>
+        <p>{{empresa.email}}</p>
+      </div>
+      <a routerLink="/empresa/editar-perfil">
+        <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
+      </a>
+    </div>
+
+
+    <div class="card-edit">
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <h1>Endereço</h1>
+        <h3>R. Rua nº, Bairro, Cidade - UF / Complemento</h3>
+        <!-- Adicione mais informações conforme necessário -->
+      </div>
+      <a routerLink="/empresa/editar-endereco">
+        <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
+      </a>
+    </div>
+
+    <div class="card-edit">
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <h1>Horários de Funcionamento</h1>
+        <h3>Informação 5</h3>
+
+        <!-- Adicione mais informações conforme necessário -->
+      </div>
+      <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
+    </div>
+
+
+    <div class="card-logout">
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <h1>Sair</h1>
+        <!-- Adicione mais informações conforme necessário -->
+      </div>
+      <ion-icon (click)="logout()" name="log-out-outline" class="icon-logout"></ion-icon>
+    </div>
+
   </div>
-</ion-content>

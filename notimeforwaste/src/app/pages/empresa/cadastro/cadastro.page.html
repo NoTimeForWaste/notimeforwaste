@@ -17,34 +17,36 @@
     <div *ngIf="step === 1">
       <div class="progress-container">
         <ion-progress-bar value="0.25"></ion-progress-bar>
-        <h3>1 de 4</h3> 
+        <h3>1 de 4</h3>
       </div>
       <div class="area-card">
         <div class="card-custom">
           <h2>Dados da Empresa</h2>
           <ion-card-content>
-            <form [formGroup]="formGroup" >
+            <form [formGroup]="formGroup">
               <ion-item lines="none">
                 <ion-label position="stacked">Nome</ion-label>
                 <div class="input-border ">
-                  <ion-input formControlName="nmEmpresa" type="text" placeholder="Digite o nome da empresa" class="custom"></ion-input>
+                  <ion-input formControlName="nmEmpresa" type="text" placeholder="Digite o nome da empresa"
+                    class="custom"></ion-input>
                 </div>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">CNPJ</ion-label>
                 <div class="input-border ">
-                  <ion-input formControlName="cnpj" placeholder="Digite o CNPJ da empresa" class="custom"></ion-input>
+                  <ion-input formControlName="cnpj" mask="00.000.000/0000-00"  placeholder="Digite o CNPJ da empresa" class="custom"></ion-input>
                 </div>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Tel</ion-label>
                 <div class="input-border ">
-                  <ion-input formControlName="telefone" placeholder="Digite o telefone da empresa" class="custom"></ion-input>
+                  <ion-input formControlName="telefone" placeholder="Digite o telefone da empresa"
+                    class="custom"></ion-input>
                 </div>
               </ion-item>
               <br />
               <div class="area-button">
-                <ion-button type="submit" (click)="nextStep()">PRÓXIMO</ion-button>
+                <ion-button type="submit" [disabled]="!isStep1Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
               </div>
             </form>
           </ion-card-content>
@@ -61,7 +63,7 @@
         <div class="big-card-custom">
           <h2>Endereço da Empresa</h2>
           <ion-card-content>
-            <form [formGroup]="formGroup" >
+            <form [formGroup]="formGroup">
               <!-- linha 01 -->
               <div class="row">
                 <ion-item lines="none" class="col-3">
@@ -73,7 +75,7 @@
                 <ion-item lines="none" class="col-2">
                   <ion-label position="stacked">UF</ion-label>
                   <div class="input-border ">
-                    <ion-input formControlName="uf" class="custom"></ion-input>
+                    <ion-input formControlName="uf" class="custom" readonly></ion-input>
                   </div>
                 </ion-item>
               </div>
@@ -110,7 +112,6 @@
                   </div>
                 </ion-item>
               </div>
-
               <!-- linha 05 -->
               <div class="row">
                 <ion-item lines="none" class="col-1">
@@ -122,7 +123,7 @@
               </div>
               <br />
               <div class="area-button">
-                <ion-button type="submit" (click)="nextStep()">PRÓXIMO</ion-button>
+                <ion-button type="submit" [disabled]="!isStep2Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
               </div>
             </form>
           </ion-card-content>
@@ -140,7 +141,7 @@
         <div class="big-card-custom">
           <h2>Horário de Funcionamento</h2>
           <ion-card-content>
-            <form [formGroup]="formGroup" >
+            <form [formGroup]="formGroup">
               <!-- linha 01 -->
               <h4>Segunda à sexta:</h4>
               <div class="row">
@@ -196,7 +197,7 @@
               <br />
 
               <div class="area-button">
-                <ion-button type="submit" (click)="nextStep()">PRÓXIMO</ion-button>
+                <ion-button type="submit" [disabled]="!isStep3Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
               </div>
             </form>
           </ion-card-content>
@@ -216,38 +217,43 @@
             <ion-row align-items-center>
               <ion-col>
                 <div class="circular-image">
-                  <img src="assets/imgs/shop.png" width="100px" height="100px">
+                  <img *ngIf="foto.fotoUrl" [src]="foto.fotoUrl" width="100px" height="100px">
+                  <img *ngIf="!foto.fotoUrl" src="assets/imgs/shop.png" width="100px" height="100px">
                 </div>
               </ion-col>
             </ion-row>
-            <form [formGroup]="formGroup" >
+            <form [formGroup]="formGroup">
               <ion-item lines="none">
                 <ion-label position="stacked">E-mail</ion-label>
                 <div class="input-border ">
-                  <ion-input formControlName="email" type="text" placeholder="Digite o e-mail da empresa" class="custom"></ion-input>
-                </div>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label position="stacked">Senha</ion-label>
-                <div class="input-border "> 
-                  <ion-input formControlName="senha" placeholder="Digite a senha" class="custom"></ion-input>
+                  <ion-input formControlName="email" type="email"
+                    placeholder="Digite o e-mail da empresa" class="custom"></ion-input>
                 </div>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Senha</ion-label>
                 <div class="input-border ">
-                  <ion-input formControlName="confirmarSenha" placeholder="Confirme a senha" class="custom"></ion-input>
+                  <ion-input type="password" formControlName="senha" placeholder="Digite a senha"
+                    class="custom"></ion-input>
                 </div>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border ">
+                  <ion-input type="password" formControlName="confirmarSenha" placeholder="Confirme a senha"
+                    class="custom"></ion-input>
+                </div>
+                <p *ngIf="checkPasswords()" class="errorText">As senhas não são compatíveis</p>
               </ion-item>
               <ion-item lines="none">
                 <ion-label position="stacked">Foto/logo</ion-label>
                 <div class="input-border ">
-                  <input type="file" class="custom" onChange={setImage} />
+                  <input type="file" class="custom" (change)="onImageSelected($event)" />
                 </div>
               </ion-item>
               <br />
               <div class="area-button">
-                <ion-button type="submit" (click)="salvar()">CADASTRAR</ion-button>
+                <ion-button type="submit"  [disabled]="!isStep4Valid()" (click)="salvar()">CADASTRAR</ion-button>
               </div>
             </form>
           </ion-card-content>
@@ -256,3 +262,4 @@
     </div>
   </div>
 </div>
+

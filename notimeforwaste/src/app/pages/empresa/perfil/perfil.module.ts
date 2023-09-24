@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PerfilPageRoutingModule } from './perfil-routing.module';
-
+import { RouterLink } from '@angular/router';
 import { PerfilPage } from './perfil.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { PerfilPage } from './perfil.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule
+    PerfilPageRoutingModule,
+    RouterLink
   ],
   declarations: [PerfilPage]
 })

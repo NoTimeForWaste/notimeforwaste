@@ -1,0 +1,73 @@
+.card-custom {
+    background-color: rgb(255, 255, 255);
+    width: 75vw;
+
+
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    align-self: center;
+
+    border: 1px solid #2D3325;
+    padding: 2vh;
+    align-self: auto;
+}
+
+.input-border {
+    border: 1px solid #2D3325;
+    border-radius: 5px;
+    width: 100%;
+}
+
+ion-label {
+    padding-bottom: 1px;
+}
+
+.body{
+    display: flex;
+    margin: 0;
+    background-color: var(--brancoFundo);
+    width: 100%;
+    height: 100vh;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+  }
+
+
+ion-button {
+    --background: var(--verdeSucesso);
+    --background-hover: var(--verdePastel);
+    --background-activated: var(--verdePastel);
+    --background-focused: var(--verdePastel);
+    --color: #ffffff;
+    --border-radius: 5px;
+    --width: 90%;
+}
+
+
+ion-input.custom {
+    --background: transparent;
+    --color: #2D3325;
+    --placeholder-color: #2D3325;
+    --placeholder-opacity: 0.8;
+
+    --padding-bottom: 10px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+    --padding-top: 10px;
+    --border: 1px solid #2D3325 !important;
+}
+
+.has-focus {
+    border: 1px solid #EA852F !important;
+}
+.area-button {
+    width: 100%;
+}
+
+.circular-image img {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 50%;
+}

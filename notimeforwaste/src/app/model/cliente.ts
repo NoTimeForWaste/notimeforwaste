@@ -2,6 +2,7 @@ export class Cliente {
     idCliente: number;
     nmCliente: string;
     email: string;
+    senha: string;
 
 
     constructor(
@@ -9,7 +10,7 @@ export class Cliente {
         this.idCliente = 0;
         this.nmCliente = '';
         this.email = '';
-
+        this.senha = '';
     }
 }
 
