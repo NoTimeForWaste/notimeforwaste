@@ -1,13 +1,88 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>detalhes-pedido</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar-top">
+    <ion-title>Nome do Pacote</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalhes-pedido</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div>
+    <div id="custom-banner">
+      <div> <img src="../../../../assets/imgs/imagePacote.png"> </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="card-icon">
+          <div class="custom paragraph">
+            <p class="custom-paragraph">
+              <img src="../../../../assets/icon/empresaLogo.svg" alt=""> 
+              <strong>NOME DA EMPRESA</strong>
+              <img id="right" src="../../../../assets/icon/share.svg" alt="">
+            </p>       
+          </div>
+        </div>
+        <div class="card-price">
+          <p><strong>R$20,00</strong></p>
+        </div>
+      </div>
+
+      <div id="custom-input">
+        <ion-input label="Descricão do pacote..." readonly> </ion-input>
+      </div>
+
+      <div class="description"></div>
+
+      <div>
+        <h3> <strong> Produtos </strong> </h3>
+      </div>
+
+      <div class="card-products">
+
+        <div class="card-product-itens">
+          <div class="icon-and-text">
+            <div class="text">
+              <h1> <strong> Produto 1 </strong> </h1>
+              <p>Descricão do produto aqui...</p>
+            </div>
+            
+            <div class="description">
+              <p> Val: 12/06/2023 </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-product-itens">
+          <div class="icon-and-text">
+            <div class="text">
+              <h1> <strong> Produto 2 </strong> </h1>
+              <p>Descricão do produto aqui...</p>
+            </div>
+            
+            <div class="description">
+              <p> Val: 12/06/2023 </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-product-itens">
+          <div class="icon-and-text">
+            <div class="text">
+              <h1> <strong> Produto 3 </strong> </h1>
+              <p>Descricão do produto aqui...</p>
+            </div>
+            
+            <div class="description">
+              <p> Val: 12/06/2023 </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
 </ion-content>

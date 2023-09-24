@@ -1,61 +1,158 @@
-#custom-banner{
-    width: 500px;
-}
-
-.custom-paragraph{
-    font-size: 20;
-    font-family: Ebrown Regular;
-}
-
-@font-face {
-    font-family: Ebrown Regular;
-    src: url(../../../../assets/fonts/Embrown.ttf) format(true-type);
-  }
-
-#share-icon{
-    align-items: right;
-    text-align: right;
-}
-
-.card-price {
-    color: var(--laranjaLogo);
-    font-size: 18px;
-    text-align: right;
-}
-
-#rifht{
-    align-items: right;
-}
-
-.card-products {
+.card-filter {
     width: 100%;
-    height: 100px;
+    height: 490px;
     padding-top: 0;
+    padding-left: 6vw;
     margin: 0;
-    background-color: var(--brancoDisable);
+    background-color: #F9DB97;
   }
-
-.card-product-itens{
-    width: 100%;
-    height: 100px;
-    background-color: var(--brancoDisable);
-}
-
-h1{
-    font-size: 20px;
-    font-style: Inter;
-}
-
-h3{
-    color: var(--vermelhoTerroso);
-    font-size: 25px;
-    padding-left: 5px;
-}
-
-.description{
-    font-size: 15px;
-    text-align: right;
-    color: var(--laranjaLogo);
-    padding-right: 5px;
-}
-
+  
+  
+  
+  .card-filter-itens {
+    color: black;
+  }
+  
+  .icon-and-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-filter-button-area{
+    text-align: center;
+    align-items: center;
+  }
+  
+  .card-filter-icon-move-up{
+    
+    max-width: 6vw;
+    min-width: 4vw;
+    height: 4vh;
+  }
+  
+  .card-filter-icon {
+    margin-right: 2vw;
+    max-width: 10vw;
+    min-width: 8vw;
+    height: 8vh;
+  }
+  
+  
+  .text {
+    margin-left: 1vw;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: rgb(34, 32, 32);
+    width: 88%;
+    text-align: center;
+  }
+  
+  h3 {
+      font-weight: bold;
+  }
+  
+  .card-price {
+      color: var(--laranjaLogo);
+      font-size: 16px;
+  }
+  
+  #title {
+      padding-left: 4vw;
+  }
+  
+  .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      overflow: hidden;
+      width: 96%;
+      height: 35vh;
+      margin-left: 2%;
+      margin-top: 3vh;
+  }
+  
+  .card-image {
+      flex: 1;
+      max-width: 35vw;
+      min-width: 30vw;
+      height: 20vh;
+      object-fit: cover;
+  }
+  
+  .card-content {
+      flex: 2;
+      padding: 2vh;
+  }
+  
+  .card-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+  }
+  
+  .card-paragraph {
+      font-size: 12px;
+      margin: 0 0 4px 0;
+  }
+  
+  .card-buttons {
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 8px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .card-button {
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      width: 50%;
+      height: 3.5vh;
+      text-align: center;
+      text-transform: uppercase;
+  }
+  
+  .cancel-button {
+      background-color: var(--vermelhoTerroso);
+  }
+  
+  .card-button-view {
+      color: black;
+      background-color: transparent;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 30px;
+      border: none;
+      cursor: pointer;
+  }
+  
+  .progress-container {
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--amareloClaro);
+  }
+  
+  ion-progress-bar {
+    --buffer-background: var(--marromPastel); /* Cor do fundo */
+    --progress-background: var(--laranjaLogo); /* Cor da parte ativa */
+    width: 80vw;
+    height: 10px;
+    border-radius: 100px;
+  }
