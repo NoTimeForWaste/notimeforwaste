@@ -1,48 +1,53 @@
 <ion-header>
   <ion-toolbar class="custom-toolbar-top">
-    <ion-title>Meus Dados</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<div class="body">
 
-<ion-content>
+  <div class="background">
+  
 
-  <div class="body">
-
+    <!-- Dados de login -->
     <div>
-      <div>
-        <img src="assets/userProfile.png" width="100px" height="100px">
-      </div>
-
-      <div>
-        <ion-list>
-          <ion-item class="rounded-input">
-            <ion-label position="stacked">Nome</ion-label>
-            <ion-input fill="outline" placeholder="nome" readonly></ion-input>
-          </ion-item>
-        </ion-list>
-      </div>
-      
-      <div>
-        <ion-list>
-          <ion-item class="rounded-input">
-            <ion-label position="stacked">Email</ion-label>
-            <ion-input fill="outline" placeholder="email" readonly></ion-input>
-          </ion-item>
-        </ion-list>
-      </div>
-      
-      <div>
-        <ion-list>
-          <ion-item class="rounded-input">
-            <ion-label position="stacked">Senha</ion-label>
-            <ion-input fill="outline" placeholder="senha" readonly></ion-input>
-          </ion-item>
-        </ion-list>
+      <div class="area-card">
+        <div class="big-card-custom">
+          <ion-card-content>
+            <ion-row align-items-center>
+              <ion-col>
+                <div>
+                  <img src="../../../../assets/imgs/userProfile.png" width="100px" height="100px">
+                </div>
+              </ion-col>
+            </ion-row>
+            <form>
+              <ion-item color="none" lines="none">
+                <ion-label position="stacked">Nome</ion-label>
+                <div class="input-border "> 
+                  <ion-input placeholder="Nome do cliente" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item color="none" lines="none">
+                <ion-label  position="stacked">E-mail</ion-label>
+                <div color="black" class="input-border ">
+                  <ion-input type="text" placeholder="Email do cliente" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item color="none" lines="none">
+                <ion-label position="stacked">Senha</ion-label>
+                <div class="input-border "> 
+                  <ion-input type="text" placeholder="Senha do senha" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <br />
+              <div class="area-button">
+                <ion-button type="submit">SALVAR</ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </div>
       </div>
     </div>
-
   </div>
-
-
-</ion-content>
+</div>
