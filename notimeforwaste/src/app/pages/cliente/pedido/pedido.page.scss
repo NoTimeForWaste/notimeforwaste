@@ -4,9 +4,13 @@
 
 .custom-paragraph{
     font-size: 20;
-    font-style: Embrown;
-    font-family: Embrown;
+    font-family: Ebrown Regular;
 }
+
+@font-face {
+    font-family: Ebrown Regular;
+    src: url(../../../../assets/fonts/Embrown.ttf) format(true-type);
+  }
 
 #share-icon{
     align-items: right;
@@ -17,6 +21,10 @@
     color: var(--laranjaLogo);
     font-size: 18px;
     text-align: right;
+}
+
+#rifht{
+    align-items: right;
 }
 
 .card-products {
