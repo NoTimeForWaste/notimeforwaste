@@ -15,6 +15,7 @@
     width: 100%;
     min-height: 100vh;
     overflow: auto;
+    text-align: center;
 }
 
 .custom-card {
@@ -26,6 +27,9 @@
     top: -40px;
     height: auto;
     padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
 }
 
 #title {
@@ -186,4 +190,21 @@
     background-color: var(--laranjaLogo);
     color: var(--laranjaLogo);
     font-weight: 700;
+}
+
+.area-button {
+    text-align: center;
+    width: 100%;
+}
+
+ion-button{
+    --background: var(--vermelhoTerroso);
+    --background-hover: var(--verdePastel);
+    --background-activated: var(--verdePastel);
+    --background-focused: var(--verdePastel);
+    --color: #ffffff;
+    --border-radius: 5px;
+    --width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
