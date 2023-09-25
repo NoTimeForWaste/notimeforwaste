@@ -15,7 +15,8 @@
         <ion-item lines="none" class="col-1">
           <ion-label position="stacked">Nome</ion-label>
           <div class="input-border ">
-            <ion-input type="text" placeholder="Digite o nome do pacote" class="custom"></ion-input>
+            <ion-input ngModel="inputs.nmPacote" type="text" placeholder="Digite o nome do pacote"
+              class="custom"></ion-input>
           </div>
         </ion-item>
       </div>
@@ -23,7 +24,7 @@
         <ion-item lines="none" class="col-1">
           <ion-label position="stacked">Preço</ion-label>
           <div class="input-border ">
-            <ion-input type="text" class="custom"></ion-input>
+            <ion-input ngModel="inputs.preco" type="text" class="custom"></ion-input>
           </div>
         </ion-item>
         <ion-item lines="none" class="col-3">
@@ -74,44 +75,27 @@
       <p>Descrição do Produto</p>
       <h3>24/11/205</h3>
     </div>
-
     <p class="sub-title">Formas de Pagamento</p>
     <div class="row">
-      <ion-item lines="none" class="col-1 checkbox-container">
-        <ion-checkbox></ion-checkbox>
-        <ion-label class="checkbox-label">Cartão de Débito</ion-label>
-      </ion-item>
-      <ion-item lines="none" class="col-1 checkbox-container">
-        <ion-checkbox></ion-checkbox>
-        <ion-label class="checkbox-label">Cartão de Crédito</ion-label>
-      </ion-item>
-    </div>
-    
-    <div class="row">
-      <ion-item lines="none" class="col-1 checkbox-container">
-        <ion-checkbox></ion-checkbox>
-        <ion-label class="checkbox-label">Dinheiro (à vista)</ion-label>
-      </ion-item>
-      <ion-item lines="none" class="col-1 checkbox-container">
-        <ion-checkbox></ion-checkbox>
-        <ion-label class="checkbox-label">Pix</ion-label>
-      </ion-item>
+      <ng-container *ngFor="let formaPagamento of formaPagamentoList">
+        <ion-item lines="none" class="col-1 checkbox-container">
+          <ion-checkbox [(ngModel)]="formaPagamento.selecionado"
+            (ionChange)="toggleFormaPagamento(formaPagamento)"></ion-checkbox>
+          <ion-label class="checkbox-label">{{ formaPagamento.nome }}</ion-label>
+        </ion-item>
+      </ng-container>
     </div>
 
     <p class="sub-title">Formas de Entrega</p>
     <div class="row">
-      <ion-item lines="none" class="col-1 checkbox-container">
-        <ion-checkbox></ion-checkbox>
-        <ion-label class="checkbox-label">Retirada</ion-label>
-      </ion-item>
-      <ion-item lines="none" class="col-1 checkbox-container">
-        <ion-checkbox></ion-checkbox>
-        <ion-label class="checkbox-label">Entrega/Delivery</ion-label>
-      </ion-item>
+      <ng-container *ngFor="let formaEntrega of formaEntregaList">
+        <ion-item lines="none" class="col-1 checkbox-container">
+          <ion-checkbox [(ngModel)]="formaEntrega.selecionado"
+            (ionChange)="toggleFormaEntrega(formaEntrega)"></ion-checkbox>
+          <ion-label class="checkbox-label">{{ formaEntrega.nome }}</ion-label>
+        </ion-item>
+      </ng-container>
     </div>
-    <p id="obs">*Obs: No caso de entrega o valor do frete é calculado pelo sistema de forma automática.</p>
-    <div class="area-button">
-      <ion-button type="button">SALVAR</ion-button>
-    </div>
+
   </div>
 </div>

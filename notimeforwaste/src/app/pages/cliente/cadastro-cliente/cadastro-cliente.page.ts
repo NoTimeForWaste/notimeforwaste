@@ -5,7 +5,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { Cliente } from 'src/app/model/cliente';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
-@Component({
+@Component({  
   selector: 'app-cadastro-cliente',
   templateUrl: './cadastro-cliente.page.html',
   styleUrls: ['./cadastro-cliente.page.scss'],
