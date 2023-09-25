@@ -1,159 +1,219 @@
-.card-filter {
-    width: 100%;
-    max-height: 490px;
-    min-height: 40px;
-    padding-top: 0;
-    padding-left: 6vw;
-    margin: 0;
-    background-color: #F9DB97;
-  }
-  
-.card-filter-itens {
-    color: black;  
-  }
-  
-.icon-and-text {
-    display: flex;
-    align-items: center;
-}
-  
-  .card-filter-button-area{
-    text-align: center;
-    align-items: center;
-  }
-  
-  .card-filter-icon-show{
-    max-width: 6vw;
-    min-width: 4vw;
-    height: 4vh;
-  }
-  
-  .card-filter-icon {
-    margin-right: 2vw;
-    max-width: 10vw;
-    min-width: 8vw;
-    height: 8vh;
-  }
-  
-  
-  .text {
-    margin-left: 1vw;
-  }
-  
-  .divider {
-    height: 1px;
-    background-color: rgb(34, 32, 32);
-    width: 88%;
-    text-align: center;
-  }
-  
-  h3 {
-      font-weight: bold;
-  }
-  .card-price {
-    color: var(--laranjaLogo);
-    font-size: 16px;
-  }
-  
-  #title {
-    padding-left: 4vw;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    overflow: hidden;
-    width: 96%;
-    max-width: 450px;
-    height: 150px;
+#top-image {
+    width: 100vw;
+    max-width: 400px;
     max-height: 200px;
+    height: 170px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3vh;
-  }
-  
-  .card-image {
-    flex: 1;
-    max-width: 180px;
-    width: 30vw;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    flex: 2;
-    padding: 2vh;
-  }
-  
-  .card-title {
+    position: relative;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--brancoFundo);
+    width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    text-align: center;
+}
+
+.custom-icon{
+    height: 15px;
+}
+
+.custom-buttom{
+    color: var(--vermelhoTerroso);
+    text-align: center;
+}
+
+.custom-card {
+    background-color: white;
+    width: 100vw;
+    max-width: 400px;
+    border-radius: 50px 50px 0 0;
+    position: relative;
+    top: -40px;
+    height: auto;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+}
+
+#title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--vermelhoTerroso)
+}
+
+.sub-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--vermelhoTerroso);
+}
+
+.description {
+    margin-bottom: 4vh;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.total {
+    color: var(--amareloClaro);
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: -20px;
+}
+
+.line {
+    flex-grow: 1;
+    border-bottom: 1px dotted #000;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#info {
+    font-size: 14px;
+}
+
+#info p {
+    margin-bottom: -5px;
+}
+
+
+.product-card {
+    background-color: #ebe8e8e3;
+    padding-top: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 3px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.product-card h1 {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.product-card p {
+    font-size: 14px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+.product-card h3 {
+    text-align: end;
+    color: var(--laranjaLogo);
+    font-size: 12px;
+}
+
+.card-title {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    font-size: 18px;
-    font-weight: bold;
     margin: 0 0 8px 0;
-  }
-  
-  .card-paragraph {
-    font-size: 12px;
-    margin: 0 0 4px 0;
-  }
-  
-  .card-buttons {
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 8px;
-  }
-  
-  .card-button {
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    margin-right: 2vw;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  
-  .cancel-button {
-    background-color: var(--vermelhoTerroso);
-  }
-  
-  .buy-button {
-    background-color: var(--verdeSucesso);
-  }
-  
-  .card-button-view {
-    color: black;
-    background-color: transparent;
-    font-size: 24px;
+}
+
+
+.card-icons {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 30px;
-    border: none;
-    cursor: pointer;
+}
+
+.card-icons img,
+.card-icons fa-icon {
+    margin-right: 15px;
+    size: 18px;
+}
+
+#area-progress-bar {
+    min-height: 20vh;
+    max-height: 80px;
+    padding-top: 8vh;
+    padding-bottom: auto;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 2px;
+    position: relative;
   }
   
-  .progress-container {
-    padding-top: 4px;
+  .progress-area-point{
+    height: 50px;
+    width: 30px;
+  }
+  
+  .progress-point {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #E8EAEC;
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    color: var(--amareloClaro);
+    text-align: center;
+    font-size: 12px;
   }
   
-  ion-progress-bar {
-    --buffer-background: var(--marromPastel); /* Cor do fundo */
-    --progress-background: var(--laranjaLogo); /* Cor da parte ativa */
-    width: 80vw;
-    height: 10px;
-    border-radius: 100px;
+  .progress-point .bottom-text {
+    margin-top: 25px;
   }
+  
+  .progress-point .top-text {
+    margin-top: -20px; /* Valor negativo para mover o texto acima do ponto */
+}
+  
+
+.progress-line {
+    height: 4px;
+    background-color: #E8EAEC;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+
+.progress-line.active,
+.progress-point.active {
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
+}
+
+.area-button {
+    text-align: center;
+    width: 100%;
+}
+
+ion-button{
+    --background: var(--vermelhoTerroso);
+    --background-hover: var(--laranjaLogo);
+    --background-activated: var(--laranjaLogo);
+    --background-focused: var(--laranjaLogo);
+    --color: #ffffff;
+    --border-radius: 5px;
+    --width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
