@@ -1,88 +1,76 @@
 <ion-header>
   <ion-toolbar class="custom-toolbar-top">
-    <ion-title>Nome do Pacote</ion-title>
+    <ion-title>Detalhes do Pedido</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cliente/pedidos" text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div>
-    <div id="custom-banner">
-      <div> <img src="../../../../assets/imgs/imagePacote.png"> </div>
+<div class="body">
+  <img id="top-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+  <div class="custom-card">
+    <p id="title">Nome do Pacote</p>
+    <ion-row class="space-between">
+      <p>Valor do Pacote</p>
+      <div class="line"></div>
+      <p class="price">R$24,00</p>
+    </ion-row>
+    <ion-row class="space-between">
+      <p>Frete</p>
+      <div class="line"></div>
+      <p class="price">R$24,00</p>
+    </ion-row>
+    <ion-row class="space-between">
+      <p>Valor Total</p>
+      <div class="line"></div>
+      <p class="price total">R$24,00</p>
+    </ion-row>
+    <br />
+    <div id="info">
+      <p> <fa-icon icon="location-dot"></fa-icon> Description line 1</p>
+      <p><fa-icon icon="circle-user"></fa-icon> Description line 2</p>
+      <p><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
+    </div>
+    <div id="area-progress-bar">
+      <div class="progress-bar">
+        <div class="progress-point active">
+          <span class="bottom-text">feito</span>
+        </div>
+        <div class="progress-line active"></div>
+        <div class="progress-point active">
+          <span  class="top-text">preparação</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-point">
+          <span class="bottom-text">à caminho</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-point">
+          <span class="top-text">entregue</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-point">
+          <span class="bottom-text">confirmado</span>
+        </div>
+      </div>
+      
+    </div>
+    <p class="sub-title">Pacote</p>
+    <p class="description">Descrição do pacote aqui...</p>
+
+    <p class="sub-title">Produtos</p>
+    <div class="product-card">
+      <div class="card-title">
+        <h1>Nome do produto</h1>
+      </div>
+      <p>Descrição do Produto</p>
+      <h3>24/11/205</h3>
+    </div>
+    <p class="sub-title">Observação</p>
+    <p class="description">Observação aqui...</p>
+    <div class="area-button">
+      <ion-button type="button" >CANCELAR</ion-button>
     </div>
   </div>
-
-  <div class="card">
-    <div class="card-content">
-      <div class="card-header">
-        <div class="card-icon">
-          <div class="custom paragraph">
-            <p class="custom-paragraph">
-              <img src="../../../../assets/icon/empresaLogo.svg" alt=""> 
-              <strong>NOME DA EMPRESA</strong>
-              <img id="right" src="../../../../assets/icon/share.svg" alt="">
-            </p>       
-          </div>
-        </div>
-        <div class="card-price">
-          <p><strong>R$20,00</strong></p>
-        </div>
-      </div>
-
-      <div id="custom-input">
-        <ion-input label="Descricão do pacote..." readonly> </ion-input>
-      </div>
-
-      <div class="description"></div>
-
-      <div>
-        <h3> <strong> Produtos </strong> </h3>
-      </div>
-
-      <div class="card-products">
-
-        <div class="card-product-itens">
-          <div class="icon-and-text">
-            <div class="text">
-              <h1> <strong> Produto 1 </strong> </h1>
-              <p>Descricão do produto aqui...</p>
-            </div>
-            
-            <div class="description">
-              <p> Val: 12/06/2023 </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-product-itens">
-          <div class="icon-and-text">
-            <div class="text">
-              <h1> <strong> Produto 2 </strong> </h1>
-              <p>Descricão do produto aqui...</p>
-            </div>
-            
-            <div class="description">
-              <p> Val: 12/06/2023 </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-product-itens">
-          <div class="icon-and-text">
-            <div class="text">
-              <h1> <strong> Produto 3 </strong> </h1>
-              <p>Descricão do produto aqui...</p>
-            </div>
-            
-            <div class="description">
-              <p> Val: 12/06/2023 </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-
-</ion-content>
+</div>
