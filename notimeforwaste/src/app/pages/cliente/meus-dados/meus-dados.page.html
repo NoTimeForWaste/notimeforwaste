@@ -21,23 +21,23 @@
                 </div>
               </ion-col>
             </ion-row>
-            <form>
+            <form [formGroup]="formGroup">
               <ion-item color="none" lines="none">
                 <ion-label position="stacked">Nome</ion-label>
                 <div class="input-border "> 
-                  <ion-input type="text" placeholder="Nome do cliente" class="custom"></ion-input>
+                  <ion-input formControlName="nome" type="text" placeholder="Nome do cliente" class="custom"></ion-input>
                 </div>
               </ion-item>
               <ion-item color="none" lines="none">
-                <ion-label  position="stacked">E-mail</ion-label>
+                <ion-label position="stacked">E-mail</ion-label>
                 <div color="black" class="input-border ">
-                  <ion-input type="text" placeholder="Email do cliente" class="custom"></ion-input>
+                  <ion-input formControlName="email" type="text" placeholder="Email do cliente" class="custom"></ion-input>
                 </div>
               </ion-item>
               <ion-item color="none" lines="none">
                 <ion-label position="stacked">Senha</ion-label>
-                <div class="input-border "> 
-                  <ion-input type="text" placeholder="Senha do senha" class="custom"></ion-input>
+                <div class="input-border"> 
+                  <ion-input type="text" formControlName="senha" placeholder="Senha do senha" class="custom"></ion-input>
                 </div>
               </ion-item>
               <br />
