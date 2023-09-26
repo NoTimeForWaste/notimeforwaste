@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   empresa: Empresa;
   
 
-  constructor(private empresaService: EmpresaService, private fBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private toastController: ToastController, private navController: NavController) {
+  constructor(private empresaService: EmpresaService, private fBuilder: FormBuilder, private toastController: ToastController, private navController: NavController) {
     this.empresa = new Empresa();
     this.formGroup = this.fBuilder.group(
       {

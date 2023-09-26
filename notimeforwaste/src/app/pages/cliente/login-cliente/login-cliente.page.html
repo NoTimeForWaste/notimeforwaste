@@ -22,25 +22,26 @@
                 </div>
               </ion-col>
             </ion-row>
-            <form>
+            <form [formGroup]="formGroup" (ngSubmit)="salvar()">
               <ion-item lines="none">
-                <ion-label position="stacked">E-mail</ion-label>
+                <ion-label position="stacked">Email</ion-label>
                 <div class="input-border ">
-                  <ion-input type="text" placeholder="Digite o seu e-mail" class="custom"></ion-input>
+                  <ion-input formControlName="email" type="email" placeholder="Digite swu e-mail" class="custom"></ion-input>
                 </div>
               </ion-item>
+              <br />
               <ion-item lines="none">
                 <ion-label position="stacked">Senha</ion-label>
-                <div class="input-border "> 
-                  <ion-input placeholder="Digite a senha" class="custom"></ion-input>
+                <div class="input-border ">
+                  <ion-input type="password" formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
                 </div>
               </ion-item>
               <br />
               <div class="area-button">
-                <ion-button type="submit">Entrar</ion-button>
+                <ion-button [disabled]="!formGroup.valid" type="submit">ENTRAR</ion-button>
               </div>
             </form>
-            <p>Não tem uma conta? <a [routerLink]="['#']">Cadastre-se</a></p>
+            <p>Não tem uma conta? <a [routerLink]="['/cliente/cadastro']">Cadastre-se</a></p>
           </ion-card-content>
         </div>
       </div>

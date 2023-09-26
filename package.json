@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@brunoc/ngx-viacep": "^3.4.1"
+  }
+}

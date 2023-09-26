@@ -58,7 +58,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/empresa/perfil/editar-conta/editar-conta.module').then( m => m.EditarContaPageModule)
   },
   {
-    path: 'empresa/editar-endereco/:idEndereco',
+    path: 'empresa/editar-endereco',
     loadChildren: () => import('./pages/empresa/perfil/editar-endereco/editar-endereco.module').then( m => m.EditarEnderecoPageModule)
   },
 

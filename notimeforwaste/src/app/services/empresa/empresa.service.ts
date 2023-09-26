@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, of, throwError } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { Empresa } from 'src/app/model/empresa';
 import { environment } from 'src/environments/environment';
 
@@ -26,6 +26,24 @@ export class EmpresaService {
   async login(email: String, senha: String){
     let urlAuxiliar = this.url + "/login/" + email + "/" + senha;
     return await this.httpClient.get(urlAuxiliar, { observe: 'response' }).pipe(
+      catchError(error => {
+        // Retorna apenas os erros 404 e 409 como uma resposta bem-sucedida
+        if (error.status === 404 || error.status === 409) {
+          return of(error);
+        }
+        // Para todos os outros erros, rejeita a promessa
+        return throwError(error);
+      })
+    ).toPromise();
+  }
+
+  post(empresa: Empresa): Observable<Empresa> {
+    return this.httpClient.post<Empresa>(this.url, empresa, this.httpHeaders);
+  }
+
+ async update(empresa: Empresa) {
+    const url = this.url + "/" + empresa.idEmpresa;
+    return await this.httpClient.get(url, { observe: 'response' }).pipe(
       catchError(error => {
         // Retorna apenas os erros 404 e 409 como uma resposta bem-sucedida
         if (error.status === 404 || error.status === 409) {

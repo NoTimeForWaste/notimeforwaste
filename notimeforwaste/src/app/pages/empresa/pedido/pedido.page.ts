@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidoPage implements OnInit {
 
+  onFilters: boolean = true;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showFilters(){
+    this.onFilters = !this.onFilters;
+    console.log(this.onFilters)
   }
 
 }

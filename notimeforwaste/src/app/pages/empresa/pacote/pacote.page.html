@@ -4,7 +4,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
   <div class="body">
+    <div id="title">
+      <h3>Novos Pedidos</h3>
+      <img routerLink="/empresa/novo-pacote" src="../../../../assets/icon/add.svg" alt="Ícone Add" id="icon-add" />
+    </div>
+
+    <div class="card">
+      <img class="card-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+      <div class="card-content">
+        <div class="card-title">
+          Product Name
+          <div class="card-delete">
+            <fa-icon class="custom-icon" icon="trash-can"></fa-icon>
+          </div>
+        </div>
+        <p class="card-paragraph">  Description line 1......</p>
+        <div class="card-bottom">
+          <p class="card-price">R$23,000</p>
+          <button class="card-button-view">  <fa-icon icon="chevron-right"></fa-icon></button>
+        </div>
+      </div>
+    </div>
   </div>
-</ion-content>

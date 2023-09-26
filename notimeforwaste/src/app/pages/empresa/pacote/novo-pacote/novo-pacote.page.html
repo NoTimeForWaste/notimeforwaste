@@ -1,13 +1,101 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>novo-pacote</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar-top">
+    <ion-title>Pacote</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/empresa/pacotes" text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">novo-pacote</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<div class="body">
+  <img id="top-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+  <div class="custom-card">
+    <form>
+      <div class="row">
+        <ion-item lines="none" class="col-1">
+          <ion-label position="stacked">Nome</ion-label>
+          <div class="input-border ">
+            <ion-input ngModel="inputs.nmPacote" type="text" placeholder="Digite o nome do pacote"
+              class="custom"></ion-input>
+          </div>
+        </ion-item>
+      </div>
+      <div class="row">
+        <ion-item lines="none" class="col-1">
+          <ion-label position="stacked">Preço</ion-label>
+          <div class="input-border ">
+            <ion-input ngModel="inputs.preco" type="text" class="custom"></ion-input>
+          </div>
+        </ion-item>
+        <ion-item lines="none" class="col-3">
+          <ion-label position="stacked">Foto do pacote</ion-label>
+          <div class="input-border ">
+            <input type="file" class="custom" placeholder="Foto do pacote" />
+          </div>
+        </ion-item>
+      </div>
+    </form>
+    <br />
+
+    <p class="sub-title">Produtos</p>
+    <div class="form-product-card">
+      <div class="area-icons-form ">
+        <fa-icon icon="save" class="fa-lg"></fa-icon>
+      </div>
+      <div class="row">
+        <ion-item lines="none" class="col-3">
+          <ion-label position="stacked">Nome</ion-label>
+          <div class="input-border ">
+            <ion-input type="text" class="custom" placeholder="Nome do produto"></ion-input>
+          </div>
+        </ion-item>
+        <ion-item lines="none" class="col-2">
+          <ion-label position="stacked">Validade</ion-label>
+          <div class="input-border ">
+            <ion-input class="custom" type="date"></ion-input>
+          </div>
+        </ion-item>
+      </div>
+      <div class="row">
+        <ion-item lines="none" class="col-1">
+          <ion-label position="stacked">Descrição</ion-label>
+          <div class="input-border ">
+            <ion-textarea type="text" class="custom" placeholder="Ingredientes..."></ion-textarea>
+          </div>
+        </ion-item>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="card-title">
+        <h1>Nome do produto</h1>
+        <div class="card-icons">
+          <fa-icon icon="xmark" class="fa-lg"></fa-icon>
+        </div>
+      </div>
+      <p>Descrição do Produto</p>
+      <h3>24/11/205</h3>
+    </div>
+    <p class="sub-title">Formas de Pagamento</p>
+    <div class="row">
+      <ng-container *ngFor="let formaPagamento of formaPagamentoList">
+        <ion-item lines="none" class="col-1 checkbox-container">
+          <ion-checkbox [(ngModel)]="formaPagamento.selecionado"
+            (ionChange)="toggleFormaPagamento(formaPagamento)"></ion-checkbox>
+          <ion-label class="checkbox-label">{{ formaPagamento.nome }}</ion-label>
+        </ion-item>
+      </ng-container>
+    </div>
+
+    <p class="sub-title">Formas de Entrega</p>
+    <div class="row">
+      <ng-container *ngFor="let formaEntrega of formaEntregaList">
+        <ion-item lines="none" class="col-1 checkbox-container">
+          <ion-checkbox [(ngModel)]="formaEntrega.selecionado"
+            (ionChange)="toggleFormaEntrega(formaEntrega)"></ion-checkbox>
+          <ion-label class="checkbox-label">{{ formaEntrega.nome }}</ion-label>
+        </ion-item>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

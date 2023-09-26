@@ -1,13 +1,76 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>detalhes-pedido</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar-top">
+    <ion-title>Detalhes do Pedido</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/empresa/pedidos" text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalhes-pedido</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<div class="body">
+  <img id="top-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+  <div class="custom-card">
+    <p id="title">Nome do Pacote</p>
+    <ion-row class="space-between">
+      <p>Valor do Pacote</p>
+      <div class="line"></div>
+      <p class="price">R$24,00</p>
+    </ion-row>
+    <ion-row class="space-between">
+      <p>Frete</p>
+      <div class="line"></div>
+      <p class="price">R$24,00</p>
+    </ion-row>
+    <ion-row class="space-between">
+      <p>Valor Total</p>
+      <div class="line"></div>
+      <p class="price total">R$24,00</p>
+    </ion-row>
+    <br />
+    <div id="info">
+      <p> <fa-icon icon="location-dot"></fa-icon> Description line 1</p>
+      <p><fa-icon icon="circle-user"></fa-icon> Description line 2</p>
+      <p><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
+    </div>
+    <div id="area-progress-bar">
+      <div class="progress-bar">
+        <div class="progress-point active">
+          <span class="bottom-text">feito</span>
+        </div>
+        <div class="progress-line active"></div>
+        <div class="progress-point active">
+          <span  class="top-text">preparação</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-point">
+          <span class="bottom-text">à caminho</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-point">
+          <span class="top-text">entregue</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-point">
+          <span class="bottom-text">confirmado</span>
+        </div>
+      </div>
+      
+    </div>
+    <p class="sub-title">Pacote</p>
+    <p class="description">Descrição do pacote aqui...</p>
+
+    <p class="sub-title">Produtos</p>
+    <div class="product-card">
+      <div class="card-title">
+        <h1>Nome do produto</h1>
+      </div>
+      <p>Descrição do Produto</p>
+      <h3>24/11/205</h3>
+    </div>
+    <p class="sub-title">Observação</p>
+    <p class="description">Observação aqui...</p>
+    <div class="area-button">
+      <ion-button type="button" >CANCELAR</ion-button>
+    </div>
+  </div>
+</div>

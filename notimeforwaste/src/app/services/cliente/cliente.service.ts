@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cliente } from 'src/app/model/cliente';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { catchError, of, throwError } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,18 @@ export class ClienteService {
     ).toPromise();
   }
 
+  post(cliente: Cliente): Promise<any> {
+    return this.httpClient
+      .post(this.url, cliente, this.httpHeaders)
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('Erro na solicitação:', error);
+    return Promise.reject(error);
+  }
+  
   getCliente(): Cliente {
     return this.cliente;
   }
