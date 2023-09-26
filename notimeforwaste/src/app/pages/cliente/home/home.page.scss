@@ -1,0 +1,106 @@
+h3 {
+    font-weight: bold;
+}
+
+#title {
+    padding-left: 4vw;
+}
+
+.custom-toolbar-top{
+    color: var(--vermelhoTerroso);
+    height: 100%;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    display: flex; /* Adicionado para permitir o uso de justify-content */
+    justify-content: center; /* Adicionado para centralizar o conteúdo horizontalmente */
+    padding-left: 23%;
+}
+
+.custom-select{
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Roboto', Courier, monospace;
+    align-items: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+    width: 96%;
+    height: 20vh;
+    margin-left: 2%;
+    margin-top: 3vh;
+}
+
+.card-image {
+    flex: 1;
+    max-width: 35vw;
+    min-width: 30vw;
+    object-fit: cover;
+}
+
+.card-content {
+    flex: 2;
+    padding: 2vh;
+}
+
+.card-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.card-paragraph {
+    font-size: 12px;
+    margin: 0 0 4px 0;
+}
+
+.card-buttons {
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 8px;
+}
+
+.card-button {
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    height: 3.5vh;
+    margin-right: 2vw;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cancel-button {
+    background-color: var(--vermelhoTerroso);
+}
+
+.buy-button {
+    background-color: var(--verdeSucesso);
+}
+
+.card-button-view {
+    color: black;
+    background-color: transparent;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
