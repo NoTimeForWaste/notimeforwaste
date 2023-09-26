@@ -8,7 +8,6 @@ import { CadastroPageRoutingModule } from './cadastro-routing.module';
 
 import { CadastroPage } from './cadastro.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxViacepModule } from "@brunoc/ngx-viacep"; // Importando o módulo
 import { IConfig, NgxMaskDirective, NgxMaskPipe } from 'ngx-mask'
 
 
@@ -20,7 +19,6 @@ import { IConfig, NgxMaskDirective, NgxMaskPipe } from 'ngx-mask'
     CadastroPageRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    NgxViacepModule,
     NgxMaskDirective, 
     NgxMaskPipe
   ],
