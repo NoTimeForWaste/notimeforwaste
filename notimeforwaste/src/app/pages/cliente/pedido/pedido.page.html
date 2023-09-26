@@ -1,13 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pedido</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar-top">
+    <ion-title>Pedidos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pedido</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="body">
+  
+    <div id="title">
+      <h3>Novos Pedidos</h3>
+    </div>
+
+    <!-- Product Card -->
+    <div class="card">
+      <img class="card-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+      <div class="card-content">
+        <div class="card-title">
+          Product Name
+          <div class="card-price">
+            R$20,00
+          </div>
+        </div>
+        <p class="card-paragraph"> <fa-icon icon="location-dot"></fa-icon> Description line 1</p>
+        <p class="card-paragraph"><fa-icon icon="circle-user"></fa-icon> Description line 2</p>
+        <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
+        <div class="card-buttons">
+          <button class="card-button cancel-button">CANCELAR</button>
+          <button class="card-button-view"> <fa-icon icon="chevron-right"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+      <div class="card-content">
+        <div class="card-title">
+          Product Name
+          <div class="card-price">
+            R$20,00
+          </div>
+        </div>
+        <p class="card-paragraph"> <fa-icon icon="location-dot"></fa-icon> Description line 1</p>
+        <p class="card-paragraph"><fa-icon icon="circle-user"></fa-icon> Description line 2</p>
+        <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
+        <div class="card-buttons">
+          <button class="card-button cancel-button">CANCELAR</button>
+          <button class="card-button-view"> <fa-icon icon="chevron-right"></fa-icon></button>
+        </div>
+        <div class="progress-container">
+          <ion-progress-bar value="1.0"></ion-progress-bar>
+          <h3>4 de 4</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+      <div class="card-content">
+        <div class="card-title">
+          Product Name
+          <div class="card-price">
+            R$20,00
+          </div>
+        </div>
+        <p class="card-paragraph"><fa-icon icon="location-dot"></fa-icon> Description line 1</p>
+        <p class="card-paragraph"><fa-icon icon="circle-user"></fa-icon> Description line 2</p>
+        <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
+        <div class="card-buttons">
+          <button class="card-button cancel-button">CANCELAR</button>
+          <button class="card-button-view"> <fa-icon icon="chevron-right"></fa-icon></button>
+        </div>
+        <div class="card-area-progress-bar">
+        </div>
+        <!-- Fim da barra de progresso -->
+      </div>
+    </div>
+  </div>
 </ion-content>
