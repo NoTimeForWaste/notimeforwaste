@@ -56,7 +56,8 @@ export class EmpresaService {
   }
 
   getEmpresa(): Empresa {
-    return this.empresa;
+    let empresa = JSON.parse(localStorage.getItem('Empresa') || '[]') as Empresa;
+    return empresa;
   }
  
   setEmpresa(empresa: Empresa): void {

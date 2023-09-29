@@ -42,6 +42,7 @@ export class EditarContaPage implements OnInit {
       foto => {
         console.log('Foto obtida com sucesso:', foto);
         this.foto = foto;
+        this.foto.fotoUrl = this.foto.fotoUrl.replace(/\\\\/g, '\\');
       },
       error => {
         console.error('Erro ao obter a foto:', error);

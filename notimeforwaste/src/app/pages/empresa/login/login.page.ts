@@ -38,7 +38,8 @@ export class LoginPage implements OnInit {
     this.senha = this.formGroup.value.senha;
     this.empresaService.login(this.email!, this.senha!).then((response: any) => {
       if (response.status === 200) {
-        this.empresa = <Empresa>(response.body)
+        this.empresa = <Empresa>(response.body);
+        localStorage.setItem('Empresa', JSON.stringify(this.empresa));
         this.empresaService.setEmpresa(this.empresa); 
         this.navController.navigateBack('/empresa/home');
         console.log(this.empresa)

@@ -61,3 +61,4 @@ export class FotoService {
     return this.httpClient.put<Foto>(`${this.url}/${foto.idFoto}`, foto);
   }  
 }
+ 
