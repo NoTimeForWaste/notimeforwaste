@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-meus-dados',
@@ -12,7 +12,7 @@ export class MeusDadosPage implements OnInit {
   nome?: String;
   formGroup: FormGroup;
 
-  constructor() { 
+  constructor(private fBuilder: FormBuilder) { 
     this.formGroup = this.fBuilder.group(
       {
         'nome': [this.nome, Validators.compose([
