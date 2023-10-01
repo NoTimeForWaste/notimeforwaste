@@ -56,7 +56,7 @@ export class NovoPacotePage implements OnInit {
   };
 
   ngOnInit() {
-    this.empresa = this.empresaService.getEmpresa();
+    this.empresa = this.empresaService.getEmpresaLogada();
     this.pacoteService.getAllFormasPagamento().subscribe((data: any) => {
       this.formaPagamentoList = data as FormaPagamento[];
     }, error => {

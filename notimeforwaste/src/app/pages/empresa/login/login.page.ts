@@ -11,11 +11,11 @@ import { EmpresaService } from 'src/app/services/empresa/empresa.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email?: String;
-  senha?: String;
+  email?: string;
+  senha?: string;
   formGroup: FormGroup;
   empresa: Empresa;
-  
+
 
   constructor(private empresaService: EmpresaService, private fBuilder: FormBuilder, private toastController: ToastController, private navController: NavController) {
     this.empresa = new Empresa();
@@ -33,28 +33,31 @@ export class LoginPage implements OnInit {
     );
   }
 
-  async salvar() {
+  async logar() {
     this.email = this.formGroup.value.email;
     this.senha = this.formGroup.value.senha;
-    this.empresaService.login(this.email!, this.senha!).then((response: any) => {
-      if (response.status === 200) {
-        this.empresa = <Empresa>(response.body);
-        localStorage.setItem('Empresa', JSON.stringify(this.empresa));
-        this.empresaService.setEmpresa(this.empresa); 
-        this.navController.navigateBack('/empresa/home');
-        console.log(this.empresa)
-      } else if (response.status === 404) {
-        // E-mail inválido
-        this.exibirMensagem(response.error);
-      } else if (response.status === 409) {
-        // Senha inválida
-        this.exibirMensagem(response.error);
+    this.empresaService.existsByEmail(this.email!).subscribe((exists) => {
+      if (exists <= 0) {
+        this.exibirMensagem("Email inválido.");
+        return;
       }
-    }).catch((erro) => {
-      this.exibirMensagem("Erro ao logar!");
-    });
+      this.empresaService.login(this.email!, this.senha!).subscribe((response) => {
+        if (response.status === 200) {
+          this.empresa = <Empresa>(response.body);
+          this.empresaService.setEmpresaLogada(this.empresa);
+          this.navController.navigateBack('/empresa/home');
+          console.log(this.empresa)
+        } else if (response.status === 409) {
+          this.exibirMensagem("Senha inválida.");
+        }
+      }, (error) => {
+        this.exibirMensagem("Erro ao logar!");
+        console.log("Erro ao logar: " + error)
+      })
+    })
+
   }
-   
+
 
   async exibirMensagem(texto: string) {
     const toast = await this.toastController.create({

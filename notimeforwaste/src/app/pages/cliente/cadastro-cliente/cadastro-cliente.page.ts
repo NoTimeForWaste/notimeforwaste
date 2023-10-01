@@ -5,7 +5,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { Cliente } from 'src/app/model/cliente';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
-@Component({  
+@Component({
   selector: 'app-cadastro-cliente',
   templateUrl: './cadastro-cliente.page.html',
   styleUrls: ['./cadastro-cliente.page.scss'],
@@ -53,32 +53,37 @@ export class CadastroClientePage implements OnInit {
   }
   ngOnInit() {
   }
-  
+
   async salvar() {
-    try {
-      this.cliente.nmCliente = this.formGroup.value.nmCliente;
-      this.cliente.email = this.formGroup.value.email;
-      this.cliente.senha = this.formGroup.value.senha;
-        const response = await this.clienteService.post(this.cliente);
-        this.exibirMensagem('Cadastro realizado com sucesso!');
-        this.navController.navigateBack('/cliente/login');
-    } catch (error: any) {
-        if (error.status === 409) {
-            this.exibirMensagem('Esse e-mail já foi cadastrado!');
-            console.log(error)
+    if (this.formGroup.valid) {
+      const email = this.formGroup.value.email;
+      this.clienteService.existsByEmail(email).subscribe((emailJaCadastrado) => {
+        if (emailJaCadastrado > 0) {
+          this.exibirMensagem('E-mail já cadastrado. Por favor, escolha outro e-mail.');
         } else {
-            console.error('Erro ao cadastrar:', error);
-            this.exibirMensagem('Erro ao cadastrar!');
+          const novoCliente = this.formGroup.value;
+          this.clienteService.post(novoCliente).subscribe(
+            (clienteCadastrado) => {
+              console.log(clienteCadastrado);
+              this.exibirMensagem('Cadastro realizado com sucesso!');
+              this.navController.navigateBack('/cliente/login');
+            },
+            (error) => {
+              console.error('Erro ao cadastrar cliente:', error);
+              this.exibirMensagem('Erro ao cadastrar!');
+            }
+          );
         }
+      });
     }
-}
+  }
 
   isValid(): boolean {
     const passwordsMatch = this.checkPasswords();
     return this.formGroup.valid && !passwordsMatch;
   }
-  
-  
+
+
   async exibirMensagem(texto: string) {
     const toast = await this.toastController.create({
       message: texto,

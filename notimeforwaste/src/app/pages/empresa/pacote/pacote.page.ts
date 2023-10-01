@@ -20,25 +20,25 @@ export class PacotePage implements OnInit {
      }
 
   ngOnInit() {
-    this.empresa = this.empresaService.getEmpresa();
-    this.paccoteService.getPacotesByIdEmpresa(this.empresa.idEmpresa).subscribe(res => {
-      console.log(res)
-      this.pacotes = res as PacoteResponse[];
-    } , error => {
-      console.log(error);
-    });
+    // this.empresa = this.empresaService.getEmpresaLogada();
+    // this.paccoteService.getPacotesByEmpresaId(this.empresa.idEmpresa).subscribe(res => {
+    //   console.log(res)
+    //   this.pacotes = res as PacoteResponse[];
+    // } , error => {
+    //   console.log(error);
+    // });
   }
 
   deletar(idPacote: number){
-    this.paccoteService.delete(idPacote).subscribe(
-      res => {
-        this.exibirMensagem("Deletado com sucesso.")
-        this.pacotes = this.pacotes.filter(pacote => pacote.idPacote !== idPacote);
-      },
-      error => {
-        this.exibirMensagem("Erro ao deletar.")
-      }
-    );
+    // this.paccoteService.delete(idPacote).subscribe(
+    //   res => {
+    //     this.exibirMensagem("Deletado com sucesso.")
+    //     this.pacotes = this.pacotes.filter(pacote => pacote.idPacote !== idPacote);
+    //   },
+    //   error => {
+    //     this.exibirMensagem("Erro ao deletar.")
+    //   }
+    // );
   }
 
   async exibirMensagem(texto: string) {

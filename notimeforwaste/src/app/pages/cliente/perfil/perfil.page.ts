@@ -11,7 +11,7 @@ export class PerfilPage implements OnInit {
 
 
   constructor(private clienteService: ClienteService) {
-    console.log(this.clienteService.getCliente())
+    console.log(this.clienteService.getClienteLogado())
    }
   ngOnInit() {
   }
