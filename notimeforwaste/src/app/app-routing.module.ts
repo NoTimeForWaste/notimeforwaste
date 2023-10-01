@@ -61,6 +61,10 @@ const routes: Routes = [
     path: 'empresa/editar-endereco',
     loadChildren: () => import('./pages/empresa/perfil/editar-endereco/editar-endereco.module').then( m => m.EditarEnderecoPageModule)
   },
+  {
+    path: 'empresa/editar-horario-funcionamento',
+    loadChildren: () => import('./pages/empresa/perfil/editar-horario-funcionamento/editar-horario-funcionamento.module').then( m => m.EditarHorarioFuncionamentoPageModule)
+  },
 
 
 //Rotas ---> Cliente

@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>editarHorarioFuncionamento</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/empresa/perfil"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="area-card">
+    <div class="big-card-custom">
+      <h2>Horário de Funcionamento</h2>
+      <ion-card-content>
+        <form [formGroup]="formGroup">
+          <!-- linha 01 -->
+          <h4>Segunda à sexta:</h4>
+          <div class="row">
+            <ion-item lines="none" class="col-1">
+              <ion-label position="stacked">Das</ion-label>
+              <div class="input-border ">
+                <ion-input formControlName="hrSegASexI" type="time" class="custom"></ion-input>
+              </div>
+            </ion-item>
+            <ion-item lines="none" class="col-1">
+              <ion-label position="stacked">Às</ion-label>
+              <div class="input-border ">
+                <ion-input formControlName="hrSegASexF" type="time" class="custom"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+          <br />
+
+          <!-- linha 02 -->
+          <h4>Sábado:</h4>
+          <div class="row">
+            <ion-item lines="none" class="col-1">
+              <ion-label position="stacked">Das</ion-label>
+              <div class="input-border ">
+                <ion-input formControlName="hrSabadoI" type="time" class="custom"></ion-input>
+              </div>
+            </ion-item>
+            <ion-item lines="none" class="col-1">
+              <ion-label position="stacked">Às</ion-label>
+              <div class="input-border ">
+                <ion-input formControlName="hrSabadoF" type="time" class="custom"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+          <br />
+
+          <!-- linha 03 -->
+          <h4>Domingo:</h4>
+          <div class="row">
+            <ion-item lines="none" class="col-1">
+              <ion-label position="stacked">Das</ion-label>
+              <div class="input-border ">
+                <ion-input formControlName="hrDomingoI" type="time" class="custom"></ion-input>
+              </div>
+            </ion-item>
+            <ion-item lines="none" class="col-1">
+              <ion-label position="stacked">Às</ion-label>
+              <div class="input-border ">
+                <ion-input formControlName="hrDomingoF" type="time" class="custom"></ion-input>
+              </div>
+            </ion-item>
+          </div>
+          <br />
+
+          <div class="area-button">
+            <ion-button type="submit" [disabled]="!isStep3Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </div>
+  </div>
+</ion-content>

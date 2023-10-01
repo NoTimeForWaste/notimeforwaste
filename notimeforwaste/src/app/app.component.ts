@@ -21,7 +21,7 @@ export class AppComponent {
   }
 
   shouldDisplayFooterCompany() {
-    const routesToInclude = ['/empresa/home', '/empresa/pedidos', '/empresa/pacotes', '/empresa/perfil']; // Adicione todas as rotas da empresa que aparecerão o bottom navigation aqui
+    const routesToInclude = ['/empresa/home', '/empresa/pedidos', '/empresa/pacotes', '/empresa/perfil', '/empresa/editar-endereco', 'empresa/editar-horario-funcionamento']; // Adicione todas as rotas da empresa que aparecerão o bottom navigation aqui
     const currentRoute = this.router.url;
     return routesToInclude.some(route => currentRoute.includes(route));
   }
