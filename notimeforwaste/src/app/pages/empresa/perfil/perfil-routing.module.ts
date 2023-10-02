@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'editar-endereco',
     loadChildren: () => import('./editar-endereco/editar-endereco.module').then( m => m.EditarEnderecoPageModule)
+  },  {
+    path: 'editar-horario-funcionamento',
+    loadChildren: () => import('./editar-horario-funcionamento/editar-horario-funcionamento.module').then( m => m.EditarHorarioFuncionamentoPageModule)
   }
+
 ];
 
 @NgModule({
