@@ -37,7 +37,18 @@
     width: 96%;
     height: 12vh;
     margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
+.body{
+    margin: 0;
+    padding-top: 4vh;
+    background-color: var(--brancoDisable);
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 4vh;
+  }
 
 .card-icon {
     font-size: 16px;

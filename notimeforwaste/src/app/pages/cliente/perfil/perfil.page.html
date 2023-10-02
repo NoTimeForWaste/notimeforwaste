@@ -1,24 +1,46 @@
 <ion-header>
   <ion-toolbar class="custom-toolbar-top">
-    <ion-title>Perfil</ion-title>
+    <ion-title>Conta</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content>
-  <div>
-    <div>
-      <ion-card>
-        <ion-card-header>
-          <img src="../../../../assets/imgs/userProfile.png"  width="100px" height="100px" />
-          <ion-card-title>Card Title</ion-card-title>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
-        </ion-card-content>
-      </ion-card>
+  <div class="body">
+    <div class="card-profile">
+      <div class="photo">
+        <!-- Conteúdo da foto aqui -->
+        <img src="../../../../assets/imgs/userProfile.png" alt="Foto do perfil">
+      </div>
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <!--<h2>{{cliente.nmCliente}}</h2>
+        <p>{{cliente.email}}</p>
+        <p>{{cliente.senha}}</p> -->
+      </div>
+      <a routerLink="/cliente/meus-dados">
+        <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
+      </a>
     </div>
+
+
+    <div class="card-edit">
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <h1>Endereços</h1>
+      </div>
+      <a routerLink="/cliente/novo-endereco">
+        <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
+      </a>
+    </div>
+
+
+    <div class="card-logout">
+      <div class="info">
+        <!-- Conteúdo das informações aqui -->
+        <h1>Sair</h1>
+        <!-- Adicione mais informações conforme necessário -->
+        <!-- Adicionar a função de logout -->
+      </div>
+      <ion-icon name="log-out-outline" class="icon-logout"></ion-icon>
+    </div>
+
   </div>
-</ion-content>
