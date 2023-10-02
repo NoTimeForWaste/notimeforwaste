@@ -10,16 +10,49 @@ import { Endereco } from '../model/endereco';
 })
 export class EnderecoService {
   httpHeaders = {
-    headers: new HttpHeaders({'Content-Type':'application/json'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
   ///api/notimeforwaste/empresa
 
- private url = environment.api_url + "/endereco";
+  private url = environment.api_url + "/endereco";
 
-  constructor(private httpClient: HttpClient, private router: Router) {  
+  constructor(private httpClient: HttpClient, private router: Router) {
+  }
+  // Método para salvar um novo endereço
+  post(endereco: Endereco): Observable<Endereco> {
+    return this.httpClient.post<Endereco>(`${this.url}`, endereco, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  post(endereco: Endereco): Observable<any> {
-    return this.httpClient.post<any>(this.url, endereco, this.httpHeaders);
+  // Método para buscar um endereço por ID
+  getById(id: number): Observable<Endereco> {
+    return this.httpClient.get<Endereco>(`${this.url}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Método para deletar um endereço
+  delete(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Método para atualizar um endereço
+  put(id: number, endereco: Endereco): Observable<Endereco> {
+    return this.httpClient.put<Endereco>(`${this.url}/${id}`, endereco, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Tratamento de erro genérico
+  private handleError(error: any): Observable<never> {
+    console.error('Ocorreu um erro:', error);
+    return throwError('Erro ao processar a solicitação. Por favor, tente novamente mais tarde.');
   }
 }

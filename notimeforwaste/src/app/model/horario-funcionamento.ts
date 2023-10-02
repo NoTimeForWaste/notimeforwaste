@@ -14,4 +14,8 @@ export class HorarioFuncionamento {
         this.idHorario = 0;
         this.nome = '';
     }
+
+    timeToString(time: Time): string {
+        return `${time.hours.toString().padStart(2, '0')}:${time.minutes.toString().padStart(2, '0')}`;
+    }
 }

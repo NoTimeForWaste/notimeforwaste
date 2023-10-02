@@ -1,49 +1,52 @@
 #custom-banner{
-    width: 500px;
+    width: 100vw;
+    max-width: 400px;
+    max-height: 200px;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
 
 .custom-paragraph{
     font-size: 20;
-    font-family: Ebrown Regular;
-}
-
-@font-face {
-    font-family: Ebrown Regular;
-    src: url(../../../../../assets/fonts/Embrown.ttf) format(true-type);
-  }
-
+    font-family: Embrown Regular;
+} 
+  
 #share-icon{
     align-items: right;
     text-align: right;
 }
 
 .card-price {
-    color: var(--laranjaLogo);
+   color: var(--laranjaLogo);
     font-size: 18px;
     text-align: right;
 }
 
-#rifht{
-    align-items: right;
+.card-price-font{
+    font-family: Inter SemiBold;
 }
 
-.card-products {
-    width: 100%;
-    height: 100px;
-    padding-top: 0;
-    margin: 0;
-    background-color: var(--brancoDisable);
-  }
+.right {
+    width:30px;
+    float: right;
+}
 
 .card-product-itens{
-    width: 100%;
-    height: 100px;
+    padding-top: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 3px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 10px;
     background-color: var(--brancoDisable);
 }
 
 h1{
     font-size: 20px;
-    font-style: Inter;
+    font-style: Inter Bold;
 }
 
 h3{
@@ -59,3 +62,19 @@ h3{
     padding-right: 5px;
 }
 
+.description-font{
+    font-family: Inter SemiBold;
+}
+
+.card {
+    background-color: white;
+    width: 100vw;
+    max-width: 400px;
+    position: relative;
+    top: -10px;
+    min-height: 100vh;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+}

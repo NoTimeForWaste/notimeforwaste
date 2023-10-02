@@ -46,18 +46,45 @@ export class FotoService {
     }
   }
 
-  post(file: File): Observable<Foto> {
+   // Método para enviar uma nova foto
+   post(document: File): Observable<Foto> {
     const formData = new FormData();
-    formData.append('document', file);
-
-    return this.httpClient.post<Foto>(this.url, formData);
+    formData.append('document', document);
+    return this.httpClient.post<Foto>(`${this.url}`, formData)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  get(id: number): Observable<Foto> {
-    return this.httpClient.get<Foto>(`${this.url}/${id}`);
+  // Método para buscar uma foto por ID
+  getById(id: number): Observable<Foto> {
+    return this.httpClient.get<Foto>(`${this.url}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Método para atualizar uma foto
+  put(id: number, newDocument: File): Observable<Foto> {
+    return this.httpClient.put<Foto>(`${this.url}/${id}`, newDocument)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Método para deletar uma foto
+  delete(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Tratamento de erro genérico
+  private handleError(error: any): Observable<never> {
+    console.error('Ocorreu um erro:', error);
+    return throwError('Erro ao processar a solicitação. Por favor, tente novamente mais tarde.');
   }
   
-  update( foto: Foto): Observable<Foto> {
-    return this.httpClient.put<Foto>(`${this.url}/${foto.idFoto}`, foto);
-  }  
 }
+ 

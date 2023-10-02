@@ -8,14 +8,15 @@
 </ion-header>
 
 <div class="body">
-  <img id="top-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+  <img *ngIf="foto.fotoUrl" [src]="foto.fotoUrl" id="top-image">
+  <img *ngIf="!foto.fotoUrl"  src="../../../../assets/imgs/fotoPacote.png" id="top-image">
   <div class="custom-card">
     <form>
       <div class="row">
         <ion-item lines="none" class="col-1">
           <ion-label position="stacked">Nome</ion-label>
           <div class="input-border ">
-            <ion-input ngModel="inputs.nmPacote" type="text" placeholder="Digite o nome do pacote"
+            <ion-input name="nmPacote" [(ngModel)]="inputs.nmPacote" type="text" placeholder="Digite o nome do pacote"
               class="custom"></ion-input>
           </div>
         </ion-item>
@@ -24,13 +25,13 @@
         <ion-item lines="none" class="col-1">
           <ion-label position="stacked">Preço</ion-label>
           <div class="input-border ">
-            <ion-input ngModel="inputs.preco" type="text" class="custom"></ion-input>
+            <ion-input name="preco" [(ngModel)]="inputs.preco" type="text" class="custom"></ion-input>
           </div>
         </ion-item>
         <ion-item lines="none" class="col-3">
           <ion-label position="stacked">Foto do pacote</ion-label>
           <div class="input-border ">
-            <input type="file" class="custom" placeholder="Foto do pacote" />
+            <input type="file"  (change)="onImageSelected($event)" class="custom" placeholder="Foto do pacote" />
           </div>
         </ion-item>
       </div>
@@ -40,19 +41,19 @@
     <p class="sub-title">Produtos</p>
     <div class="form-product-card">
       <div class="area-icons-form ">
-        <fa-icon icon="save" class="fa-lg"></fa-icon>
+        <fa-icon (click)="addProduto()" icon="save" class="fa-lg"></fa-icon>
       </div>
       <div class="row">
         <ion-item lines="none" class="col-3">
           <ion-label position="stacked">Nome</ion-label>
           <div class="input-border ">
-            <ion-input type="text" class="custom" placeholder="Nome do produto"></ion-input>
+            <ion-input name="nmProduto" [(ngModel)]="produto.nmProduto" type="text" class="custom" placeholder="Nome do produto"></ion-input>
           </div>
         </ion-item>
         <ion-item lines="none" class="col-2">
           <ion-label position="stacked">Validade</ion-label>
           <div class="input-border ">
-            <ion-input class="custom" type="date"></ion-input>
+            <ion-input name="dtValidade" [(ngModel)]="produto.dtValidade" class="custom" type="date"></ion-input>
           </div>
         </ion-item>
       </div>
@@ -60,20 +61,20 @@
         <ion-item lines="none" class="col-1">
           <ion-label position="stacked">Descrição</ion-label>
           <div class="input-border ">
-            <ion-textarea type="text" class="custom" placeholder="Ingredientes..."></ion-textarea>
+            <ion-textarea name="descricaoProduto" [(ngModel)]="produto.descricao" type="text" class="custom" placeholder="Ingredientes..."></ion-textarea>
           </div>
         </ion-item>
       </div>
     </div>
-    <div class="product-card">
+    <div *ngFor="let produto of inputs.produtos; index as i" class="product-card">
       <div class="card-title">
-        <h1>Nome do produto</h1>
+        <h1>{{produto.nmProduto}}</h1>
         <div class="card-icons">
-          <fa-icon icon="xmark" class="fa-lg"></fa-icon>
+          <fa-icon icon="xmark" (click)="removerProduto(i)" class="fa-lg"></fa-icon>
         </div>
       </div>
-      <p>Descrição do Produto</p>
-      <h3>24/11/205</h3>
+      <p>{{produto.descricao}}o</p>
+      <h3>{{produto.dtValidade}}</h3>
     </div>
     <p class="sub-title">Formas de Pagamento</p>
     <div class="row">
@@ -97,5 +98,9 @@
       </ng-container>
     </div>
 
+    <p id="obs">*Obs: No caso de entrega o valor do frete é calculado pelo sistema de forma automática.</p>
+    <div class="area-button">
+      <ion-button [disabled]="!isValid()" (click)="salvar()" type="button">SALVAR</ion-button>
+    </div>
   </div>
 </div>

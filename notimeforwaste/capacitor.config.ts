@@ -6,6 +6,9 @@ const config: CapacitorConfig = {
   webDir: 'www',
   server: {
     androidScheme: 'https'
+  },
+  plugins: {
+    "cordova-plugin-file": {}
   }
 };
 

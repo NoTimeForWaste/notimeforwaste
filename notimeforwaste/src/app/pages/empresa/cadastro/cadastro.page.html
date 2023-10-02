@@ -46,7 +46,7 @@
               </ion-item>
               <br />
               <div class="area-button">
-                <ion-button type="submit" [disabled]="!isStep1Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
+                <ion-button type="submit" [disabled]="!isStep1Valid()" (click)="goToStep2()">PRÓXIMO</ion-button>
               </div>
             </form>
           </ion-card-content>
@@ -123,7 +123,7 @@
               </div>
               <br />
               <div class="area-button">
-                <ion-button type="submit" [disabled]="!isStep2Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
+                <ion-button type="submit" [disabled]="!isStep2Valid()" (click)="goToStep3()">PRÓXIMO</ion-button>
               </div>
             </form>
           </ion-card-content>
@@ -197,7 +197,7 @@
               <br />
 
               <div class="area-button">
-                <ion-button type="submit" [disabled]="!isStep3Valid()" (click)="nextStep()">PRÓXIMO</ion-button>
+                <ion-button type="submit" [disabled]="!isStep3Valid()" (click)="goToStep4()">PRÓXIMO</ion-button>
               </div>
             </form>
           </ion-card-content>

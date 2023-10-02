@@ -206,23 +206,24 @@ export class CadastroPage implements OnInit {
     const hrDomingoF = this.formGroup.value.hrDomingoF;
 
     if (
-      this.horarioEValido(hrSegASexI, hrSegASexF) ||
-      this.horarioEValido(hrSabadoI, hrSabadoF) ||
+      this.horarioEValido(hrSegASexI, hrSegASexF) &&
+      this.horarioEValido(hrSabadoI, hrSabadoF) &&
       this.horarioEValido(hrDomingoI, hrDomingoF)
     ) {
       this.horarioSegASex.horarioInicial = hrSegASexI;
       this.horarioSegASex.horarioFinal = hrSegASexF;
+      this.horarioSegASex.nome = "Segunda à sexta";
+
       this.horarioSabado.horarioInicial = hrSabadoI;
       this.horarioSabado.horarioFinal = hrSabadoF;
+      this.horarioSabado.nome = "Sábado";
+
       this.horarioDomingo.horarioInicial = hrDomingoI;
       this.horarioDomingo.horarioFinal = hrDomingoF;
-
-      this.horarios.push(this.horarioDomingo);
-      this.horarios.push(this.horarioSabado);
-      this.horarios.push(this.horarioSegASex);
+      this.horarioDomingo.nome = "Domingo";
+      console.log(this.horarios)
       return true;
     }
-
     return false;
   }
 
@@ -230,6 +231,15 @@ export class CadastroPage implements OnInit {
     return horarioInicial <= horarioFinal;
   }
 
+  goToStep4() {
+    if (this.isStep3Valid()) {
+      this.horarios = [];
+      this.horarios.push(this.horarioDomingo);
+      this.horarios.push(this.horarioSabado);
+      this.horarios.push(this.horarioSegASex);
+      this.step++;
+    }
+  }
 
   isStep4Valid(): boolean {
     if (this.foto.fotoUrl != '' && this.formGroup.valid && this.checkPasswords() === null) {
@@ -241,8 +251,28 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
-  nextStep() {
-    this.step++;
+  goToStep3() {
+    if (this.isStep2Valid())
+      this.step++;
+  }
+
+  goToStep2() {
+    let nmEmpresa = this.formGroup.value.nmEmpresa;
+    let cnpj = this.formGroup.value.cnpj;
+    let telefone = this.formGroup.value.telefone;
+    cnpj = cnpj.replace(/\D/g, '');
+    if (this.isStep1Valid()) {
+      this.empresaService.existsByCNPJ(cnpj).subscribe((cnpjJaCadastrado) => {
+        if (cnpjJaCadastrado > 0) {
+          this.exibirMensagem("CNPJ já cadastrado no sistema!");
+          return;
+        }
+        this.empresa.nmEmpresa = nmEmpresa;
+        this.empresa.cnpj = cnpj;
+        this.empresa.telefone = telefone;
+        this.step++;
+      })
+    }
   }
 
   backStep() {
@@ -254,49 +284,59 @@ export class CadastroPage implements OnInit {
   }
 
   async salvar() {
-    this.enderecoService.post(this.endereco).subscribe(
-      response => {
-        console.log('Resposta da API:', response);
-        this.endereco = response as Endereco;
-        this.empresa.idEndereco = this.endereco.idEndereco;
-        if (this.foto.document) {
-          this.fotoService.post(this.foto.document).subscribe(
-            json => {
-              this.foto = json as Foto;
-              this.empresa.idFoto = this.foto.idFoto;
-              console.log('Resposta da API:', json);
-              this.empresa.senha = this.formGroup.value.senha;
-              this.empresa.email = this.formGroup.value.email;;
-              this.empresaService.post(this.empresa).subscribe(
-                empresa => {
-                  // Lide com a resposta da API aqui
-                  console.log('Resposta da API:', empresa);
-                },
-                error => {
-                  // Lide com erros aqui
-                  this.exibirMensagem('Erro ao cadastrar a empresa!')
-                  console.error('Erro:', error);
-                }
-              );
-            },
-            error => {
-              this.exibirMensagem('Erro ao cadastrar a empresa!')
-              console.error('Erro:', error);
-              return
-            }
-
-          );
+    if (this.isStep4Valid()) {
+      this.empresaService.existsByEmail(this.formGroup.value.email).subscribe((emailExists) => {
+        if (emailExists > 0) {
+          this.exibirMensagem("Esse email já foi cadastrado no sistema!");
+          return;
         }
-      },
-      error => {
-        this.exibirMensagem('Erro ao cadastrar a empresa!')
-        console.error('Erro:', error);
-        return
-      }
-    );
+        this.enderecoService.post(this.endereco).subscribe((endereco) => {
+          this.endereco = <Endereco>(endereco);
+          this.empresa.idEndereco = this.endereco.idEndereco;
+          this.fotoService.post(this.foto.document!).subscribe((foto) => {
+            this.foto = <Foto>(foto);
+            console.log(this.foto.fotoUrl);
+            this.empresa.idFoto = this.foto.idFoto;
+            this.empresa.senha = this.formGroup.value.senha;
+            this.empresa.email = this.formGroup.value.email;
+            console.log(this.empresa);
+            this.empresaService.post(this.empresa).subscribe((empresa) => {
+              this.empresa = <Empresa>(empresa);
+              console.log(empresa);
+              this.horarios.forEach(horario => {
+                horario.idEmpresa = this.empresa.idEmpresa;
+                console.log(horario.timeToString(horario.horarioInicial));
+                const data = {
+                  nome: horario.nome,
+                  horarioInicial: horario.timeToString(horario.horarioInicial),
+                  horarioFinal: horario.timeToString(horario.horarioFinal),
+                  idEmpresa: this.empresa.idEmpresa
+                };
+                this.empresaService.saveHorarioFuncionamento(data).subscribe((horario) => {
 
-    this.exibirMensagem('Cadastro realizado com sucesso!');
-    this.navController.navigateBack("empresa/login")
+                }, (error) => {
+                  console.log(error)
+                });
+              });
+              this.exibirMensagem("Empresa cadastrada com sucesso!")
+              this.navController.navigateBack("/empresa/login");
+            },
+              (error) => {
+                console.error('Erro ao cadastrar empresa:', error);
+                this.exibirMensagem('Erro ao cadastar empresa!');
+              })
+          },
+            (error) => {
+              console.error('Erro ao cadastrar foto:', error);
+              this.exibirMensagem('Erro ao fazer upload da foto. Empresa não cadastrada!');
+            })
+        },
+          (error) => {
+            console.error('Erro ao cadastrar endereço:', error);
+            this.exibirMensagem('Erro ao cadastrar endereço. Empresa não cadastrada!');
+          })
+      })
+    }
   }
 
 

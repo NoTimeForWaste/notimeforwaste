@@ -12,15 +12,15 @@ export class PerfilPage implements OnInit {
 
   empresa: Empresa;
   constructor(private empresaService: EmpresaService, private navController: NavController) {
-    this.empresa = this.empresaService.getEmpresa();
-    console.log(this.empresaService.getEmpresa())
+    this.empresa = this.empresaService.getEmpresaLogada();
+    console.log(this.empresaService.getEmpresaLogada())
    }
 
   ngOnInit() {
   }
 
   logout(){
-    this.empresaService.setEmpresa(new Empresa());
+    this.empresaService.setEmpresaLogada(new Empresa());
     this.navController.navigateBack("empresa/login");
   }
 }
