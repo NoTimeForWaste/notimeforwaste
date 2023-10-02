@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar class="custom-toolbar-top">
-    <ion-title>Nome do Pacote</ion-title>
+    <ion-title>Detalhes - Pacote</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cliente/home" text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,68 +19,42 @@
       <div class="card-header">
         <div class="card-icon">
           <div class="custom paragraph">
-            <div class="custom-paragraph">
-              <img src="../../../../assets/icon/empresaLogo.svg" alt="">
-              <strong>NOME DA EMPRESA</strong>
-              <img class="right" src="../../../../assets/icon/share.svg" alt="">
-            </div>
-
+            <img src="../../../../assets/icon/empresaLogo.svg" alt="">
+            <strong>{{pacote.nmEmpresa}}</strong>
+            <img class="right" src="../../../../assets/icon/share.svg" alt="">
           </div>
         </div>
         <div class="card-price">
-          <p class="card-price-font"><strong>R$20,00</strong></p>
+          <p class="card-price-font"><strong>R${{pacote.preco}}</strong></p>
         </div>
       </div>
-
+      <br />
       <div>
         <h3> <strong> Produtos </strong> </h3>
       </div>
-      <br/>
+      <br />
       <div class="card-products">
-
-        <div class="card-product-itens">
+        <div *ngFor="let produto of pacote.produtos" class="card-product-itens">
           <div class="icon-and-text">
             <div class="text">
-              <h1> <strong> Produto 1 </strong> </h1>
-              <p>Descricão do produto aqui...</p>
+              <h1> <strong> {{produto.nmProduto}} </strong> </h1>
+              <p> {{produto.descricao}}</p>
             </div>
-
             <div class="description">
-              <p class="description-font"> Val: 12/06/2023 </p>
+              <p class="description-font"> Val: {{produto.dtValidade}} </p>
             </div>
           </div>
         </div>
-
-        <div class="card-product-itens">
-          <div class="icon-and-text">
-            <div class="text">
-              <h1> <strong> Produto 2 </strong> </h1>
-              <p>Descricão do produto aqui...</p>
-            </div>
-
-            <div class="description">
-              <p> Val: 12/06/2023 </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-product-itens">
-          <div class="icon-and-text">
-            <div class="text">
-              <h1> <strong> Produto 3 </strong> </h1>
-              <p>Descricão do produto aqui...</p>
-            </div>
-
-            <div class="description">
-              <p> Val: 12/06/2023 </p>
-            </div>
-          </div>
-        </div>
-
       </div>
-
     </div>
   </div>
-
-
 </ion-content>
+
+
+<ion-footer class="container-toolbar-bottom">
+  <ion-toolbar>
+    <div class="area-button">
+      <ion-button type="button">COMPRAR</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

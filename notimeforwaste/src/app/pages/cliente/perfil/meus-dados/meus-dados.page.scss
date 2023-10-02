@@ -1,0 +1,64 @@
+.body {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding-top: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.area-card {
+  padding-top: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.big-card-custom {
+  background-color: var(--brancoDisabled);
+  width: 75vw;
+  min-height: 55vh;
+  max-height: 200vh;
+  text-align: center;
+}
+
+
+.input-border {
+  border: 1px solid #2D3325;
+  border-radius: 5px;
+  width: 100%;
+}
+
+ion-label {
+  padding-bottom: 1px;
+}
+
+ion-button {
+  --background: var(--verdeSucesso);
+  --background-hover: var(--verdePastel);
+  --background-activated: var(--verdePastel);;
+  --background-focused: var(--verdePastel);;
+  --color: #ffffff;
+  --border-radius: 5px;
+  width: 90%;
+}
+
+ion-input.custom {
+  --background: transparent;
+  --color: #2D3325;
+  --placeholder-color: #2D3325;
+  --placeholder-opacity: 0.8;
+
+  --padding-bottom: 10px;
+  --padding-end: 10px;
+  --padding-start: 10px;
+  --padding-top: 10px;
+  --border: 2px solid #2D3325 !important;
+}
+
+
+
+.area-button {
+  width: 100%;
+}

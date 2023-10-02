@@ -7,14 +7,11 @@
   <div class="body">
     <div class="card-profile">
       <div class="photo">
-        <!-- Conteúdo da foto aqui -->
         <img src="../../../../assets/imgs/userProfile.png" alt="Foto do perfil">
       </div>
-      <div class="info">
-        <!-- Conteúdo das informações aqui -->
-        <!--<h2>{{cliente.nmCliente}}</h2>
+      <div class="info"> 
+        <h2>{{cliente.nmCliente}}</h2>
         <p>{{cliente.email}}</p>
-        <p>{{cliente.senha}}</p> -->
       </div>
       <a routerLink="/cliente/meus-dados">
         <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
@@ -24,10 +21,9 @@
 
     <div class="card-edit">
       <div class="info">
-        <!-- Conteúdo das informações aqui -->
         <h1>Endereços</h1>
       </div>
-      <a routerLink="/cliente/novo-endereco">
+      <a routerLink="/cliente/endereco">
         <img class="icon-container" src="../../../../assets/icon/pencil.svg" name="settings-outline" />
       </a>
     </div>
@@ -35,12 +31,12 @@
 
     <div class="card-logout">
       <div class="info">
-        <!-- Conteúdo das informações aqui -->
+     
         <h1>Sair</h1>
-        <!-- Adicione mais informações conforme necessário -->
-        <!-- Adicionar a função de logout -->
+       
+       
       </div>
-      <ion-icon name="log-out-outline" class="icon-logout"></ion-icon>
+      <ion-icon (click)="logout()" name="log-out-outline" class="icon-logout"></ion-icon>
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-#custom-banner{
+#custom-banner {
     width: 100vw;
     max-width: 400px;
     max-height: 200px;
@@ -8,32 +8,29 @@
     position: relative;
 }
 
-.custom-paragraph{
-    font-size: 20;
-    font-family: Embrown Regular;
-} 
-  
-#share-icon{
-    align-items: right;
-    text-align: right;
+.custom-paragraph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .card-price {
-   color: var(--laranjaLogo);
-    font-size: 18px;
+    color: var(--laranjaLogo);
+    font-size: 22px;
     text-align: right;
 }
 
-.card-price-font{
+.card-price-font {
     font-family: Inter SemiBold;
 }
 
 .right {
-    width:30px;
+    width: 30px;
     float: right;
 }
 
-.card-product-itens{
+.card-product-itens {
     padding-top: 3px;
     padding-left: 12px;
     padding-right: 12px;
@@ -44,25 +41,25 @@
     background-color: var(--brancoDisable);
 }
 
-h1{
+h1 {
     font-size: 20px;
     font-style: Inter Bold;
 }
 
-h3{
+h3 {
     color: var(--vermelhoTerroso);
     font-size: 25px;
     padding-left: 5px;
 }
 
-.description{
+.description {
     font-size: 15px;
     text-align: right;
     color: var(--laranjaLogo);
     padding-right: 5px;
 }
 
-.description-font{
+.description-font {
     font-family: Inter SemiBold;
 }
 
@@ -77,4 +74,30 @@ h3{
     margin-left: auto;
     margin-right: auto;
     text-align: start;
+}
+
+
+.container-toolbar-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 15vh;
+    background-color: #F1E9E9;
+}
+
+.area-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.area-button ion-button {
+  --background: var(--vermelhoTerroso);
+  --background-hover: var(--vermelhoDisabled);
+  --background-activated: var(--vermelhoDisabled);
+  --background-focused: var(--vermelhoDisabled);
+  --color: #ffffff;
+  --border-radius: 5px;
+  margin-top: 3vh;
+  width: 70%; 
 }

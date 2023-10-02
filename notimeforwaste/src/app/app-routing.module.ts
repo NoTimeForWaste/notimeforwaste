@@ -62,7 +62,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/empresa/perfil/editar-endereco/editar-endereco.module').then( m => m.EditarEnderecoPageModule)
   },
   {
-    path: 'empresa/editar-horario-funcionamento',
+    path: 'empresa/horario-funcionamento',
     loadChildren: () => import('./pages/empresa/perfil/editar-horario-funcionamento/editar-horario-funcionamento.module').then( m => m.EditarHorarioFuncionamentoPageModule)
   },
 
@@ -111,7 +111,7 @@ const routes: Routes = [
   },
   {
     path: 'cliente/meus-dados',
-    loadChildren: () => import('./pages/cliente/meus-dados/meus-dados.module').then( m => m.MeusDadosPageModule)
+    loadChildren: () => import('./pages/cliente/perfil/meus-dados/meus-dados.module').then( m => m.MeusDadosPageModule)
   },
   {
     path: 'cliente/cadastro',

@@ -2,84 +2,82 @@
   <ion-toolbar class="custom-toolbar-top">
     <ion-title>Endereço</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/empresa/perfil"></ion-back-button>
+      <ion-back-button defaultHref="/empresa/perfil" text=""></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="background">
-  <div class="area-card">
-    <div class="big-card-custom">
-      <ion-card-content>
-        <form >
-          <div class="row">
-            <ion-item lines="none" class="col-3">
-              <ion-label position="stacked">CEP</ion-label>
-              <div class="input-border">
-                <ion-input type="text" class="custom"></ion-input>
-              </div>
-            </ion-item>
-            <ion-item lines="none" class="col-2">
-              <ion-label position="stacked">UF</ion-label>
-              <div class="input-border">
-                <ion-input class="custom"></ion-input>
-              </div>
-            </ion-item>
-          </div>
-      
-          <div class="row">
-            <ion-item lines="none" class="col-1">
-              <ion-label position="stacked">Bairro</ion-label>
-              <div class="input-border ">
-                <ion-input type="text" class="custom"></ion-input>
-              </div>
-            </ion-item>
-          </div>
-      
-          <div class="row">
-            <ion-item lines="none" class="col-1">
-              <div>
-                <ion-label class="custom-label" position="stacked">Cidade</ion-label>
-              </div>
-      
-              <div class="input-border">
-                <ion-input class="custom-input" type="text" class="custom"></ion-input>
-              </div>
-            </ion-item>
-          </div>
-       
-          <div class="row">
-            <ion-item lines="none" class="col-2">
-              <ion-label position="stacked">Rua</ion-label>
-              <div class="input-border ">
-                <ion-input type="text" class="custom"></ion-input>
-              </div>
-            </ion-item>
-            <ion-item lines="none" class="col-1">
-              <ion-label position="stacked">Nº</ion-label>
-              <div class="input-border ">
-                <ion-input type="number" class="custom"></ion-input>
-              </div>
-            </ion-item>
-          </div>
 
-          <!-- linha 05 -->
-          <div class="row">
-            <ion-item lines="none" class="col-1">
-              <ion-label position="stacked">Complemento</ion-label>
-              <div class="input-border ">
-                <ion-input type="text" class="custom"></ion-input>
-              </div>
-            </ion-item>
-          </div>
-          <br />
-          <div class="area-button">
-            <ion-button type="submit">SALVAR</ion-button>
-          </div>
-        </form>
-      </ion-card-content>
+<ion-content> 
+  <div class="background">
+    <div class="area-card">
+      <div class="big-card-custom">
+        <ion-card-content>
+          <form [formGroup]="formGroup">
+            <div class="row">
+              <ion-item lines="none" class="col-3">
+                <ion-label position="stacked">CEP</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" formControlName="cep" class="custom"></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none" class="col-2">
+                <ion-label position="stacked">UF</ion-label>
+                <div class="input-border ">
+                  <ion-input formControlName="uf" class="custom" readonly></ion-input>
+                </div>
+              </ion-item>
+            </div>
+
+            <div class="row">
+              <ion-item lines="none" class="col-1">
+                <ion-label position="stacked">Bairro</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" formControlName="bairro" class="custom" readonly></ion-input>
+                </div>
+              </ion-item>
+            </div>
+
+            <div class="row">
+              <ion-item lines="none" class="col-1">
+                <ion-label position="stacked">Cidade</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" formControlName="cidade" class="custom" readonly></ion-input>
+                </div>
+              </ion-item>
+            </div>
+
+            <div class="row">
+              <ion-item lines="none" class="col-2">
+                <ion-label position="stacked">Rua</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" formControlName="rua" class="custom" readonly></ion-input>
+                </div>
+              </ion-item>
+              <ion-item lines="none" class="col-1">
+                <ion-label position="stacked">Nº</ion-label>
+                <div class="input-border ">
+                  <ion-input type="number" formControlName="numero" class="custom"></ion-input>
+                </div>
+              </ion-item>
+            </div>
+
+            <!-- linha 05 -->
+            <div class="row">
+              <ion-item lines="none" class="col-1">
+                <ion-label position="stacked">Complemento</ion-label>
+                <div class="input-border ">
+                  <ion-input type="text" formControlName="complemento" class="custom"></ion-input>
+                </div>
+              </ion-item>
+            </div>
+            <br />
+            <div class="area-button">
+              <ion-button type="submit">SALVAR</ion-button>
+            </div>
+          </form>
+        </ion-card-content>
+      </div>
     </div>
-  </div>
   </div>
 </ion-content>

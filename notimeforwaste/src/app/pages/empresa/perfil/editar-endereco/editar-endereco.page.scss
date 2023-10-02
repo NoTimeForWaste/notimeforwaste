@@ -22,13 +22,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 78.3vh;
-    max-height: 80vh;
+    min-height: 100vh;
     padding: 0;
-    background-position: center 50%;
+    margin: 0;
   }
 
-  .row {
+  .row { 
     display: flex;
   }
 

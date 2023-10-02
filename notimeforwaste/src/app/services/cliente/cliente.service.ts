@@ -59,8 +59,8 @@ export class ClienteService {
   }
 
   // Método para atualizar um cliente
-  put(id: number, cliente: Cliente): Observable<Cliente> {
-    const url = `${this.url}/${id}`;
+  put(cliente: Cliente): Observable<Cliente> {
+    const url = `${this.url}/${cliente.idCliente}`;
     return this.httpClient.put<Cliente>(url, cliente, this.httpHeaders)
       .pipe(
         catchError(this.handleError)

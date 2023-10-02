@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Endereco } from 'src/app/model/endereco';
 
 @Component({
   selector: 'app-novo-endereco',
@@ -9,38 +10,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NovoEnderecoPage implements OnInit {
 
 
-  uf?: String;
-  bairro?: String;
-  cep?: String;
-  rua?: String;
-  numero?: String;
-  complemento?: String;
+  endereco: Endereco;
   formGroup: FormGroup;
-  
+
   constructor(private fBuilder: FormBuilder) {
+    this.endereco = new Endereco();
     this.formGroup = this.fBuilder.group(
       {
-        'cep': [this.cep, Validators.compose([
+        'cep': [this.endereco.cep, Validators.compose([
           Validators.required])],
-        'uf': [this.uf, Validators.compose([
+        'uf': [this.endereco.estado, Validators.compose([
           Validators.required,
         ])],
-        'bairro': [this.bairro, Validators.compose([
+        'bairro': [this.endereco.bairro, Validators.compose([
           Validators.required
         ])],
-        'rua': ['', Validators.compose([
+        'rua': [this.endereco.rua, Validators.compose([
           Validators.required
         ])],
-        'numero': ['', Validators.compose([
+        'numero': [this.endereco.numero, Validators.compose([
           Validators.required
         ])],
-        'complemento': ['', Validators.compose([
+        'complemento': [this.endereco.complemento, Validators.compose([
+          Validators.required
+        ])],
+        'cidade': [this.endereco.cidade, Validators.compose([
           Validators.required
         ])]
       }
     );
   }
-   
+
 
   ngOnInit() {
   }
