@@ -17,8 +17,8 @@ export class EditarContaPage implements OnInit {
   foto: Foto;
 
   constructor(private fotoService: FotoService, private toastController: ToastController, private empresaService: EmpresaService, private navController: NavController, private fBuilder: FormBuilder) {
-    this.empresa = this.empresaService.getEmpresa();
-    console.log(this.empresaService.getEmpresa())
+    this.empresa = this.empresaService.getEmpresaLogada();
+    console.log(this.empresaService.getEmpresaLogada())
     this.foto = new Foto();
     this.formGroup = this.fBuilder.group(
       {
@@ -38,15 +38,16 @@ export class EditarContaPage implements OnInit {
    }
 
   ngOnInit() {
-    this.fotoService.get(this.empresa.idEmpresa).subscribe(
-      foto => {
-        console.log('Foto obtida com sucesso:', foto);
-        this.foto = foto;
-      },
-      error => {
-        console.error('Erro ao obter a foto:', error);
-      }
-    );
+    // this.fotoService.get(this.empresa.idEmpresa).subscribe(
+    //   foto => {
+    //     console.log('Foto obtida com sucesso:', foto);
+    //     this.foto = foto;
+    //     this.foto.fotoUrl = this.foto.fotoUrl.replace(/\\\\/g, '\\');
+    //   },
+    //   error => {
+    //     console.error('Erro ao obter a foto:', error);
+    //   }
+    // );
     
   }
 
@@ -55,20 +56,20 @@ export class EditarContaPage implements OnInit {
       return;
     }
   
-    this.empresaService.update(this.empresa!).then((response: any) => {
-      if (response.status === 200) {
-        this.empresa = <Empresa>(response.body)
-        this.empresaService.setEmpresa(this.empresa); 
-        this.exibirMensagem('Alterado com sucesso!');
-        console.log(this.empresa)
-      } else  {
-        this.exibirMensagem(response.error);
-      } 
-    }).catch((erro) => {
-      this.exibirMensagem("Erro ao alterar!");
-    });
+    // this.empresaService.update(this.empresa!).then((response: any) => {
+    //   if (response.status === 200) {
+    //     this.empresa = <Empresa>(response.body)
+    //     this.empresaService.setEmpresaLogada(this.empresa); 
+    //     this.exibirMensagem('Alterado com sucesso!');
+    //     console.log(this.empresa)
+    //   } else  {
+    //     this.exibirMensagem(response.error);
+    //   } 
+    // }).catch((erro) => {
+    //   this.exibirMensagem("Erro ao alterar!");
+    // });
 
-    this.fotoService.update(this.foto);
+    // this.fotoService.update(this.foto);
   }
   
   

@@ -8,6 +8,7 @@ import { PacotePageRoutingModule } from './pacote-routing.module';
 
 import { PacotePage } from './pacote.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     IonicModule,
     PacotePageRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterLink
   ],
   declarations: [PacotePage]
 })

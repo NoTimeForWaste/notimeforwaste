@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Observable, catchError, of, throwError } from 'rxjs';
+import { Pedido } from '../model/pedido';
+import { PedidoResponse } from '../model/response/pedido-response';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,25 +19,51 @@ export class PedidoService {
 
   constructor(private httpClient: HttpClient, private router: Router, private toastr: ToastController) { }
 
-  // Método para buscar pedidos por idEmpresa
-  getPedidosByIdEmpresa(idEmpresa: number) {
-    return new Promise((resolve, reject) => {
-      this.httpClient.get(`${this.url}/empresa/${idEmpresa}`, this.httpHeaders).subscribe({
-        next: data => resolve(data),
-        error: error => reject(error)
-      });
-    });
+  save(pedido: Pedido): Observable<Pedido> {
+    return this.httpClient.post<Pedido>(`${this.url}`, pedido, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  // Método para buscar pedidos por idCliente
-  getPedidosByIdCliente(idCliente: number) {
-    return new Promise((resolve, reject) => {
-      this.httpClient.get(`${this.url}/cliente/${idCliente}`, this.httpHeaders).subscribe({
-        next: data => resolve(data),
-        error: error => reject(error)
-      });
-    });
+  updateStatus(id: number, status: string): Observable<string> {
+    return this.httpClient.put<string>(`${this.url}/${id}`, status, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
+
+  getById(id: number): Observable<Pedido> {
+    return this.httpClient.get<Pedido>(`${this.url}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getByEmpresaId(idEmpresa: number): Observable<PedidoResponse[]> {
+    return this.httpClient.get<PedidoResponse[]>(`${this.url}/empresa/${idEmpresa}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getByClienteId(idCliente: number): Observable<PedidoResponse[]> {
+    return this.httpClient.get<PedidoResponse[]>(`${this.url}/cliente/${idCliente}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Tratamento de erro genérico
+  private handleError(error: any) {
+    if (error.status === 404 || error.status === 409) {
+      return of(error);
+    } else {
+      console.error('Ocorreu um erro:', error);
+      return throwError('Erro! Status do código: ' + error);
+    }
+  }
+
 }
 
 

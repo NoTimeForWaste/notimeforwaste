@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Cliente } from 'src/app/model/cliente';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -12,49 +12,88 @@ export class ClienteService {
 
 
   httpHeaders = {
-    headers: new HttpHeaders({'Content-Type':'application/json'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
   ///api/notimeforwaste/empresa
 
- private url = environment.api_url + "/cliente";
- private cliente: Cliente;
+  private url = environment.api_url + "/cliente";
+  private cliente: Cliente;
 
   constructor(private httpClient: HttpClient, private router: Router) {
     this.cliente = new Cliente();
 
   }
-
-  async login(email: String, senha: String){
-    let urlAuxiliar = this.url + "/login/" + email + "/" + senha;
-    return await this.httpClient.get(urlAuxiliar, { observe: 'response' }).pipe(
-      catchError(error => {
-        // Retorna apenas os erros 404 e 409 como uma resposta bem-sucedida
-        if (error.status === 404 || error.status === 409) {
-          return of(error);
-        }
-        // Para todos os outros erros, rejeita a promessa
-        return throwError(error);
-      })
-    ).toPromise();
+  // Método para criar um cliente
+  post(cliente: Cliente): Observable<Cliente> {
+    return this.httpClient.post<Cliente>(this.url, cliente, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  post(cliente: Cliente): Promise<any> {
-    return this.httpClient
-      .post(this.url, cliente, this.httpHeaders)
-      .toPromise()
-      .catch(this.handleError);
+  // Método para fazer login
+  login(email: string, senha: string): Observable<HttpResponse<Cliente>> {
+    const url = `${this.url}/login/${email}/${senha}`;
+    return this.httpClient.get<Cliente>(url, { observe: 'response' })
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  private handleError(error: any): Promise<any> {
-    console.error('Erro na solicitação:', error);
-    return Promise.reject(error);
+  // Método para obter um cliente por ID
+  getById(id: number): Observable<Cliente> {
+    const url = `${this.url}/${id}`;
+    return this.httpClient.get<Cliente>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
-  
-  getCliente(): Cliente {
-    return this.cliente;
+
+  // Método para obter um cliente por e-mail
+  getByEmail(email: string): Observable<Cliente> {
+    const url = `${this.url}/${email}`;
+    return this.httpClient.get<Cliente>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
- 
-  setCliente(cliente: Cliente): void {
+
+  // Método para atualizar um cliente
+  put(id: number, cliente: Cliente): Observable<Cliente> {
+    const url = `${this.url}/${id}`;
+    return this.httpClient.put<Cliente>(url, cliente, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  existsByEmail(email: string): Observable<number> {
+    const url = `${this.url}/existsbyemail/${email}`;
+    return this.httpClient.get<number>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Tratamento de erro genérico
+  private handleError(error: any) {
+    if (error.status === 404 || error.status === 409) {
+      return of(error);
+    } else {
+      console.error('Ocorreu um erro:', error);
+      return throwError('Erro! Status do código: ' + error);
+    }
+  }
+
+
+  getClienteLogado(): Cliente {
+    let cliente = JSON.parse(localStorage.getItem('Cliente') || '[]') as Cliente;
+    return cliente;
+  }
+
+  setClienteLogado(cliente: Cliente): void {
+    localStorage.setItem('Cliente', JSON.stringify(cliente));
     this.cliente = cliente;
   }
+
 }
