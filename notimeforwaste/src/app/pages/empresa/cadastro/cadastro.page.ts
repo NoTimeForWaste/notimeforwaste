@@ -295,6 +295,7 @@ export class CadastroPage implements OnInit {
           this.empresa.idEndereco = this.endereco.idEndereco;
           this.fotoService.post(this.foto.document!).subscribe((foto) => {
             this.foto = <Foto>(foto);
+            console.log(this.foto.fotoUrl);
             this.empresa.idFoto = this.foto.idFoto;
             this.empresa.senha = this.formGroup.value.senha;
             this.empresa.email = this.formGroup.value.email;
@@ -302,6 +303,23 @@ export class CadastroPage implements OnInit {
             this.empresaService.post(this.empresa).subscribe((empresa) => {
               this.empresa = <Empresa>(empresa);
               console.log(empresa);
+              this.horarios.forEach(horario => {
+                horario.idEmpresa = this.empresa.idEmpresa;
+                console.log(horario.timeToString(horario.horarioInicial));
+                const data = {
+                  nome: horario.nome,
+                  horarioInicial: horario.timeToString(horario.horarioInicial),
+                  horarioFinal: horario.timeToString(horario.horarioFinal),
+                  idEmpresa: this.empresa.idEmpresa
+                };
+                this.empresaService.saveHorarioFuncionamento(data).subscribe((horario) => {
+
+                }, (error) => {
+                  console.log(error)
+                });
+              });
+              this.exibirMensagem("Empresa cadastrada com sucesso!")
+              this.navController.navigateBack("/empresa/login");
             },
               (error) => {
                 console.error('Erro ao cadastrar empresa:', error);
@@ -318,20 +336,6 @@ export class CadastroPage implements OnInit {
             this.exibirMensagem('Erro ao cadastrar endereço. Empresa não cadastrada!');
           })
       })
-    }
-    try{
-      this.horarios.forEach(horario => {
-        horario.idEmpresa = this.empresa.idEmpresa;
-        const data = {
-          nome: horario.nome,
-          horarioInicial: horario.timeToString(horario.horarioInicial),
-          horarioFinal: horario.timeToString(horario.horarioFinal),
-          idEmpresa: this.empresa.idEmpresa
-        };
-        this.empresaService.saveHorarioFuncionamento(data);
-      });
-    }catch (erro){
-      console.log(erro);
     }
   }
 

@@ -65,8 +65,8 @@ export class FotoService {
   }
 
   // Método para atualizar uma foto
-  put(id: number, document: File): Observable<Foto> {
-    return this.httpClient.put<Foto>(`${this.url}/${id}`, document)
+  put(id: number, newDocument: File): Observable<Foto> {
+    return this.httpClient.put<Foto>(`${this.url}/${id}`, newDocument)
       .pipe(
         catchError(this.handleError)
       );

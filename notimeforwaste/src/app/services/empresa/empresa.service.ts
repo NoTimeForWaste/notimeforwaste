@@ -36,13 +36,23 @@ export class EmpresaService {
   }
 
   // Método para atualizar uma empresa
-  put(id: number, empresa: Empresa): Observable<Empresa> {
-    const url = `${this.url}/${id}`;
-    return this.httpClient.put<Empresa>(url, empresa, this.httpHeaders)
+  put(empresa: Empresa): Observable<HttpResponse<Empresa>> {
+    const url = `${this.url}/${empresa.idEmpresa}`;
+    return this.httpClient.put<Empresa>(url, empresa, { observe: 'response' })
       .pipe(
         catchError(this.handleError)
       );
   }
+
+  //Método para fazer login 
+  login(email: string, senha: string): Observable<HttpResponse<Empresa>> {
+    const url = `${this.url}/login/${email}/${senha}`;
+    return this.httpClient.get<Empresa>(url, { observe: 'response' })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
 
   // Método para obter uma empresa por ID
   findById(id: number): Observable<Empresa> {
@@ -88,14 +98,6 @@ export class EmpresaService {
       );
   }
 
-    //Método para fazer login 
-    login(email: string, senha: string): Observable<HttpResponse<Empresa>> {
-      const url = `${this.url}/login/${email}/${senha}`;
-      return this.httpClient.get<Empresa>(url, { observe: 'response' })
-        .pipe(
-          catchError(this.handleError)
-        );
-    }
 
   //Método para retornar a empresa logada no sistema
   getEmpresaLogada(): Empresa {

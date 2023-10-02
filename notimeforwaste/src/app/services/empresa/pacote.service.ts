@@ -43,14 +43,20 @@ export class PacoteService {
       );
   }
 
-  postFormaEntrega(formasEntrega: PacoteFormaEntrega) {
-    let url = this.url + "/formaentrega";
-    return this.httpClient.post<FormaEntrega>(url, formasEntrega, this.httpHeaders);
+  postFormaEntrega(formasEntrega: PacoteFormaEntrega): Observable<PacoteFormaEntrega> {
+    let url = this.url + "/formaentrega/bypacote";
+    return this.httpClient.post<PacoteFormaEntrega>(`${url}`, formasEntrega, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  postFormaPagamento(formaPagamento: PacoteFormaPagamento) {
-    let url = this.url + "/formapagamento";
-    return this.httpClient.post<FormaPagamento>(url, formaPagamento, this.httpHeaders);
+  postFormaPagamento(formaPagamento: PacoteFormaPagamento): Observable<PacoteFormaPagamento> {
+    let url = this.url + "/formapagamento/bypacote";
+    return this.httpClient.post<PacoteFormaPagamento>(`${url}`, formaPagamento, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   // Método para salvar um novo produto
@@ -62,6 +68,14 @@ export class PacoteService {
       );
   }
 
+   // Método para deletar um pacote
+   deleteProduto(id: number): Observable<any> {
+    let url = this.url + "/produto"
+    return this.httpClient.delete(`${url}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
   // Método para salvar um novo pacote
   postPacote(pacote: Pacote): Observable<Pacote> {
@@ -80,8 +94,8 @@ export class PacoteService {
   }
 
   // Método para buscar pacote por ID
-  getPacoteById(id: number): Observable<Pacote> {
-    return this.httpClient.get<Pacote>(`${this.url}/${id}`)
+  getPacoteById(id: number): Observable<PacoteResponse> {
+    return this.httpClient.get<PacoteResponse>(`${this.url}/${id}`)
       .pipe(
         catchError(this.handleError)
       );
@@ -104,14 +118,14 @@ export class PacoteService {
   }
 
   // Método para atualizar um pacote
-  putPacote(id: number, pacote: Pacote): Observable<Pacote> {
-    return this.httpClient.put<Pacote>(`${this.url}/${id}`, pacote, this.httpHeaders)
+  putPacote(pacote: Pacote): Observable<Pacote> {
+    return this.httpClient.put<Pacote>(`${this.url}/${pacote.idPacote}`, pacote, this.httpHeaders)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  
+
   postPacoteFormaEntrega(pacoteFormaEntrega: PacoteFormaEntrega): Observable<PacoteFormaEntrega> {
     let apiUrl = this.url + '/formaentrega';
     return this.httpClient.post<PacoteFormaEntrega>(apiUrl, pacoteFormaEntrega, this.httpHeaders)
@@ -129,13 +143,13 @@ export class PacoteService {
       );
   }
 
-  
+
   deletePacoteFormaEntrega(pacoteFormaEntrega: PacoteFormaEntrega): Observable<any> {
     let apiUrl = this.url + '/formaentrega';
     return this.httpClient.request<PacoteFormaEntrega>('delete', apiUrl, { body: pacoteFormaEntrega })
-    .pipe(
-      catchError(this.handleError)
-    );
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   postPacoteFormaPagamento(pacoteFormaPagamento: PacoteFormaPagamento): Observable<PacoteFormaPagamento> {
@@ -155,13 +169,13 @@ export class PacoteService {
       );
   }
 
-  
+
   deletePacoteFormaPagamento(pacoteFormaPagamento: PacoteFormaPagamento): Observable<any> {
     let apiUrl = this.url + '/formapagamento';
     return this.httpClient.request<PacoteFormaPagamento>('delete', apiUrl, { body: pacoteFormaPagamento })
-    .pipe(
-      catchError(this.handleError)
-    );
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
 

@@ -6,6 +6,7 @@ import { Foto } from 'src/app/model/foto';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { FotoService } from 'src/app/services/foto.service';
 
+
 @Component({
   selector: 'app-editar-conta',
   templateUrl: './editar-conta.page.html',
@@ -35,49 +36,56 @@ export class EditarContaPage implements OnInit {
           Validators.required
         ])],
       });
-   }
+  }
 
   ngOnInit() {
-    // this.fotoService.get(this.empresa.idEmpresa).subscribe(
-    //   foto => {
-    //     console.log('Foto obtida com sucesso:', foto);
-    //     this.foto = foto;
-    //     this.foto.fotoUrl = this.foto.fotoUrl.replace(/\\\\/g, '\\');
-    //   },
-    //   error => {
-    //     console.error('Erro ao obter a foto:', error);
-    //   }
-    // );
-    
+    this.fotoService.getById(this.empresa.idFoto).subscribe(
+      foto => {
+        console.log('Foto obtida com sucesso:', foto);
+        this.foto = foto;    
+      },
+      error => {
+        console.error('Erro ao obter a foto:', error);
+      }
+    );
+
   }
 
   salvar() {
     if (!this.isValid()) {
       return;
     }
-  
-    // this.empresaService.update(this.empresa!).then((response: any) => {
-    //   if (response.status === 200) {
-    //     this.empresa = <Empresa>(response.body)
-    //     this.empresaService.setEmpresaLogada(this.empresa); 
-    //     this.exibirMensagem('Alterado com sucesso!');
-    //     console.log(this.empresa)
-    //   } else  {
-    //     this.exibirMensagem(response.error);
-    //   } 
-    // }).catch((erro) => {
-    //   this.exibirMensagem("Erro ao alterar!");
-    // });
+    this.empresaService.put(this.empresa!).subscribe((resposne) => {
+      if(resposne.status === 200){
+        this.exibirMensagem("Alteração feita com sucesso!")
+        this.empresa = <Empresa>(resposne.body);
+        this.empresaService.setEmpresaLogada(this.empresa);
+      }else if(resposne.status == 404){
+        this.exibirMensagem("Sessão expirada! Faça login antes de continuar.")
+        this.empresaService.setEmpresaLogada(new Empresa());
+        this.navController.navigateBack("empresa/login");
+      }else{
+        this.exibirMensagem("Erro ao alterar.")
+      }
+    }, (error) => {
+      this.exibirMensagem("Erro ao alterar.");
+      console.log("Erro ao alterar: "+error)
+    });
 
-    // this.fotoService.update(this.foto);
+    this.fotoService.put(this.foto.idFoto, this.foto.document!).subscribe((response) => {
+
+    }, (error) => {
+      this.exibirMensagem("Erro ao alterar foto.")
+      console.log(error)
+    });
   }
-  
-  
-  isValid(): boolean{
+
+
+  isValid(): boolean {
     let nmEmpresa = this.formGroup.value.nmEmpresa;
     let telefone = this.formGroup.value.telefone;
 
-    if(nmEmpresa != "" && telefone != ""){
+    if (nmEmpresa != "" && telefone != "") {
       this.empresa.telefone = telefone;
       this.empresa.nmEmpresa = nmEmpresa;
       return true;

@@ -21,19 +21,25 @@
             <ion-item lines="none">
               <ion-label position="stacked">Email</ion-label>
               <div class="input-border ">
-                <ion-input formControlName="email" type="email" placeholder="Digite swu e-mail" class="custom"></ion-input>
+                <ion-input formControlName="email" type="email" placeholder="Digite swu e-mail"
+                  class="custom"></ion-input>
               </div>
             </ion-item>
             <br />
             <ion-item lines="none">
               <ion-label position="stacked">Senha</ion-label>
-              <div class="input-border ">
-                <ion-input type="password" formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
+              <div class="input-border" style="position: relative;">
+                <ion-input [type]="isTextFieldType ? 'text' : 'password'" formControlName="senha"
+                  placeholder="Digite sua senha" class="custom"></ion-input>
+                <button (click)="togglePasswordFieldType()"
+                  style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background-color: white;">
+                  <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'"></ion-icon>
+                </button>
               </div>
             </ion-item>
             <br />
             <div class="area-button">
-              <ion-button [disabled]="!formGroup.valid" type="submit">ENTRAR</ion-button>
+              <ion-button [disabled]="!formGroup.valid" type="button">ENTRAR</ion-button>
             </div>
           </form>
           <p>Não tem uma conta? <a [routerLink]="['/empresa/cadastro']">Cadastre-se</a></p>

@@ -15,10 +15,13 @@ export class LoginPage implements OnInit {
   senha?: string;
   formGroup: FormGroup;
   empresa: Empresa;
+  isTextFieldType: boolean;
+
 
 
   constructor(private empresaService: EmpresaService, private fBuilder: FormBuilder, private toastController: ToastController, private navController: NavController) {
     this.empresa = new Empresa();
+    this.isTextFieldType = false;
     this.formGroup = this.fBuilder.group(
       {
         'email': [this.email, Validators.compose([
@@ -32,6 +35,10 @@ export class LoginPage implements OnInit {
       }
     );
   }
+
+  togglePasswordFieldType(){
+    this.isTextFieldType = !this.isTextFieldType;
+  } 
 
   async logar() {
     this.email = this.formGroup.value.email;

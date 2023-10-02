@@ -41,7 +41,7 @@
     <p class="sub-title">Produtos</p>
     <div class="form-product-card">
       <div class="area-icons-form ">
-        <fa-icon (click)="salvarProduto()" icon="save" class="fa-lg"></fa-icon>
+        <fa-icon (click)="addProduto()" icon="save" class="fa-lg"></fa-icon>
       </div>
       <div class="row">
         <ion-item lines="none" class="col-3">
@@ -70,7 +70,7 @@
       <div class="card-title">
         <h1>{{produto.nmProduto}}</h1>
         <div class="card-icons">
-          <fa-icon icon="xmark" (click)="deletarProduto(i)" class="fa-lg"></fa-icon>
+          <fa-icon icon="xmark" (click)="removerProduto(i)" class="fa-lg"></fa-icon>
         </div>
       </div>
       <p>{{produto.descricao}}o</p>

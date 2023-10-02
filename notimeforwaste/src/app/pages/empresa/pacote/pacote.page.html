@@ -14,7 +14,7 @@
       </a>
     </div>
 
-    <div class="card" *ngFor="let pacote of pacotes">
+    <div class="card" *ngFor="let pacote of pacotes; index as i">
       <img class="card-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
       <div class="card-content">
         <div class="card-title">
@@ -23,10 +23,10 @@
             <fa-icon class="custom-icon" (click)="deletar(pacote.idPacote)" icon="trash-can"></fa-icon>
           </div>
         </div>
-        <p class="card-paragraph">  Description line 1......</p>
+        <p class="card-paragraph"> {{nmProdutosToString(i)}}</p>
         <div class="card-bottom">
           <p class="card-price">R${{pacote.preco}}</p>
-          <button class="card-button-view">  <fa-icon icon="chevron-right"></fa-icon></button>
+          <button [routerLink]="['/empresa/editar-pacote/', pacote.idPacote]" class="card-button-view">  <fa-icon icon="chevron-right"></fa-icon></button>
         </div>
       </div>
     </div>

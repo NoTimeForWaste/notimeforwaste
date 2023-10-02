@@ -36,7 +36,7 @@ export class LoginClientePage implements OnInit {
 
   togglePasswordFieldType(){
     this.isTextFieldType = !this.isTextFieldType;
-  }
+  } 
 
   async logar() {
 

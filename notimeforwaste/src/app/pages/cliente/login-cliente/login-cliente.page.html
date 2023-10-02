@@ -36,15 +36,10 @@
                 <div class="input-border" style="position: relative;">
                   <ion-input [type]="isTextFieldType ? 'text' : 'password'" formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
                   <button (click)="togglePasswordFieldType()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background-color: white;">
-                    <!--
-                    Os valores 'eye-off' e 'eye' são nomes de ionicons.
-                    -->
                     <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'" ></ion-icon>
                   </button> 
                 </div>
-              </ion-item>
-              
-              
+              </ion-item>     
               <br />
               <div class="area-button">
                 <ion-button [disabled]="!formGroup.valid" type="submit">ENTRAR</ion-button>
