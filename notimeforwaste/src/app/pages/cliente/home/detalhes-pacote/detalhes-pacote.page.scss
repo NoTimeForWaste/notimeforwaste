@@ -10,7 +10,7 @@
 
 .custom-paragraph{
     font-size: 20;
-    font-family: Ebrown Regular;
+    font-family: Embrown Regular;
 } 
   
 #share-icon{
@@ -19,9 +19,13 @@
 }
 
 .card-price {
-    color: var(--laranjaLogo);
+   color: var(--laranjaLogo);
     font-size: 18px;
     text-align: right;
+}
+
+.card-price-font{
+    font-family: Inter SemiBold;
 }
 
 .right {
@@ -42,7 +46,7 @@
 
 h1{
     font-size: 20px;
-    font-style: Inter;
+    font-style: Inter Bold;
 }
 
 h3{
@@ -56,6 +60,10 @@ h3{
     text-align: right;
     color: var(--laranjaLogo);
     padding-right: 5px;
+}
+
+.description-font{
+    font-family: Inter SemiBold;
 }
 
 .card {
