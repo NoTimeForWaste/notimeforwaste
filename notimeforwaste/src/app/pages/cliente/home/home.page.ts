@@ -45,28 +45,26 @@ export class HomePage implements OnInit {
   }
 
   async carregarLista() {
-    this.exibirLoader();
     await this.carregarPacotes();
-    this.fecharLoader();
   }
 
 
-  exibirLoader() {
-    this.loadingController.create({
-      message: 'Carregando...'
-    }).then((res) => {
-      res.present();
-    })
-  }
+  // exibirLoader() {
+  //   this.loadingController.create({
+  //     message: 'Carregando...'
+  //   }).then((res) => {
+  //     res.present();
+  //   })
+  // }
 
-  fecharLoader() {
-    setTimeout(() => {
-      this.loadingController.dismiss().then(() => {
-      }).catch((erro) => {
-        console.log('Erro: ', erro)
-      });
-    }, 500);
-  }
+  // fecharLoader() {
+  //   setTimeout(() => {
+  //     this.loadingController.dismiss().then(() => {
+  //     }).catch((erro) => {
+  //       console.log('Erro: ', erro)
+  //     });
+  //   }, 500);
+  // }
 
 
 }

@@ -8,7 +8,6 @@
 </ion-header>
 
 
-<ion-content> 
   <div class="background">
     <div class="area-card">
       <div class="big-card-custom">
@@ -73,11 +72,10 @@
             </div>
             <br />
             <div class="area-button">
-              <ion-button type="submit">SALVAR</ion-button>
+              <ion-button [disabled]="formGroup.invalid" (click)="salvar()" type="submit">SALVAR</ion-button>
             </div>
           </form>
         </ion-card-content>
       </div>
     </div>
   </div>
-</ion-content>

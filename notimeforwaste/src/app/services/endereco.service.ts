@@ -43,8 +43,8 @@ export class EnderecoService {
   }
 
   // Método para atualizar um endereço
-  put(id: number, endereco: Endereco): Observable<Endereco> {
-    return this.httpClient.put<Endereco>(`${this.url}/${id}`, endereco, this.httpHeaders)
+  put(endereco: Endereco): Observable<Endereco> {
+    return this.httpClient.put<Endereco>(`${this.url}/${endereco.idEndereco}`, endereco, this.httpHeaders)
       .pipe(
         catchError(this.handleError)
       );

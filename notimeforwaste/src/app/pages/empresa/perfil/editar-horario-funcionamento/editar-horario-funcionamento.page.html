@@ -69,7 +69,7 @@
           <br />
 
           <div class="area-button">
-            <ion-button type="submit">SALVAR</ion-button>
+            <ion-button [disabled]="formGroup.invalid" (click)="salvar()" type="submit">SALVAR</ion-button>
           </div>
         </form>
       </ion-card-content>

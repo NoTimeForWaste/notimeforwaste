@@ -109,7 +109,7 @@ export class EditarContaPage implements OnInit {
     const toast = await this.toastController.create({
       message: texto,
       duration: 1500
-    });
+    }); 
     toast.present();
   }
 

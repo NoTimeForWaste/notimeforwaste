@@ -144,13 +144,11 @@ export class NovoPacotePage implements OnInit {
   }
 
   removerProduto(index: number) {
-    if (this.inputs.idPacote > 0) {
-      for (let produto of this.pacoteExistente.produtos) {
-        if (produto.idProduto === index) {
-          this.produtosToDelete.push(produto);
-        }
-      }
+    let produto = this.inputs.produtos[index];
+    if (produto.idProduto > 0) {
+      this.produtosToDelete.push(produto);
     }
+
     if (index < this.inputs.produtos.length && index >= 0) {
       this.inputs.produtos.splice(index, 1);
     }

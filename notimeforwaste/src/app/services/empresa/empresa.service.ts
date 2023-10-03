@@ -136,8 +136,9 @@ export class EmpresaService {
   }
 
   // Método para atualizar um horário de funcionamento
-  updateHorarioFuncionamento(id: number, horario: HorarioFuncionamento): Observable<HorarioFuncionamento> {
-    return this.httpClient.put<HorarioFuncionamento>(`${this.urlHorarioFuncionamento}/${id}`, horario, this.httpHeaders)
+  updateHorarioFuncionamento( horario: HorarioFuncionamento): Observable<HorarioFuncionamento> {
+    console.log(horario)
+    return this.httpClient.put<HorarioFuncionamento>(`${this.urlHorarioFuncionamento}/${horario.idHorario}`, horario)
       .pipe(
         catchError(this.handleError)
       );

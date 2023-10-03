@@ -3,31 +3,17 @@ import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/f
 import { ActivatedRoute } from '@angular/router';
 import { ToastController, NavController, AlertController, ModalController } from '@ionic/angular';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
-import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Empresa } from 'src/app/model/empresa';
 import { Endereco } from 'src/app/model/endereco';
 import { HorarioFuncionamento } from 'src/app/model/horario-funcionamento';
-import { tick } from '@angular/core/testing';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, debounceTime, switchMap, throwError } from 'rxjs';
+import {  debounceTime } from 'rxjs';
 import { FotoService } from 'src/app/services/foto.service';
 import { Foto } from 'src/app/model/foto';
 import { ValidatorsService } from 'src/app/services/validators.service';
-import { Time } from '@angular/common';
 import { EnderecoService } from 'src/app/services/endereco.service';
+import { IEndereco } from 'src/app/types/IEndereco';
 
-interface IEndereco {
-  cep: string;
-  logradouro: string;
-  complemento: string;
-  bairro: string;
-  localidade: string;
-  uf: string;
-  ibge: string;
-  gia: string;
-  ddd: string;
-  siafi: string;
-}
 
 @Component({
   selector: 'app-cadastro',
@@ -294,7 +280,9 @@ export class CadastroPage implements OnInit {
           this.endereco = <Endereco>(endereco);
           this.empresa.idEndereco = this.endereco.idEndereco;
           this.fotoService.post(this.foto.document!).subscribe((foto) => {
-            this.foto = <Foto>(foto);
+            //Para não setar a url da foto (daria erro no preview de foto)
+            let aux = <Foto>(foto);
+            this.foto.idFoto = aux.idFoto;
             console.log(this.foto.fotoUrl);
             this.empresa.idFoto = this.foto.idFoto;
             this.empresa.senha = this.formGroup.value.senha;
@@ -305,11 +293,11 @@ export class CadastroPage implements OnInit {
               console.log(empresa);
               this.horarios.forEach(horario => {
                 horario.idEmpresa = this.empresa.idEmpresa;
-                console.log(horario.timeToString(horario.horarioInicial));
+                console.log(HorarioFuncionamento.timeToString(horario.horarioInicial));
                 const data = {
                   nome: horario.nome,
-                  horarioInicial: horario.timeToString(horario.horarioInicial),
-                  horarioFinal: horario.timeToString(horario.horarioFinal),
+                  horarioInicial: HorarioFuncionamento.timeToString(horario.horarioInicial),
+                  horarioFinal: HorarioFuncionamento.timeToString(horario.horarioFinal),
                   idEmpresa: this.empresa.idEmpresa
                 };
                 this.empresaService.saveHorarioFuncionamento(data).subscribe((horario) => {
