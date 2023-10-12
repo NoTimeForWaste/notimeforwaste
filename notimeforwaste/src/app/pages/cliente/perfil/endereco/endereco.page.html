@@ -8,117 +8,31 @@
 </ion-header>
 
 <ion-content>
-
   <div class="body">
     <div class="background">
-      <div class="card">
+
+      <div class="card" *ngFor="let endereco of enderecos">
         <div class="card-content">
           <div class="card-title">
-            Apelido Name
+           {{endereco.apelido}}
             <div class="card-icon">
-              <a routerLink="/cliente/endereco/novo-endereco">
+              <a [routerLink]="['/cliente/editar-endereco/', endereco.idEndereco]">
                 <img src="../../../../../assets/icon/iconLapis.svg" alt="">
               </a>
             </div>
           </div>
           <div>
             <p class="card-paragraph">
-              Rua, n°, Bairro, Cidade - UF/Complemento
+             {{enderecoToString(endereco)}}
             </p>
-          </div>
-        </div> 
-      </div>
-  
-     
-  
-      <div class="card">
-        <div class="card-content">
-          <div class="card-title">
-            Apelido Name
-            <div class="card-icon">
-              <a routerLink="/cliente/endereco/novo-endereco">
-                <img src="../../../../../assets/icon/iconLapis.svg" alt="">
-              </a>
-            </div>
-          </div>
-  
-          <div>
-            <p class="card-paragraph">Rua, n°, Bairro, Cidade - UF/Complemento</p>
-          </div>
-        </div> 
-      </div>
-  
-      <div class="card">
-        <div class="card-content">
-          <div class="card-title">
-            Apelido Name
-            <div class="card-icon">
-              <a routerLink="/cliente/endereco/novo-endereco">
-                <img src="../../../../../assets/icon/iconLapis.svg" alt="">
-              </a>
-            </div>
-          </div>
-  
-          <div>
-            <p class="card-paragraph">Rua, n°, Bairro, Cidade - UF/Complemento</p>
-          </div>
-        </div> 
-      </div>
-  
-      <div class="card">
-        <div class="card-content">
-          <div class="card-title">
-            Apelido Name
-            <div class="card-icon">
-              <a routerLink="/cliente/endereco/novo-endereco">
-                <img src="../../../../../assets/icon/iconLapis.svg" alt="">
-              </a>
-            </div>
-          </div>
-  
-          <div>
-            <p class="card-paragraph">Rua, n°, Bairro, Cidade - UF/Complemento</p>
-          </div>
-        </div> 
-      </div>
-  
-      <div class="card">
-        <div class="card-content">
-          <div class="card-title">
-            Apelido Name
-            <div class="card-icon">
-              <a routerLink="/cliente/endereco/novo-endereco">
-                <img src="../../../../../assets/icon/iconLapis.svg" alt="">
-              </a>
-            </div>
-          </div>
-  
-          <div>
-            <p class="card-paragraph">Rua, n°, Bairro, Cidade - UF/Complemento</p>
-          </div>
-        </div> 
-      </div>
-  
-      <div class="card">
-        <div class="card-content">
-          <div class="card-title">
-            Apelido Name
-            <div class="card-icon">
-              <a routerLink="/cliente/endereco/novo-endereco">
-                <img src="../../../../../assets/icon/iconLapis.svg" alt="">
-              </a>
-            </div>
-          </div>
-  
-          <div>
-            <p class="card-paragraph">Rua, n°, Bairro, Cidade - UF/Complemento</p>
           </div>
         </div> 
       </div>  
     </div>
   </div>
-  
-  
-
-
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/cliente/novo-endereco">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

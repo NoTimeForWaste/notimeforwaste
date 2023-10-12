@@ -4,6 +4,8 @@ import { Cliente } from 'src/app/model/cliente';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { Observable, catchError, of, throwError } from 'rxjs';
+import { IClienteEndereco } from 'src/app/types/IClienteEndereco';
+import { Endereco } from 'src/app/model/endereco';
 
 @Injectable({
   providedIn: 'root'
@@ -94,6 +96,23 @@ export class ClienteService {
   setClienteLogado(cliente: Cliente): void {
     localStorage.setItem('Cliente', JSON.stringify(cliente));
     this.cliente = cliente;
+  }
+
+  //Salvar o endereço (cliente_endereço) de um cliente
+  postClienteEndereco(clienteEndereco: IClienteEndereco): Observable<IClienteEndereco> {
+    let url = this.url + "/endereco"
+    return this.httpClient.post<Cliente>(url, clienteEndereco, this.httpHeaders)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getEnderecosByIdCliente(idCliente: number): Observable<Endereco[]> {
+    let url = this.url + "/endereco"
+    return this.httpClient.get<Endereco[]>(`${url}/${idCliente}/enderecosbycliente`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
 }
