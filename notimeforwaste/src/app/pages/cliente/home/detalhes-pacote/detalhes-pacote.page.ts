@@ -17,18 +17,26 @@ export class DetalhesPacotePage implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  async ionViewWillEnter() {
     let id = this.activatedRoute.snapshot.params['idPacote'];
     if (id != null) {
+      console.log(id)
       this.getPacote(parseInt(id));
     } else {
       this.navController.navigateBack("/cliente/home")
     }
   }
-
+  
   getPacote(id: number) {
-    this.pacoteService.getPacoteById(id).subscribe((pacote) => {
+     this.pacoteService.getPacoteById(id).subscribe((pacote) =>{
       this.pacote = <PacoteResponse>(pacote);
-      console.log(this.pacote);
+      console.log(pacote);
+    }, (error)=>{
+      console.log(error);
+
     });
   }
 

@@ -7,7 +7,9 @@ const routes: Routes = [
   {
     path: '',
     component: DetalhesPacotePage
-  }
+  },
+ 
+
 ];
 
 @NgModule({

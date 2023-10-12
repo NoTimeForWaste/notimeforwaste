@@ -1,13 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>novo-pedido</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-toolbar-top">
+    <ion-title>Pedido</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()" text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">novo-pedido</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div>
+    <div id="custom-banner">
+      <div> <img src="../../../../assets/imgs/imagePacote.png"> </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>Forma de Pagamento</label>
+    <select name="select">
+      <option value="valor1">Valor 1</option>
+      <option value="valor2" selected>Valor 2</option>
+      <option value="valor3">Valor 3</option>
+    </select>
+    <br />
+    <div id="title">
+      <h3>Endereço</h3>
+      <a>
+        <ion-icon name="add-circle-outline" id="add-icon"></ion-icon>
+      </a>
+    </div>
+    <div class="solid-line"></div>
+
+    <label>Observação</label>
+    <textarea placeholder="Informação adicional sobre o pedido. Ex: retirar produto x do pacote, entregar na portaria, trazer troco pra..."></textarea>
+  </div>
 </ion-content>
+
+
+<ion-footer class="container-toolbar-bottom">
+  <ion-toolbar>
+    <ion-row class="space-between">
+      <p>Valor do Pacote</p>
+      <div class="-dotted-line"></div>
+      <p class="price">R$24,00</p>
+    </ion-row>
+    <ion-row class="space-between">
+      <p>Frete</p>
+      <div class="dotted-line"></div>
+      <p class="price">R$24,00</p>
+    </ion-row>
+    <ion-row class="space-between">
+      <p>Valor Total</p>
+      <div class="dotted-line"></div>
+      <p class="price total">R$24,00</p>
+    </ion-row>
+    <br />
+    <div class="area-button">
+      <ion-button type="button">FINALIZAR</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
