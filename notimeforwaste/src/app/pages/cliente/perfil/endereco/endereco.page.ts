@@ -23,8 +23,9 @@ export class EnderecoPage implements OnInit {
     this.clienteService.getEnderecosByIdCliente(this.clienteService.getClienteLogado().idCliente).subscribe({
       next: (enderecos) => {
         this.enderecos = enderecos as Endereco[];
+        console.log(this.enderecos)
       },
-      error: (error) =>{
+      error: (error) => {
         console.log(error);
         this.exibirMensagem("Erro ao carregar endereços")
       }
