@@ -17,7 +17,7 @@
 
      <!-- Product Card -->
      <div class="card"  *ngFor="let pacote of pacotes">
-      <img class="card-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+      <img class="card-image" [src]="pacote.foto.fotoUrl" alt="Product Image">
       <div class="card-content">
         <div class="card-title">
           {{pacote.nmPacote}}

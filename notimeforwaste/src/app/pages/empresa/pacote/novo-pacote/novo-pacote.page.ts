@@ -81,7 +81,6 @@ export class NovoPacotePage implements OnInit {
       this.getPacote(parseInt(id));
     }
   }
-
   getPacote(id: number) {
     this.pacoteService.getPacoteById(id).subscribe((pacote) => {
       this.pacoteExistente = <PacoteResponse>(pacote);
