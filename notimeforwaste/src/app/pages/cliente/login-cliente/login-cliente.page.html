@@ -34,10 +34,7 @@
               <ion-item lines="none">
                 <ion-label position="stacked">Senha</ion-label>
                 <div class="input-border" style="position: relative;">
-                  <ion-input [type]="isTextFieldType ? 'text' : 'password'" formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
-                  <button (click)="togglePasswordFieldType()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background-color: white;">
-                    <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'" ></ion-icon>
-                  </button> 
+                  <ion-input type="password" formControlName="senha" placeholder="Digite sua senha" class="custom"></ion-input>
                 </div>
               </ion-item>     
               <br />
