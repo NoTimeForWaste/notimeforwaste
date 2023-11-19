@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { Endereco } from '../model/endereco';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,9 @@ export class UtilsService {
       currency: 'BRL'
     });
     return valorFormatado;
+  }
+
+  enderecoToString(endereco: Endereco): string {
+    return endereco.rua + " " + endereco.numero + ", " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado;
   }
 }

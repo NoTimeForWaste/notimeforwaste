@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Endereco } from 'src/app/model/endereco';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-endereco',
@@ -11,7 +12,7 @@ import { ClienteService } from 'src/app/services/cliente/cliente.service';
 export class EnderecoPage implements OnInit {
 
   enderecos: Endereco[];
-  constructor(private loadingController: LoadingController, private clienteService: ClienteService, private toastController: ToastController) {
+  constructor(protected utilsService: UtilsService, private loadingController: LoadingController, private clienteService: ClienteService, private toastController: ToastController) {
     this.enderecos = [];
   }
 
@@ -48,7 +49,4 @@ export class EnderecoPage implements OnInit {
     await this.carregarEnderecos();
   }
 
-  enderecoToString(endereco: Endereco): string {
-    return endereco.rua + " " + endereco.numero + ", " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado;
-  }
 }
