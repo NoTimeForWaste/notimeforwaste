@@ -14,6 +14,7 @@ import { PacoteResponse } from 'src/app/model/response/pacote-response';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { PacoteService } from 'src/app/services/empresa/pacote.service';
 import { FotoService } from 'src/app/services/foto.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 interface IPacote {
   idPacote: number;
@@ -40,7 +41,7 @@ export class NovoPacotePage implements OnInit {
   empresa: Empresa;
   pacoteExistente: PacoteResponse;
   produtosToDelete: Produto[];
-  constructor(private activatedRoute: ActivatedRoute, private empresaService: EmpresaService, private fotoService: FotoService, private pacoteService: PacoteService, private fBuilder: FormBuilder, private toastController: ToastController, private navController: NavController) {
+  constructor(private activatedRoute: ActivatedRoute, private empresaService: EmpresaService, private fotoService: FotoService, private pacoteService: PacoteService, private fBuilder: FormBuilder, private utilsService: UtilsService, private navController: NavController) {
     this.formaPagamentoList = [];
     this.formaEntregaList = [];
     this.foto = new Foto();
@@ -65,14 +66,14 @@ export class NovoPacotePage implements OnInit {
     this.pacoteService.getAllFormasPagamento().subscribe((data: any) => {
       this.formaPagamentoList = data as FormaPagamento[];
     }, error => {
-      this.exibirMensagem("Erro desconhecido! Lamentamos")
+      this.utilsService.MessageDisplayError("Erro desconhecido! Lamentamos")
       this.navController.navigateBack("/empresa/pacotes")
     });
 
     this.pacoteService.getAllFormasEntrega().subscribe((data: any) => {
       this.formaEntregaList = data as FormaEntrega[];
     }, error => {
-      this.exibirMensagem("Erro desconhecido! Lamentamos")
+      this.utilsService.MessageDisplayError("Erro desconhecido! Lamentamos")
       this.navController.navigateBack("/empresa/pacotes")
     });
 
@@ -81,6 +82,7 @@ export class NovoPacotePage implements OnInit {
       this.getPacote(parseInt(id));
     }
   }
+
   getPacote(id: number) {
     this.pacoteService.getPacoteById(id).subscribe((pacote) => {
       this.pacoteExistente = <PacoteResponse>(pacote);
@@ -128,13 +130,6 @@ export class NovoPacotePage implements OnInit {
     console.log(this.inputs)
   }
 
-  async exibirMensagem(texto: string) {
-    const toast = await this.toastController.create({
-      message: texto,
-      duration: 1500
-    });
-    toast.present();
-  }
 
   addProduto() {
     this.inputs.produtos.push(this.produto);
@@ -180,7 +175,7 @@ export class NovoPacotePage implements OnInit {
           next: (foto) => {
           },
           error: (error) => {
-            this.exibirMensagem("Erro ao alterar foto!")
+            this.utilsService.MessageDisplayError("Erro ao alterar foto!")
             console.log(error)
           }
         });
@@ -194,11 +189,11 @@ export class NovoPacotePage implements OnInit {
       pacote.idPacote = this.inputs.idPacote;
       this.pacoteService.putPacote(pacote).subscribe({
         next: (response) => {
-          this.exibirMensagem("Pacote alterado com sucesso!")
+          this.utilsService.MessageDisplaySuccess("Pacote alterado com sucesso!")
           pacote = <Pacote>(response);
         },
         error: (error) => {
-          this.exibirMensagem("Erro ao alterar pacote!")
+          this.utilsService.MessageDisplayError("Erro ao alterar pacote!")
           console.log(error)
         }
       })
@@ -283,7 +278,7 @@ export class NovoPacotePage implements OnInit {
       }
 
     } catch (error) {
-      this.exibirMensagem("Erro aao alterar algums informações do pacote.");
+      this.utilsService.MessageDisplayError("Erro aao alterar algums informações do pacote.");
       console.log(error);
     }
   }
@@ -321,11 +316,11 @@ export class NovoPacotePage implements OnInit {
         await this.pacoteService.postFormaPagamento(pacoteFormaPagamento).toPromise();
       }
 
-      this.exibirMensagem("Pacote salvo com sucesso!");
+      this.utilsService.MessageDisplaySuccess("Pacote salvo com sucesso!");
       this.navController.navigateBack("/empresa/pacotes");
     } catch (error) {
       console.error('Erro ao salvar pacote:', error);
-      this.exibirMensagem("Erro ao salvar pacote.");
+      this.utilsService.MessageDisplayError("Erro ao salvar pacote.");
     }
 
   }

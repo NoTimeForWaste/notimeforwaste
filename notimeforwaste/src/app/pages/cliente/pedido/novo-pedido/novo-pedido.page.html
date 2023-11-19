@@ -15,31 +15,46 @@
   </div>
 
   <div class="card">
-    <label>Forma de Pagamento</label>
-    <select name="select">
-      <option  *ngFor="let formaPagamento of formasPagamento" value="formaPagamento.idFormPagaento">{{formaPagamento.nome}}</option>
-    </select>
-    <br />
-    <div id="title">
-      <h3>Endereço</h3>
-      <a>
-        <ion-icon name="add-circle-outline" id="add-icon"></ion-icon>
-      </a>
-    </div>
-    <br/>
-    <div class="card-edit" *ngFor="let endereco of enderecos">
-      <div class="info">
-        <h1>{{endereco.apelido}}</h1>
-        <h3>{{enderecoToString(endereco)}}</h3>
+    <form [formGroup]="formGroup">
+      <label>Forma de Pagamento</label>
+      <select name="select" formControlName="formaPagamento">
+        <option [ngValue]="null" disabled selected>Selecione a forma de pagamento</option>
+        <option *ngFor="let formaPagamento of formasPagamento" [ngValue]="formaPagamento.idFormaPagamento">
+          {{ formaPagamento.nome }}
+        </option>
+      </select>
+      <br />
+      <label>Forma de Entrega</label>
+      <select name="select" formControlName="formaEntrega">
+        <option [ngValue]="null" disabled selected>Selecione a forma de entrega</option>
+        <option *ngFor="let formaEntrega of formasEntrega" [ngValue]="formaEntrega.idFormaEntrega">
+          {{ formaEntrega.nome }}
+        </option>
+      </select>
+      <br />
+      <div *ngIf="isDelivery()">
+        <div id="title">
+          <h3>Endereço</h3>
+          <a>
+            <ion-icon name="add-circle-outline" id="add-icon"></ion-icon>
+          </a>
+        </div>
+        <br />
+        <div class="card-edit" *ngFor="let endereco of enderecos">
+          <div class="info">
+            <h1>{{endereco.apelido}}</h1>
+            <h3>{{enderecoToString(endereco)}}</h3>
+          </div>
+          <div class="radio">
+            <input type="radio" id="dewey" name="drone" [value]="endereco" (change)="selecionarEndereco(endereco)" />
+          </div>
+        </div>
+        <br />
       </div>
-      <div class="radio">
-        <input type="radio" id="dewey" name="drone" value="endereco.idEndereco" />
-      </div>
-    </div>
-
-    <br/>
-    <label>Observação</label>
-    <textarea placeholder="Informação adicional sobre o pedido. Ex: retirar produto x do pacote, entregar na portaria, trazer troco pra..."></textarea>
+      <label>Observação</label>
+      <textarea formControlName="observacao"
+        placeholder="Informação adicional sobre o pedido. Ex: retirar produto x do pacote, entregar na portaria, trazer troco pra..."></textarea>
+    </form>
   </div>
 </ion-content>
 
@@ -49,21 +64,21 @@
     <ion-row class="space-between">
       <p>Valor do Pacote</p>
       <div class="-dotted-line"></div>
-      <p class="price">R$24,00</p>
+      <p class="price">{{utilsService.priceToString(pacote.preco)}}</p>
     </ion-row>
     <ion-row class="space-between">
       <p>Frete</p>
       <div class="dotted-line"></div>
-      <p class="price">R$24,00</p>
+      <p class="price">{{utilsService.priceToString(pedido.frete)}}</p>
     </ion-row>
     <ion-row class="space-between">
       <p>Valor Total</p>
       <div class="dotted-line"></div>
-      <p class="price total">R$24,00</p>
+      <p class="price total">{{utilsService.priceToString(pedido.frete + pacote.preco)}}</p>
     </ion-row>
     <br />
     <div class="area-button">
-      <ion-button type="button">FINALIZAR</ion-button>
+      <ion-button [disabled]="!isValid()" type="button" (click)="salvar()">FINALIZAR</ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>
