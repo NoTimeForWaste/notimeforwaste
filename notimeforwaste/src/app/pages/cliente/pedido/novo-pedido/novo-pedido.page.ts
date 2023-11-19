@@ -22,7 +22,7 @@ export class NovoPedidoPage implements OnInit {
 
 
   enderecoSelecionado: Endereco | undefined;
-
+  loading: boolean = false;
   pacote: PacoteResponse;
   formasPagamento: FormaPagamento[];
   formasEntrega: FormaEntrega[];
@@ -110,11 +110,12 @@ export class NovoPedidoPage implements OnInit {
   isValid(): boolean {
     const enderecoValido = this.enderecoSelecionado !== undefined;
 
-    return this.formGroup.valid;
+    return this.formGroup.valid && !this.loading;
   }
 
   salvar() {
     if (this.isValid()) {
+      this.loading = true;
       this.pedido.cancelado = false;
       this.pedido.idCliente = this.clienteService.getClienteLogado().idCliente;
       this.pedido.idFormaEntrega = this.formGroup.value.formaEntrega;

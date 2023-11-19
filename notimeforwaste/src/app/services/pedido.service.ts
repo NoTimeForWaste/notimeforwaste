@@ -27,14 +27,18 @@ export class PedidoService {
   }
 
   updateStatus(id: number, status: string): Observable<string> {
-    return this.httpClient.put<string>(`${this.url}/${id}`, status, this.httpHeaders)
+    return this.httpClient.put<string>(`${this.url}/status/${id}`, status, this.httpHeaders)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  getById(id: number): Observable<Pedido> {
-    return this.httpClient.get<Pedido>(`${this.url}/${id}`)
+  cancel(id: number): Observable<number> {
+    return this.httpClient.put<number>(`${this.url}/cancel/${id}`, this.httpHeaders);
+  }
+
+  getById(id: number): Observable<PedidoResponse> {
+    return this.httpClient.get<PedidoResponse>(`${this.url}/${id}`)
       .pipe(
         catchError(this.handleError)
       );
@@ -54,7 +58,6 @@ export class PedidoService {
       );
   }
 
-  // Tratamento de erro genérico
   private handleError(error: any) {
     if (error.status === 404 || error.status === 409) {
       return of(error);

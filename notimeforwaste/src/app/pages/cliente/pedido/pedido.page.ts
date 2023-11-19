@@ -30,6 +30,7 @@ export class PedidoPage implements OnInit {
       next: (res) => {
         console.log(res)
         this.pedidos = res as PedidoResponse[];
+        console.log(this.pedidos)
       },
       error: (error) => {
         console.log(error);
@@ -65,11 +66,15 @@ export class PedidoPage implements OnInit {
     }, 500);
   }
 
-  getPedidoEndereco(pedido: PedidoResponse): string{
-    return pedido.endereco != null ? this.utilsService.enderecoToString(pedido.endereco) : "Retirada";
-  }
-
-  getPedidoFormaPagamento(pedido: PedidoResponse){
-    return pedido.pacote.formasPagamentos[pedido.idFomPagamento].nome;
+  cancelar(idPedido: number){
+    this.pedidoService.cancel(idPedido).subscribe({
+      next: (res) =>{
+        this.utilsService.MessageDisplaySuccess("Pedido cancelado com sucesso!")
+      },
+      error: (error) =>{
+        this.utilsService.MessageDisplayError("Erro ao cancelar pedido!")
+        console.log(error);
+      }
+    })
   }
 }
