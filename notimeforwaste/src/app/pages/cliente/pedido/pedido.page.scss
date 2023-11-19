@@ -12,7 +12,7 @@
 
 .card-filter-itens {
   color: black;
-}
+} 
 
 .icon-and-text {
   display: flex;
@@ -142,6 +142,11 @@ h3 {
   border: none;
   cursor: pointer;
 }
+
+.card-button:disabled {
+  opacity: 0.6;
+}
+
 
 .progress-container {
   padding-top: 4px;

@@ -17,14 +17,14 @@
          {{pedido.pacote.nmPacote}}
           <div class="card-price">
            {{utilsService.priceToString(pedido.frete + pedido.pacote.preco)}}
-          </div>
+          </div> 
         </div>
         <p class="card-paragraph"><fa-icon icon="circle-user"></fa-icon> {{ pedido.nmCliente}}</p>
-        <p class="card-paragraph"><fa-icon icon="location-dot"></fa-icon> {{ getPedidoEndereco(pedido)}}</p>
-        <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> {{ getPedidoFormaPagamento(pedido)}}</p>
+        <p class="card-paragraph"><fa-icon icon="location-dot"></fa-icon> {{ utilsService.getPedidoEndereco(pedido)}}</p>
+        <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> {{ utilsService.getPedidoFormaPagamento(pedido)}}</p>
         <div class="card-buttons">
-          <button class="card-button cancel-button">CANCELAR</button>
-          <button [routerLink]="['/cliente/detalhes-pedido', 1]" class="card-button-view">
+          <button class="card-button cancel-button" [disabled]="pedido.cancelado" (click)="cancelar(pedido.idPedido)">CANCELAR</button>
+          <button [routerLink]="['/cliente/detalhes-pedido', pedido.idPedido]" class="card-button-view">
             <fa-icon icon="chevron-right"></fa-icon>
           </button>
         </div>

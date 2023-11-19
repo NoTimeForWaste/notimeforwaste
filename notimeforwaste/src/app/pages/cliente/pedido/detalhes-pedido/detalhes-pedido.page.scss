@@ -95,7 +95,7 @@
     padding-top: 3px;
     padding-left: 12px;
     padding-right: 12px;
-    padding-bottom: 3px;
+    padding-bottom: 6px;
     margin-left: -20px;
     margin-right: -20px;
 }
@@ -216,3 +216,56 @@ ion-button{
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Seu CSS existente... */
+
+/* Defina as classes para cada estado do pedido */
+.active-0 .progress-point:nth-child(1),
+.active-0 .progress-line:nth-child(2) {
+  background-color: var(--laranjaLogo);
+  color: var(--laranjaLogo);
+  font-weight: 700;
+}
+
+.active-1 .progress-point:nth-child(-n+3),
+.active-1 .progress-line:nth-child(-n+4) {
+  background-color: var(--laranjaLogo);
+  color: var(--laranjaLogo);
+  font-weight: 700;
+}
+
+.active-2 .progress-point:nth-child(-n+5),
+.active-2 .progress-line:nth-child(-n+6) {
+  background-color: var(--laranjaLogo);
+  color: var(--laranjaLogo);
+  font-weight: 700;
+}
+
+.active-3 .progress-point:nth-child(-n+7),
+.active-3 .progress-line:nth-child(-n+8) {
+  background-color: var(--laranjaLogo);
+  color: var(--laranjaLogo);
+  font-weight: 700;
+}
+
+.active-4 .progress-point:nth-child(-n+9) {
+  background-color: var(--laranjaLogo);
+  color: var(--laranjaLogo);
+  font-weight: 700;
+}
+
+
+.progress-point,
+.progress-line {
+  background-color: #E8EAEC;
+  color: #E8EAEC;
+  font-weight: normal;
+}
+
+.progress-point.active,
+.progress-line.active {
+  background-color: var(--laranjaLogo);
+  color: var(--laranjaLogo);
+  font-weight: 700;
+}
+

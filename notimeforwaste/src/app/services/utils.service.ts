@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Endereco } from '../model/endereco';
+import { PedidoResponse } from '../model/response/pedido-response';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,14 @@ export class UtilsService {
 
   enderecoToString(endereco: Endereco): string {
     return endereco.rua + " " + endereco.numero + ", " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado;
+  }
+
+  getPedidoEndereco(pedido: PedidoResponse): string{
+    return pedido.endereco != null ? this.enderecoToString(pedido.endereco) : "Retirada";
+  }
+
+  getPedidoFormaPagamento(pedido: PedidoResponse){
+    const formaPagamento = pedido.pacote.formasPagamentos.find(formaPagamento => formaPagamento.idFormaPagamento === pedido.idFomPagamento);
+    return formaPagamento?.nome;
   }
 }

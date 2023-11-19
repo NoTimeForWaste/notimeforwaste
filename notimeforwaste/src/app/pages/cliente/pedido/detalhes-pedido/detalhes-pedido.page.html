@@ -7,69 +7,69 @@
   </ion-toolbar>
 </ion-header>
 
-<div class="body">
-  <img id="top-image" src="../../../../assets/imgs/fotoPacote.png" alt="Product Image">
+<div class="body" *ngIf="pedido != null">
+  <img id="top-image" [src]="pedido.pacote.foto.fotoUrl" alt="Product Image">
   <div class="custom-card">
-    <p id="title">Nome do Pacote</p>
+    <p id="title">{{pedido.pacote.nmPacote}}</p>
     <ion-row class="space-between">
       <p>Valor do Pacote</p>
       <div class="line"></div>
-      <p class="price">R$24,00</p>
+      <p class="price">{{utilsService.priceToString(pedido.pacote.preco)}}</p>
     </ion-row>
     <ion-row class="space-between">
       <p>Frete</p>
       <div class="line"></div>
-      <p class="price">R$24,00</p>
-    </ion-row> 
+      <p class="price">{{utilsService.priceToString(pedido.frete)}}</p>
+    </ion-row>
     <ion-row class="space-between">
       <p>Valor Total</p>
       <div class="line"></div>
-      <p class="price total">R$24,00</p>
+      <p class="price total">{{utilsService.priceToString(pedido.frete + pedido.pacote.preco)}}</p>
     </ion-row>
     <br />
     <div id="info">
-      <p> <img class="custom-icon" src="../../../../../assets/icon/empresaLogo.svg"> Description line 1</p>
-      <p><fa-icon icon="location-dot"></fa-icon> Description line 2</p>
-      <p><fa-icon icon="dollar-sign"></fa-icon> Description line 3</p>
+      <p> <img class="custom-icon" src="../../../../../assets/icon/empresaLogo.svg"> {{pedido.pacote.nmEmpresa}}</p>
+      <p><fa-icon icon="location-dot"></fa-icon>{{utilsService.getPedidoEndereco(pedido)}}</p>
+      <p><fa-icon icon="dollar-sign"></fa-icon> {{utilsService.getPedidoFormaPagamento(pedido)}}</p>
     </div>
     <div id="area-progress-bar">
       <div class="progress-bar">
-        <div class="progress-point active">
+        <div class="progress-point" [ngClass]="{ 'active': pedido.status >= 0 }">
           <span class="bottom-text">feito</span>
         </div>
-        <div class="progress-line active"></div>
-        <div class="progress-point active">
-          <span  class="top-text">preparação</span>
+        <div class="progress-line" [ngClass]="{ 'active': pedido.status >= 1 }"></div>
+        <div class="progress-point" [ngClass]="{ 'active': pedido.status >= 1 }">
+          <span class="top-text">preparação</span>
         </div>
-        <div class="progress-line"></div>
-        <div class="progress-point">
+        <div class="progress-line" [ngClass]="{ 'active': pedido.status >= 2 }"></div>
+        <div class="progress-point" [ngClass]="{ 'active': pedido.status >= 2 }">
           <span class="bottom-text">à caminho</span>
         </div>
-        <div class="progress-line"></div>
-        <div class="progress-point">
+        <div class="progress-line" [ngClass]="{ 'active': pedido.status >= 3 }"></div>
+        <div class="progress-point" [ngClass]="{ 'active': pedido.status >= 3 }">
           <span class="top-text">entregue</span>
         </div>
-        <div class="progress-line"></div>
-        <div class="progress-point">
+        <div class="progress-line" [ngClass]="{ 'active': pedido.status >= 4 }"></div>
+        <div class="progress-point" [ngClass]="{ 'active': pedido.status >= 4 }">
           <span class="bottom-text">confirmado</span>
         </div>
       </div>
     </div>
 
     <div class="custom-buttom">
-      <ion-button>CANCELAR</ion-button>
+      <ion-button [disabled]="pedido.cancelado" (click)="cancelar()">CANCELAR</ion-button>
     </div>
-  
+
     <p class="sub-title">Produtos</p>
-    <div class="product-card">
+    <div class="product-card" *ngFor="let produto of pedido.pacote.produtos">
       <div class="card-title">
-        <h1>Nome do produto</h1>
+        <h1>{{produto.nmProduto}}</h1>
       </div>
-      <p>Descrição do Produto</p>
-      <h3>24/11/205</h3>
+      <p>{{produto.descricao}}</p>
+      <h3>{{produto.dtValidade}}</h3>
     </div>
     <p class="sub-title">Observação</p>
-    <p class="description">Observação aqui...</p>
-   
+    <p class="description">{{pedido.observacao}}</p>
+
   </div>
 </div>
