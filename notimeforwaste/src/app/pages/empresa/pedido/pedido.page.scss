@@ -74,6 +74,7 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3vh;
+  position: relative;
 }
 
 .card-image {
@@ -135,12 +136,15 @@ h3 {
   background-color: transparent;
   font-size: 24px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
   width: 20px;
   height: 30px;
   border: none;
   cursor: pointer;
+  position: absolute;
+  bottom: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Ajuste conforme necessário */
 }
 
 .progress-container {

@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar class="custom-toolbar-top">
-      <ion-select class="custom-select" aria-label="Selecione o endereço" placeholder="Selecione o endereço">
-        <ion-select-option>X</ion-select-option>
-        <ion-select-option>Y</ion-select-option>
-        <ion-select-option>Z</ion-select-option>
-      </ion-select>
+    <ion-select class="custom-select" aria-label="Selecione o endereço" placeholder="Selecione o endereço">
+      <ion-select-option>X</ion-select-option>
+      <ion-select-option>Y</ion-select-option>
+      <ion-select-option>Z</ion-select-option>
+    </ion-select>
   </ion-toolbar>
 </ion-header>
 
@@ -15,24 +15,26 @@
       <h3>Pacotes disponíveis</h3>
     </div>
 
-     <!-- Product Card -->
-     <div class="card"  *ngFor="let pacote of pacotes">
+    <!-- Product Card -->
+    <div class="card" *ngFor="let pacote of pacotes">
       <img class="card-image" [src]="pacote.foto.fotoUrl" alt="Product Image">
       <div class="card-content">
         <div class="card-title">
           {{pacote.nmPacote}}
           <div class="card-price">
-            R${{pacote.preco}}
+            {{utilsService.priceToString(pacote.preco)}}
           </div>
         </div>
         <p class="card-paragraph"> <fa-icon icon="location-dot"></fa-icon> </p>
-        <p class="card-paragraph"><ion-icon img src="../../../../assets/imgs/shop_icon.svg"></ion-icon>{{pacote.nmEmpresa}}</p>
+        <p class="card-paragraph"><ion-icon img
+            src="../../../../assets/imgs/shop_icon.svg"></ion-icon>{{pacote.nmEmpresa}}</p>
         <div class="card-buttons">
-          <button [routerLink]="['/cliente/detalhes-pacote/', pacote.idPacote]"  class="card-button buy-button">VISUALIZAR PACOTE</button>
+          <button [routerLink]="['/cliente/detalhes-pacote/', pacote.idPacote]"
+            class="card-button buy-button">VISUALIZAR PACOTE</button>
           <!-- <button class="card-button-view">  <fa-icon icon="chevron-right"></fa-icon></button> -->
         </div>
       </div>
-     </div>
-
     </div>
+
+  </div>
 </ion-content>

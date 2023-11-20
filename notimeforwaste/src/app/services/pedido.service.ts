@@ -26,8 +26,8 @@ export class PedidoService {
       );
   }
 
-  updateStatus(id: number, status: string): Observable<string> {
-    return this.httpClient.put<string>(`${this.url}/status/${id}`, status, this.httpHeaders)
+  updateStatus(id: number, status: number): Observable<number> {
+    return this.httpClient.put<number>(`${this.url}/status/${id}`, status, this.httpHeaders)
       .pipe(
         catchError(this.handleError)
       );
