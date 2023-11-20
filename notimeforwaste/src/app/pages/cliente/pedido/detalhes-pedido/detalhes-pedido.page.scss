@@ -18,13 +18,26 @@
     text-align: center;
 }
 
-.custom-icon{
+.custom-icon {
     height: 15px;
 }
 
-.custom-buttom{
-    color: var(--vermelhoTerroso);
+.cancel, 
+.confirm{
     text-align: center;
+}
+.cancel ion-button{
+    --background: var(--vermelhoTerroso);
+    --background-hover: var(--laranjaLogo);
+    --background-activated: var(--laranjaLogo);
+    --background-focused: var(--laranjaLogo);
+  }
+
+.confirm ion-button{
+    --background: var(--verdeSucesso);
+    --background-hover: var(--verdePastel);
+    --background-activated: var(--verdePastel);
+    --background-focused: var(--verdePastel);
 }
 
 .custom-card {
@@ -39,6 +52,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: start;
+
 }
 
 #title {
@@ -98,6 +112,7 @@
     padding-bottom: 6px;
     margin-left: -20px;
     margin-right: -20px;
+    margin-bottom: 2vh;
 }
 
 .product-card h1 {
@@ -154,14 +169,14 @@
     border-radius: 10px;
     padding: 2px;
     position: relative;
-  }
-  
-  .progress-area-point{
+}
+
+.progress-area-point {
     height: 50px;
     width: 30px;
-  }
-  
-  .progress-point {
+}
+
+.progress-point {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -173,16 +188,16 @@
     align-items: center;
     text-align: center;
     font-size: 12px;
-  }
-  
-  .progress-point .bottom-text {
-    margin-top: 25px;
-  }
-  
-  .progress-point .top-text {
-    margin-top: -20px; /* Valor negativo para mover o texto acima do ponto */
 }
-  
+
+.progress-point .bottom-text {
+    margin-top: 25px;
+}
+
+.progress-point .top-text {
+    margin-top: -20px;
+}
+
 
 .progress-line {
     height: 4px;
@@ -205,65 +220,60 @@
     width: 100%;
 }
 
-ion-button{
-    --background: var(--vermelhoTerroso);
-    --background-hover: var(--laranjaLogo);
-    --background-activated: var(--laranjaLogo);
-    --background-focused: var(--laranjaLogo);
+ion-button {
     --color: #ffffff;
     --border-radius: 5px;
     --width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
-
+ 
 
 .active-0 .progress-point:nth-child(1),
 .active-0 .progress-line:nth-child(2) {
-  background-color: var(--laranjaLogo);
-  color: var(--laranjaLogo);
-  font-weight: 700;
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
 }
 
 .active-1 .progress-point:nth-child(-n+3),
 .active-1 .progress-line:nth-child(-n+4) {
-  background-color: var(--laranjaLogo);
-  color: var(--laranjaLogo);
-  font-weight: 700;
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
 }
 
 .active-2 .progress-point:nth-child(-n+5),
 .active-2 .progress-line:nth-child(-n+6) {
-  background-color: var(--laranjaLogo);
-  color: var(--laranjaLogo);
-  font-weight: 700;
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
 }
 
 .active-3 .progress-point:nth-child(-n+7),
 .active-3 .progress-line:nth-child(-n+8) {
-  background-color: var(--laranjaLogo);
-  color: var(--laranjaLogo);
-  font-weight: 700;
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
 }
 
 .active-4 .progress-point:nth-child(-n+9) {
-  background-color: var(--laranjaLogo);
-  color: var(--laranjaLogo);
-  font-weight: 700;
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
 }
 
 
 .progress-point,
 .progress-line {
-  background-color: #E8EAEC;
-  color: #E8EAEC;
-  font-weight: normal;
+    background-color: #E8EAEC;
+    color: #E8EAEC;
+    font-weight: normal;
 }
 
 .progress-point.active,
 .progress-line.active {
-  background-color: var(--laranjaLogo);
-  color: var(--laranjaLogo);
-  font-weight: 700;
+    background-color: var(--laranjaLogo);
+    color: var(--laranjaLogo);
+    font-weight: 700;
 }
-

@@ -53,6 +53,28 @@ export class DetalhesPedidoPage implements OnInit {
     })
   }
 
+  confirm() {
+    this.pedidoService.updateStatus(this.pedido.idPedido, 4).subscribe({
+      next: (res) => {
+        this.utilsService.MessageDisplaySuccess("Pedido confirmado com sucesso!");
+        this.pedido.status = 4;
+      },
+      error: (error) => {
+        this.utilsService.MessageDisplayError("Erro ao confirmar pedido!")
+        console.log(error);
+      }
+    })
+  }
+
+  canCancel(): boolean{
+    return !this.pedido.cancelado && this.pedido.status < 2;
+  }
+
+  canConfirm(): boolean{
+    return !this.pedido.cancelado && this.pedido.status == 3;
+  }
+
+
   getProgressBarClass(status: number): string {
     switch (status) {
       case 0:

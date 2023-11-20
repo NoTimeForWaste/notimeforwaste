@@ -56,8 +56,12 @@
       </div>
     </div>
 
-    <div class="custom-buttom">
-      <ion-button [disabled]="pedido.cancelado" (click)="cancelar()">CANCELAR</ion-button>
+    <div class="cancel">
+      <ion-button *ngIf="canCancel()" (click)="cancelar()">CANCELAR</ion-button>
+    </div>
+
+    <div class="confirm" *ngIf="canConfirm()">
+      <ion-button (click)="confirm()">CONFIRMAR</ion-button>
     </div>
 
     <p class="sub-title">Produtos</p>

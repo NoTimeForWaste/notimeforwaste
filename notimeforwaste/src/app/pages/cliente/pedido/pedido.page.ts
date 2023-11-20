@@ -70,6 +70,7 @@ export class PedidoPage implements OnInit {
     this.pedidoService.cancel(idPedido).subscribe({
       next: (res) =>{
         this.utilsService.MessageDisplaySuccess("Pedido cancelado com sucesso!")
+        this.carregarLista();
       },
       error: (error) =>{
         this.utilsService.MessageDisplayError("Erro ao cancelar pedido!")
@@ -77,4 +78,26 @@ export class PedidoPage implements OnInit {
       }
     })
   }
+
+  confirm(idPedido: number) {
+    this.pedidoService.updateStatus(idPedido, 4).subscribe({
+      next: (res) => {
+        this.utilsService.MessageDisplaySuccess("Pedido confirmado com sucesso!");
+        this.carregarLista();
+      },
+      error: (error) => {
+        this.utilsService.MessageDisplayError("Erro ao confirmar pedido!")
+        console.log(error);
+      }
+    })
+  }
+
+  canCancel(pedido: PedidoResponse): boolean{
+    return !pedido.cancelado && pedido.status < 2;
+  }
+
+  canConfirm(pedido: PedidoResponse): boolean{
+    return !pedido.cancelado && pedido.status == 3;
+  }
 }
+  
