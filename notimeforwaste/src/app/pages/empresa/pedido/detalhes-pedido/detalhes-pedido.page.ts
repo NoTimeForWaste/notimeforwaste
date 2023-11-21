@@ -46,11 +46,11 @@ export class DetalhesPedidoPage implements OnInit {
   cancel() {
     this.pedidoService.cancel(this.pedido.idPedido).subscribe({
       next: (res) => {
-        this.utilsService.MessageDisplaySuccess("Pedido cancelado com sucesso!")
+        this.utilsService.messageDisplaySuccess("Pedido cancelado com sucesso!")
         this.pedido.cancelado = true;
       },
       error: (error) => {
-        this.utilsService.MessageDisplayError("Erro ao cancelar pedido!")
+        this.utilsService.messageDisplayError("Erro ao cancelar pedido!")
         console.log(error);
       }
     })
@@ -59,11 +59,11 @@ export class DetalhesPedidoPage implements OnInit {
   accept() {
     this.pedidoService.updateStatus(this.pedido.idPedido, 1).subscribe({
       next: (res) => {
-        this.utilsService.MessageDisplaySuccess("Pedido aceito com sucesso!");
+        this.utilsService.messageDisplaySuccess("Pedido aceito com sucesso!");
         this.pedido.status = 1;
       },
       error: (error) => {
-        this.utilsService.MessageDisplayError("Erro ao aceitar pedido!")
+        this.utilsService.messageDisplayError("Erro ao aceitar pedido!")
         console.log(error);
       }
     })
@@ -74,12 +74,12 @@ export class DetalhesPedidoPage implements OnInit {
       this.status = status;
       this.pedidoService.updateStatus(this.pedido.idPedido, status).subscribe({
         next: (res) => {
-          this.utilsService.MessageDisplaySuccess("Pedido aceito com sucesso!");
+          this.utilsService.messageDisplaySuccess("Pedido aceito com sucesso!");
           this.pedido.status = status;
         },
         error: (error) => {
           this.status = this.pedido.status;
-          this.utilsService.MessageDisplayError("Erro ao aceitar pedido!")
+          this.utilsService.messageDisplayError("Erro ao aceitar pedido!")
           console.log(error);
         }
       })

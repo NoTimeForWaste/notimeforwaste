@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController, ToastController } from '@ionic/angular';
+import { ModalController, NavController, ToastController } from '@ionic/angular';
 import { Endereco } from 'src/app/model/endereco';
 import { FormaPagamento } from 'src/app/model/forma-pagamento';
 import { PacoteResponse } from 'src/app/model/response/pacote-response';
@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { FormaEntrega } from 'src/app/model/forma-entrega';
 import { UtilsService } from 'src/app/services/utils.service';
+import { EnderecoBottomSheetPage } from 'src/app/endereco-bottom-sheet/endereco-bottom-sheet.page';
 
 @Component({
   selector: 'app-novo-pedido',
@@ -29,7 +30,7 @@ export class NovoPedidoPage implements OnInit {
   enderecos: Endereco[];
   pedido: Pedido;
   formGroup: FormGroup;
-  constructor(protected utilsService: UtilsService, private clienteService: ClienteService, private navController: NavController, private activatedRoute: ActivatedRoute, private pacoteService: PacoteService, private formBuilder: FormBuilder, private pedidoService: PedidoService) {
+  constructor(private modalCtrl: ModalController, protected utilsService: UtilsService, private clienteService: ClienteService, private navController: NavController, private activatedRoute: ActivatedRoute, private pacoteService: PacoteService, private formBuilder: FormBuilder, private pedidoService: PedidoService) {
     this.pacote = new PacoteResponse();
     this.formasPagamento = [];
     this.formasEntrega = [];
@@ -131,11 +132,11 @@ export class NovoPedidoPage implements OnInit {
       this.pedidoService.save(this.pedido).subscribe({
         next: async (res) => {
           console.log(res);
-          await this.utilsService.MessageDisplaySuccess("Pedido realizado com sucesso!")
+          await this.utilsService.messageDisplaySuccess("Pedido realizado com sucesso!")
         },
         error: (error) => {
           console.log(error);
-          this.utilsService.MessageDisplayError("Erro!"+error.message)
+          this.utilsService.messageDisplayError("Erro!"+error.message)
         }
       })
     }
@@ -143,5 +144,13 @@ export class NovoPedidoPage implements OnInit {
   }
 
 
+  async newEndereco() {
+    const modal = await this.modalCtrl.create({
+      component: EnderecoBottomSheetPage,
+      breakpoints: [0, 0.6, 0.7, 0.8],
+      initialBreakpoint: 0.8
+    });
+    await modal.present();
+  }
 
 }

@@ -43,11 +43,11 @@ export class DetalhesPedidoPage implements OnInit {
   cancelar() {
     this.pedidoService.cancel(this.pedido.idPedido).subscribe({
       next: (res) => {
-        this.utilsService.MessageDisplaySuccess("Pedido cancelado com sucesso!")
+        this.utilsService.messageDisplaySuccess("Pedido cancelado com sucesso!")
         this.pedido.cancelado = true;
       },
       error: (error) => {
-        this.utilsService.MessageDisplayError("Erro ao cancelar pedido!")
+        this.utilsService.messageDisplayError("Erro ao cancelar pedido!")
         console.log(error);
       }
     })
@@ -56,11 +56,11 @@ export class DetalhesPedidoPage implements OnInit {
   confirm() {
     this.pedidoService.updateStatus(this.pedido.idPedido, 4).subscribe({
       next: (res) => {
-        this.utilsService.MessageDisplaySuccess("Pedido confirmado com sucesso!");
+        this.utilsService.messageDisplaySuccess("Pedido confirmado com sucesso!");
         this.pedido.status = 4;
       },
       error: (error) => {
-        this.utilsService.MessageDisplayError("Erro ao confirmar pedido!")
+        this.utilsService.messageDisplayError("Erro ao confirmar pedido!")
         console.log(error);
       }
     })

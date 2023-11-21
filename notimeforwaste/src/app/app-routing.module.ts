@@ -116,7 +116,15 @@ const routes: Routes = [
   {
     path: 'cliente/cadastro',
     loadChildren: () => import('./pages/cliente/cadastro-cliente/cadastro-cliente.module').then( m => m.CadastroClientePageModule)
+  },  {
+    path: 'simple-modal',
+    loadChildren: () => import('./simple-modal/simple-modal.module').then( m => m.SimpleModalPageModule)
   },
+  {
+    path: 'endereco-bottom-sheet',
+    loadChildren: () => import('./endereco-bottom-sheet/endereco-bottom-sheet.module').then( m => m.EnderecoBottomSheetPageModule)
+  },
+
 
 ];
 

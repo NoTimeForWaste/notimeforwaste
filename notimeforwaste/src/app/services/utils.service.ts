@@ -10,7 +10,7 @@ export class UtilsService {
 
   constructor(private toastController: ToastController) { }
 
-  async MessageDisplaySuccess(texto: string) {
+  async messageDisplaySuccess(texto: string) {
     const toast = await this.toastController.create({
       color: 'success',
       message: texto,
@@ -19,7 +19,7 @@ export class UtilsService {
     toast.present();
   }
 
-  async MessageDisplayAlert(texto: string) {
+  async messageDisplayAlert(texto: string) {
     const toast = await this.toastController.create({
       color: 'warning',
       message: texto,
@@ -28,7 +28,7 @@ export class UtilsService {
     toast.present();
   }
 
-  async MessageDisplayError(texto: string) {
+  async messageDisplayError(texto: string) {
     const toast = await this.toastController.create({
       color: 'danger',
       message: texto,
