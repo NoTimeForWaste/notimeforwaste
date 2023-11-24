@@ -19,8 +19,11 @@ export class PerfilPage implements OnInit {
     this.endereco = new Endereco();
     console.log(this.empresaService.getEmpresaLogada())
   }
-
+  
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
     this.empresa = this.empresaService.getEmpresaLogada()
     this.enderecoService.getById(this.empresa.idEndereco).subscribe((endereco) => {
       this.endereco = <Endereco>(endereco);

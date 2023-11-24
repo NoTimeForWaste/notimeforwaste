@@ -40,7 +40,7 @@ export class NovoPedidoPage implements OnInit {
     this.enderecoSelecionado = undefined;
 
     this.formGroup = this.formBuilder.group({
-      observacao: [this.pedido.observacao, Validators.required],
+      observacao: [this.pedido.observacao],
       formaPagamento: [null, Validators.required],
       formaEntrega: [null, Validators.required]
     });
@@ -102,6 +102,7 @@ export class NovoPedidoPage implements OnInit {
 
   selecionarEndereco(endereco: Endereco) {
     this.enderecoSelecionado = endereco;
+    console.log(this.enderecoSelecionado);
   }
 
   deselecionarEndereco() {
@@ -109,13 +110,17 @@ export class NovoPedidoPage implements OnInit {
   }
 
   isValid(): boolean {
-    const enderecoValido = this.enderecoSelecionado !== undefined;
-
+    if (this.formGroup.value.formaEntrega === 1) {
+      if (this.enderecoSelecionado?.idEndereco! === undefined) {
+        return false;
+      }
+    }
     return this.formGroup.valid && !this.loading;
   }
 
   salvar() {
     if (this.isValid()) {
+      console.log(this.formGroup.value.formaEntrega);
       this.loading = true;
       this.pedido.cancelado = false;
       this.pedido.idCliente = this.clienteService.getClienteLogado().idCliente;
@@ -136,7 +141,7 @@ export class NovoPedidoPage implements OnInit {
         },
         error: (error) => {
           console.log(error);
-          this.utilsService.messageDisplayError("Erro!"+error.message)
+          this.utilsService.messageDisplayError("Erro!" + error.message)
         }
       })
     }
@@ -151,6 +156,7 @@ export class NovoPedidoPage implements OnInit {
       initialBreakpoint: 0.8
     });
     await modal.present();
+    await this.carregarEnderecos();
   }
-
+  
 }

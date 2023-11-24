@@ -23,8 +23,9 @@
         <p class="card-paragraph"><fa-icon icon="location-dot"></fa-icon> {{ utilsService.getPedidoEndereco(pedido)}}</p>
         <p class="card-paragraph"><fa-icon icon="dollar-sign"></fa-icon> {{ utilsService.getPedidoFormaPagamento(pedido)}}</p>
         <div class="card-buttons">
+          <button class="card-button cancel" *ngIf="pedido.cancelado" disabled="true">CANCELADO</button>
           <button class="card-button cancel" *ngIf="canCancel(pedido)" (click)="cancelar(pedido.idPedido)">CANCELAR</button>
-          <button class="card-button confirm" *ngIf="canConfirm(pedido)" (click)="confirm(pedido.idPedido)">ACEITAR</button>
+          <button class="card-button confirm" *ngIf="canConfirm(pedido)" (click)="confirm(pedido.idPedido)">CONFIRMAR</button>
           <button [routerLink]="['/cliente/detalhes-pedido', pedido.idPedido]" class="card-button-view">
             <fa-icon icon="chevron-right"></fa-icon>
           </button>

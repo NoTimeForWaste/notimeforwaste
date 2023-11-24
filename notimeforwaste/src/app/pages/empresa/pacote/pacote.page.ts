@@ -4,6 +4,7 @@ import { Empresa } from 'src/app/model/empresa';
 import { PacoteResponse } from 'src/app/model/response/pacote-response';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { PacoteService } from 'src/app/services/empresa/pacote.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-pacote',
@@ -14,7 +15,7 @@ export class PacotePage implements OnInit {
 
   pacotes: PacoteResponse[];
   empresa: Empresa;
-  constructor(private loadingController: LoadingController, private empresaService: EmpresaService, private toastController: ToastController, private paccoteService: PacoteService) {
+  constructor(private loadingController: LoadingController, private empresaService: EmpresaService, private toastController: ToastController, private paccoteService: PacoteService, protected utilsService: UtilsService) {
     this.pacotes = [];
     this.empresa = new Empresa();
   }

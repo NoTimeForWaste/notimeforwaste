@@ -46,9 +46,10 @@ export class UtilsService {
   }
 
   enderecoToString(endereco: Endereco): string {
-    return endereco.rua + " " + endereco.numero + ", " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado;
+    let str = endereco.rua + " " + endereco.numero + ", " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado;
+    return (str.length > 35) ? str.slice(0, 35) + "..." : str;
   }
-
+  
   getPedidoEndereco(pedido: PedidoResponse): string{
     return pedido.endereco != null ? this.enderecoToString(pedido.endereco) : "Retirada";
   }

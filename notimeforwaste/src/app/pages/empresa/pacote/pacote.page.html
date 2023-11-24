@@ -25,7 +25,7 @@
         </div>
         <p class="card-paragraph"> {{nmProdutosToString(i)}}</p>
         <div class="card-bottom">
-          <p class="card-price">R${{pacote.preco}}</p>
+          <p class="card-price">{{utilsService.priceToString(pacote.preco)}}</p>
           <button [routerLink]="['/empresa/editar-pacote/', pacote.idPacote]" class="card-button-view">  <fa-icon icon="chevron-right"></fa-icon></button>
         </div>
       </div>

@@ -72,12 +72,12 @@ export class EditarContaPage implements OnInit {
       console.log("Erro ao alterar: "+error)
     });
 
-    this.fotoService.put(this.foto.idFoto, this.foto.document!).subscribe((response) => {
+    // this.fotoService.put(this.foto.idFoto, this.foto.document!).subscribe((response) => {
 
-    }, (error) => {
-      this.exibirMensagem("Erro ao alterar foto.")
-      console.log(error)
-    });
+    // }, (error) => {
+    //   this.exibirMensagem("Erro ao alterar foto.")
+    //   console.log(error)
+    // });
   }
 
 

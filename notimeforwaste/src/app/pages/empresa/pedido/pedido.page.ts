@@ -12,6 +12,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class PedidoPage implements OnInit {
 
+  filterSelected: number = 0;
   onFilters: boolean = true;
   pedidos: PedidoResponse[];
   allPedidos: PedidoResponse[];
@@ -39,20 +40,28 @@ export class PedidoPage implements OnInit {
   }
 
   async getPedidosCancelados() {
+    this.filterSelected = 3;
     this.pedidos = this.allPedidos.filter(pedido => pedido.cancelado === true);
   }
 
   async getByPendentes() {
+    this.filterSelected = 0;
     this.pedidos = this.allPedidos.filter(pedido => (pedido.status === 0 || pedido.status === 1) && pedido.cancelado === false);
     console.log(this.pedidos)
   }
 
   async getByACaminho() {
+    this.filterSelected = 1;
     this.pedidos = this.allPedidos.filter(pedido => pedido.status === 2 && pedido.cancelado === false);
   }
 
   async getByEntregues() {
+    this.filterSelected = 2;
     this.pedidos = this.allPedidos.filter(pedido => pedido.status === 3 || pedido.status === 4 && pedido.cancelado === false);
+  }
+
+  getTitle(): string{
+    return this.filterSelected === 0 ? "Pendentes" :  this.filterSelected === 1 ? "Á Caminho" :  this.filterSelected === 2 ? "Entregues" :  "Cancelados";
   }
 
   async ionViewWillEnter() {

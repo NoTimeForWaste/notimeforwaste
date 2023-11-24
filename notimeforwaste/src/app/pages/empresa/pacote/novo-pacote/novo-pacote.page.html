@@ -40,9 +40,6 @@
 
     <p class="sub-title">Produtos</p>
     <div class="form-product-card">
-      <div class="area-icons-form ">
-        <fa-icon (click)="addProduto()" icon="save" class="fa-lg"></fa-icon>
-      </div>
       <div class="row">
         <ion-item lines="none" class="col-3">
           <ion-label position="stacked">Nome</ion-label>
@@ -65,6 +62,10 @@
           </div>
         </ion-item>
       </div>
+      <br />
+      <div class="area-icons-form ">
+        <img src="../../../../assets/icon/add.svg" alt="Ícone Add" (click)="addProduto()" class="fa-lg"/>
+      </div> 
     </div>
     <div *ngFor="let produto of inputs.produtos; index as i" class="product-card">
       <div class="card-title">
