@@ -113,7 +113,7 @@ estabelecimentos e pela praticidade do cliente usar um app para realizar pedidos
 
 **Diagrama de Casos de Uso**
 
-![image](https://github.com/NoTimeForWaste/notimeforwaste/assets/129795249/655955a9-f803-4d03-873b-d61a2125dd84)
+![image](https://github.com/NoTimeForWaste/notimeforwaste/assets/129795249/9ba54da6-1f47-4703-b46e-3e1f65ceb3c6)
 
 
 <a name="br6"></a> 
