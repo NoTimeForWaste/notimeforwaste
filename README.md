@@ -54,7 +54,6 @@ estéticos ou de logística.
 
 <a name="br2"></a> 
 
-Documentação do Sistema
 
 Existem muitas empresas que atuam na tentativa de diminuir o número de desperdício de
 
@@ -104,7 +103,6 @@ Figura 1: Tela de menu do cliente do app Save To Food.
 
 <a name="br3"></a> 
 
-Documentação do Sistema
 
 Figura 2: Tela com lista de estabelecimentos e pacotes do app Save To Food.
 
@@ -114,7 +112,6 @@ Figura 3: Tela de efetuar pedido do app Save To Food.
 
 <a name="br4"></a> 
 
-Documentação do Sistema
 
 Figura 4: tela de início do app Ifood
 
@@ -154,7 +151,6 @@ até 80%. **Folha De São Paulo**, 19 set. 2021. Disponível em:
 
 <a name="br5"></a> 
 
-Documentação do Sistema
 
 **3. Descrição sucinta da solução (Sistema a ser desenvolvido)**
 
@@ -176,7 +172,6 @@ estabelecimentos e pela praticidade do cliente usar um app para realizar pedidos
 
 <a name="br6"></a> 
 
-Documentação do Sistema
 
 **5.**
 
@@ -248,7 +243,6 @@ ou email e senha.
 
 <a name="br7"></a> 
 
-Documentação do Sistema
 
 **UC-004\***
 
@@ -312,7 +306,6 @@ ou “entregue”. Um cliente pode confirmar a entrega de um pedido.
 
 <a name="br8"></a> 
 
-Documentação do Sistema
 
 **UC-007\***
 
@@ -338,313 +331,9 @@ Documentação do Sistema
 
 <a name="br10"></a> 
 
-Documentação do Sistema
 
 **7. Protótipos de Interface**
 
 Link do Projeto no Figma: [No](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[ ](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[Time](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[ ](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[For](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[ ](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[Waste](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[ ](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[-](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[ ](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)[Protótipos](https://www.figma.com/file/IPfNO0aSU9tmuhXGOWdrMR/Prot%C3%B3tipo-de-Telas%3A-No-Time-For-Waste?type=design&node-id=4%3A11&t=xPTQvcjVCXiGAef2-1)
 
-**7.1. Protótipos de Telas Comuns a Todos Usuários**
-
-**PT-001**
-
-**Tela Inicial do APP**
-
-
-
-<a name="br11"></a> 
-
-Documentação do Sistema
-
-**7.2. Protótipos de Telas Comuns às Empresas:**
-
-**PT-002**
-
-**Tela de Cadastro - Passo 1**
-
-
-
-<a name="br12"></a> 
-
-Documentação do Sistema
-
-**PT-003**
-
-**Tela de Cadastro - Passo 2**
-
-
-
-<a name="br13"></a> 
-
-Documentação do Sistema
-
-**PT-004**
-
-**Tela de Cadastro - Passo 3**
-
-
-
-<a name="br14"></a> 
-
-Documentação do Sistema
-
-**PT-005**
-
-**Tela de Cadastro - Passo 4**
-
-
-
-<a name="br15"></a> 
-
-Documentação do Sistema
-
-**PT-006**
-
-**Tela de Login**
-
-
-
-<a name="br16"></a> 
-
-Documentação do Sistema
-
-**PT-007**
-
-**Tela de Home - Feed de Novos Pedidos**
-
-
-
-<a name="br17"></a> 
-
-Documentação do Sistema
-
-**PT-008**
-
-**Tela de Pedidos - Filtrar Pedidos e Lista de Todos Os Pedidos**
-
-
-
-<a name="br18"></a> 
-
-Documentação do Sistema
-
-**PT-009**
-
-**Tela de Visualizar Detalhes de um Pedido Específico**
-
-
-
-<a name="br19"></a> 
-
-Documentação do Sistema
-
-**PT-010**
-
-**Tela de Visualizar Todos os Pedidos Pendentes**
-
-
-
-<a name="br20"></a> 
-
-Documentação do Sistema
-
-**PT-011**
-
-**Tela de Visualizar Todos os Pedidos À Caminho**
-
-
-
-<a name="br21"></a> 
-
-Documentação do Sistema
-
-**PT-012**
-
-**Tela de Visualizar Todos os Pedidos Entregues**
-
-
-
-<a name="br22"></a> 
-
-Documentação do Sistema
-
-**PT-013**
-
-**Tela de Visualizar Todos os Pedidos Cancelados**
-
-
-
-<a name="br23"></a> 
-
-Documentação do Sistema
-
-**PT-014**
-
-**Tela de Visualizar e Excluir Pacotes**
-
-
-
-<a name="br24"></a> 
-
-Documentação do Sistema
-
-**PT-015**
-
-**Tela de Visualizar, Editar e/ou Cadastrar um Novo Pacote**
-
-
-
-<a name="br25"></a> 
-
-Documentação do Sistema
-
-**PT-016**
-
-**Tela de Conta**
-
-
-
-<a name="br26"></a> 
-
-Documentação do Sistema
-
-**PT-017**
-
-**Tela de Editar Dados da Conta**
-
-
-
-<a name="br27"></a> 
-
-Documentação do Sistema
-
-**PT-018**
-
-**Tela de Editar Endereço da Empresa**
-
-
-
-<a name="br28"></a> 
-
-Documentação do Sistema
-
-**PT-019**
-
-**Tela de Editar Horário de Funcionamento**
-
-
-
-<a name="br29"></a> 
-
-Documentação do Sistema
-
-**7.3. Protótipos de Telas Comuns aos Clientes:**
-
-**PT-020**
-
-**Tela de login**
-
-
-
-<a name="br30"></a> 
-
-Documentação do Sistema
-
-**PT-021**
-
-**Tela de cadastro de cliente**
-
-
-
-<a name="br31"></a> 
-
-Documentação do Sistema
-
-**PT-022**
-
-**Tela home feed de produtos**
-
-
-
-<a name="br32"></a> 
-
-Documentação do Sistema
-
-**PT-023**
-
-**Tela de visualização de pacote**
-
-
-
-<a name="br33"></a> 
-
-Documentação do Sistema
-
-**PT-024**
-
-**Tela de efetuar pedido**
-
-
-
-<a name="br34"></a> 
-
-Documentação do Sistema
-
-**PT-025**
-
-**Tela de visualizar pedidos**
-
-
-
-<a name="br35"></a> 
-
-Documentação do Sistema
-
-**PT-026**
-
-**Tela de visualizar pedido específico**
-
-
-
-<a name="br36"></a> 
-
-Documentação do Sistema
-
-**PT-027**
-
-**Tela de dados do cliente**
-
-
-
-<a name="br37"></a> 
-
-Documentação do Sistema
-
-**PT-028**
-
-**Tela de alterar dados do cliente**
-
-
-
-<a name="br38"></a> 
-
-Documentação do Sistema
-
-**PT-029**
-
-**Tela de lista de endereços do cliente**
-
-
-
-<a name="br39"></a> 
-
-Documentação do Sistema
-
-**PT-030**
-
-**Tela de cadastro e edição de endereços do cliente**
-
-**7. Repositório(s) do Projeto**
-
-APP e API: <https://github.com/NoTimeForWaste>
 
