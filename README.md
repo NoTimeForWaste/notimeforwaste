@@ -95,61 +95,6 @@ os restaurantes é vantajoso vender um produto que ia pro lixo, para os clientes
 
 comprar um produto ainda consumível por um preço menor, isso tudo sendo sustentável.
 
-**2. Conteúdos e Materiais de Referência**
-
-Figura 1: Tela de menu do cliente do app Save To Food.
-
-
-
-<a name="br3"></a> 
-
-
-Figura 2: Tela com lista de estabelecimentos e pacotes do app Save To Food.
-
-Figura 3: Tela de efetuar pedido do app Save To Food.
-
-
-
-<a name="br4"></a> 
-
-
-Figura 4: tela de início do app Ifood
-
-ANR. **36% DE ALIMENTOS DESCARTADOS NO VAREJO SÃO POR CONTA DE**
-
-**VALIDADE VENCIDA**. Disponível em:
-
-[https://anrbrasil.org.br/36-de-alimentos-descartados-no-varejo-sao-por-conta-de-vali](https://anrbrasil.org.br/36-de-alimentos-descartados-no-varejo-sao-por-conta-de-validade-vencida-segundo-a-abras/)
-
-[dade-vencida-segundo-a-abras/](https://anrbrasil.org.br/36-de-alimentos-descartados-no-varejo-sao-por-conta-de-validade-vencida-segundo-a-abras/). Acesso em: 29 de mar. 2023.
-
-BRASIL. Ministério da Agricultura e Pecuária. **Perdas e desperdício de alimentos**.
-
-[Brasilia]: MAP, [2023?]. Disponível em:
-
-[https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/perdas-e-desperdicio-](https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/perdas-e-desperdicio-de-alimentos)
-
-[de-alimentos](https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/perdas-e-desperdicio-de-alimentos). Acesso em: 30 mar. 2023.
-
-DALL'AGNOL, Laísa. Aplicativo que vende produtos perto do vencimento triplica
-
-operações. **Veja**, 7 jun. 2022. Disponível em:
-
-[https://veja.abril.com.br/coluna/radar/aplicativo-que-vende-produtos-perto-do-vencim](https://veja.abril.com.br/coluna/radar/aplicativo-que-vende-produtos-perto-do-vencimento-triplica-operacoes/)
-
-[ento-triplica-operacoes/](https://veja.abril.com.br/coluna/radar/aplicativo-que-vende-produtos-perto-do-vencimento-triplica-operacoes/). Acesso em: 29 mar. 2023.
-
-MARRA, Renan. Aplicativos vendem produtos perto de vencer com descontos de
-
-até 80%. **Folha De São Paulo**, 19 set. 2021. Disponível em:
-
-[https://www1.folha.uol.com.br/mpme/2021/09/aplicativos-vendem-produtos-perto-de-](https://www1.folha.uol.com.br/mpme/2021/09/aplicativos-vendem-produtos-perto-de-vencer-com-descontos-de-ate-80.shtml)
-
-[vencer-com-descontos-de-ate-80.shtml](https://www1.folha.uol.com.br/mpme/2021/09/aplicativos-vendem-produtos-perto-de-vencer-com-descontos-de-ate-80.shtml). Acesso em: 29 mar. 2023.
-
-
-
-<a name="br5"></a> 
 
 
 **3. Descrição sucinta da solução (Sistema a ser desenvolvido)**
@@ -176,6 +121,8 @@ estabelecimentos e pela praticidade do cliente usar um app para realizar pedidos
 **5.**
 
 **Descrição dos Casos de Uso**
+![image](https://github.com/NoTimeForWaste/notimeforwaste/assets/129795249/8ace0819-2327-4585-b9d1-f41c8c1ea53f)
+
 
 Legenda
 
@@ -326,6 +273,7 @@ ou se foi entregue. Uma empresa não pode cancelar um pedido dado como
 Documentação do Sistema
 
 **6. Modelo de Dados Persistentes**
+![image](https://github.com/NoTimeForWaste/notimeforwaste/assets/129795249/e102c36b-1965-415f-b624-20ee3bdfdc63)
 
 
 
