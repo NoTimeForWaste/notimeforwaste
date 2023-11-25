@@ -329,14 +329,6 @@ export class CadastroPage implements OnInit {
 
 
 
-
-  openImagePicker(event: MouseEvent) {
-    const inputElement = (event.currentTarget as HTMLElement).querySelector(
-      'input'
-    );
-    inputElement?.click();
-  }
-
   onImageSelected(event: any) {
     this.fotoService.setFotoDocument(event, this.foto);
   }
