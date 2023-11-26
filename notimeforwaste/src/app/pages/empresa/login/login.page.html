@@ -24,6 +24,9 @@
                 <ion-input formControlName="email" type="email" placeholder="Digite seu e-mail"
                   class="custom"></ion-input>
               </div>
+              <div *ngIf="formGroup.get('email')?.errors?.['required'] && formGroup.get('email')?.touched" class="error-message">
+                Email é obrigatório.
+              </div>
             </ion-item>
             <br />
             <ion-item lines="none">
@@ -31,6 +34,9 @@
               <div class="input-border" style="position: relative;">
                 <ion-input [type]="isTextFieldType ? 'text' : 'password'" formControlName="senha"
                   placeholder="Digite sua senha" class="custom"></ion-input>
+              </div>
+              <div *ngIf="formGroup.get('senha')?.errors?.['required'] && formGroup.get('senha')?.touched" class="error-message">
+                Senha é obrigatória.
               </div>
             </ion-item>
             <br />

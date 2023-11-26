@@ -24,11 +24,17 @@
                 <ion-input formControlName="nmEmpresa" type="text" placeholder="Digite o nome da empresa"
                   class="custom"></ion-input>
               </div>
+              <div *ngIf="formGroup.get('nmEmpresa')?.errors?.['required'] && formGroup.get('nmEmpresa')?.touched" class="error-message">
+                Nome é obrigatório.
+              </div>
             </ion-item>
             <ion-item lines="none">
               <ion-label position="stacked">CNPJ</ion-label>
               <div class="input-border ">
                 <ion-input formControlName="cnpj" mask="00.000.000/0000-00"  class="custom" readonly></ion-input>
+              </div>
+              <div *ngIf="formGroup.get('cnpj')?.errors?.['required'] && formGroup.get('cnpj')?.touched" class="error-message">
+                CNPJ é obrigatório.
               </div>
             </ion-item>
             <ion-item lines="none">
@@ -37,12 +43,18 @@
                 <ion-input formControlName="telefone" placeholder="Digite o telefone da empresa"
                   class="custom"></ion-input>
               </div>
+              <div *ngIf="formGroup.get('telefone')?.errors?.['required'] && formGroup.get('telefone')?.touched" class="error-message">
+                Telefone é obrigatório.
+              </div>
             </ion-item>
             <ion-item lines="none">
               <ion-label position="stacked">E-mail</ion-label>
               <div class="input-border ">
                 <ion-input formControlName="email" readonly
                   class="custom"></ion-input>
+              </div>
+              <div *ngIf="formGroup.get('email')?.errors?.['required'] && formGroup.get('email')?.touched" class="error-message">
+                Email é obrigatório.
               </div>
             </ion-item>
             <ion-item lines="none">

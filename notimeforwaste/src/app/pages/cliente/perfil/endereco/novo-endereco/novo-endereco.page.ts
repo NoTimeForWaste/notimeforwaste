@@ -42,15 +42,11 @@ export class NovoEnderecoPage implements OnInit {
         'numero': [this.endereco.numero, Validators.compose([
           Validators.required
         ])],
-        'complemento': [this.endereco.complemento, Validators.compose([
-          Validators.required
-        ])],
+        'complemento': [this.endereco.complemento],
         'cidade': [this.endereco.cidade, Validators.compose([
           Validators.required
         ])],
-        'apelido': [this.endereco.apelido, Validators.compose([
-          Validators.required
-        ])],
+        'apelido': [this.endereco.apelido],
       }
     );
     let id = this.activatedRoute.snapshot.params['idEndereco'];

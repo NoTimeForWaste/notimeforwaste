@@ -74,9 +74,7 @@ export class CadastroPage implements OnInit {
         'numero': [this.endereco.numero, Validators.compose([
           Validators.required
         ])],
-        'complemento': [this.endereco.complemento, Validators.compose([
-          Validators.required
-        ])],
+        'complemento': [this.endereco.complemento],
         'hrSegASexI': [this.horarioSegASex.horarioInicial, Validators.compose([
           Validators.required
         ])],

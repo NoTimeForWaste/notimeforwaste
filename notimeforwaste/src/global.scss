@@ -34,112 +34,116 @@
   --azulPastel: #4A90A4;
   --vermelhoDisabled: #BF8D87;
   --cinzaDisabled: #9098B1;
-  --preto: #000000; 
+  --preto: #000000;
   --pretoDisabled: #443D3D;
   --vermelhoTerroso: #C0392B;
   --marromPastel: #9C6745;
-  --verdeSucesso:#3D8A45;
-  --brancoDisable:#E8EAEC;
+  --verdeSucesso: #3D8A45;
+  --brancoDisable: #E8EAEC;
 }
 
-  .custom-toolbar-top{
-    color: var(--vermelhoTerroso);
-    height: 100%;
-    font-size: 20px;
-    text-align: center;
-    font-weight: lighter;
-    font-family: 'Roboto', 'Segoe UI', 'San Francisco', 'Liberation Sans', sans-serif;
-  }
+.custom-toolbar-top {
+  color: var(--vermelhoTerroso);
+  height: 100%;
+  font-size: 20px;
+  text-align: center;
+  font-weight: lighter;
+  font-family: 'Roboto', 'Segoe UI', 'San Francisco', 'Liberation Sans', sans-serif;
+}
 
-  p{
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  }
+p {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
 
-  h1{
-    font-family: 'Playfair Display', serif;
-  }
-  
-  .body{
-    margin: 0;
-    padding-top: 4vh;
-    background-color: var(--brancoFundo);
-    width: 100%;
-    min-height: 100vh;
-    padding-bottom: 4vh;
-  }
+h1 {
+  font-family: 'Playfair Display', serif;
+}
 
-  a{
-    text-decoration: none;
-  }
+.body {
+  margin: 0;
+  padding-top: 4vh;
+  background-color: var(--brancoFundo);
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 4vh;
+}
 
-  ion-back-button{
-    color: #000000;
-  }
+a {
+  text-decoration: none;
+}
 
-  .circular-image img {
-    padding: 5px;
-    border: 2px solid black;
-    border-radius: 50%;
-  }
+ion-back-button {
+  color: #000000;
+}
 
-  .smallSpaceHorizontal{
-    width: 2vw;
-  }
+.circular-image img {
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
 
-  .smallSpaceVertical{
-    width: 2vh;
-  }
-  //Fontes
+.smallSpaceHorizontal {
+  width: 2vw;
+}
 
-  @font-face {
-    font-family: Embrown Regular;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Embrown/Embrown.ttf) format(true-type);
-  }
+.smallSpaceVertical {
+  width: 2vh;
+}
 
-  @font-face {
-    font-family: Francois One;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Francois/FrancoisOne.ttf) format(true-type);
-  }
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
 
-  @font-face {
-    font-family: Jacques Francois;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Francois/JacquesFrancois.ttf) format(true-type);
-  }
+//Fontes
 
-  @font-face {
-    font-family: Poppins Regular;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Poppins/Poppins-Regular.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Embrown Regular;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Embrown/Embrown.ttf) format(true-type);
+}
 
-  @font-face {
-    font-family: Roboto Regular;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Roboto/Roboto-Regular.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Francois One;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Francois/FrancoisOne.ttf) format(true-type);
+}
 
-  @font-face {
-    font-family: Roboto Bold;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Roboto/Roboto-Bold.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Jacques Francois;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Francois/JacquesFrancois.ttf) format(true-type);
+}
 
-  @font-face {
-    font-family: Inter Regular;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-Regular.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Poppins Regular;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Poppins/Poppins-Regular.ttf) format(true-type);
+}
 
-  @font-face {
-    font-family: Inter Bold;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-Bold.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Roboto Regular;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Roboto/Roboto-Regular.ttf) format(true-type);
+}
 
-  @font-face {
-    font-family: Inter Medium;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-Medium.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Roboto Bold;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Roboto/Roboto-Bold.ttf) format(true-type);
+}
 
-  @font-face {
-    font-family: Inter SemiBold;
-    src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-SemiBold.ttf) format(true-type);
-  }
+@font-face {
+  font-family: Inter Regular;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-Regular.ttf) format(true-type);
+}
 
+@font-face {
+  font-family: Inter Bold;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-Bold.ttf) format(true-type);
+}
 
+@font-face {
+  font-family: Inter Medium;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-Medium.ttf) format(true-type);
+}
 
+@font-face {
+  font-family: Inter SemiBold;
+  src: url(../../../notimeforwaste/notimeforwaste/src/assets/fonts/Inter/Inter-SemiBold.ttf) format(true-type);
+}

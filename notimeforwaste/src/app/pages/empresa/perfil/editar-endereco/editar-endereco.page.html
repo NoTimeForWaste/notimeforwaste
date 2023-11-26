@@ -19,6 +19,9 @@
                 <div class="input-border ">
                   <ion-input type="text" formControlName="cep" class="custom"></ion-input>
                 </div>
+                <div *ngIf="formGroup.get('cep')?.errors?.['required'] && formGroup.get('cep')?.touched" class="error-message">
+                  CEP é obrigatório.
+                </div>
               </ion-item>
               <ion-item lines="none" class="col-2">
                 <ion-label position="stacked">UF</ion-label>
@@ -57,6 +60,9 @@
                 <ion-label position="stacked">Nº</ion-label>
                 <div class="input-border ">
                   <ion-input type="number" formControlName="numero" class="custom"></ion-input>
+                </div>
+                <div *ngIf="formGroup.get('numero')?.errors?.['required'] && formGroup.get('numero')?.touched" class="error-message">
+                  Nº é obrigatório.
                 </div>
               </ion-item>
             </div>

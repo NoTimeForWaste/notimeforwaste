@@ -29,6 +29,9 @@
                   <ion-input formControlName="nome" type="text" placeholder="Nome do cliente"
                     class="custom"></ion-input>
                 </div>
+                <div *ngIf="formGroup.get('nome')?.errors?.['required'] && formGroup.get('nome')?.touched" class="error-message">
+                  Nome é obrigatório.
+                </div>
               </ion-item>
               <ion-item color="none" lines="none">
                 <ion-label position="stacked">E-mail</ion-label>
@@ -36,12 +39,18 @@
                   <ion-input formControlName="email" type="text" placeholder="Email do cliente"
                     class="custom" readonly></ion-input>
                 </div>
+                <div *ngIf="formGroup.get('email')?.errors?.['required'] && formGroup.get('email')?.touched" class="error-message">
+                  Email é obrigatório.
+                </div>
               </ion-item>
               <ion-item color="none" lines="none">
                 <ion-label position="stacked">Senha</ion-label>
                 <div class="input-border">
                   <ion-input type="password" formControlName="senha" placeholder="Senha do senha"
                     class="custom"></ion-input>
+                </div>
+                <div *ngIf="formGroup.get('senha')?.errors?.['required'] && formGroup.get('senha')?.touched" class="error-message">
+                  Senha é obrigatória.
                 </div>
               </ion-item>
               <br />
