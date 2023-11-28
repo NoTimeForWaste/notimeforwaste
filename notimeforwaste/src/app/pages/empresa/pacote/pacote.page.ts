@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { Empresa } from 'src/app/model/empresa';
 import { PacoteResponse } from 'src/app/model/response/pacote-response';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
@@ -15,7 +15,7 @@ export class PacotePage implements OnInit {
 
   pacotes: PacoteResponse[];
   empresa: Empresa;
-  constructor(private loadingController: LoadingController, private empresaService: EmpresaService, private toastController: ToastController, private paccoteService: PacoteService, protected utilsService: UtilsService) {
+  constructor(private loadingController: LoadingController, private empresaService: EmpresaService, private toastController: ToastController, private paccoteService: PacoteService, protected utilsService: UtilsService, private alertController: AlertController) {
     this.pacotes = [];
     this.empresa = new Empresa();
   }
@@ -36,24 +36,35 @@ export class PacotePage implements OnInit {
     });
   }
 
-  deletar(idPacote: number) {
-    this.paccoteService.deletePacote(idPacote).subscribe(
-      res => {
-        this.exibirMensagem("Deletado com sucesso.")
-        this.pacotes = this.pacotes.filter(pacote => pacote.idPacote !== idPacote);
-      },
-      error => {
-        this.exibirMensagem("Erro ao deletar.")
-      }
-    );
-  }
-
-  async exibirMensagem(texto: string) {
-    const toast = await this.toastController.create({
-      message: texto,
-      duration: 1500
+  async deletar(idPacote: number) {
+    const alert = await this.alertController.create({
+      header: 'Confirmação',
+      message: 'Tem certeza de que deseja deletar este pacote?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Deletar',
+          handler: () => {
+            this.paccoteService.deletePacote(idPacote).subscribe(
+              res => {
+                this.utilsService.messageDisplaySuccess("Deletado com sucesso.")
+                this.pacotes = this.pacotes.filter(pacote => pacote.idPacote !== idPacote);
+              },
+              error => {
+                this.utilsService.messageDisplayError("Erro ao deletar.")
+              }
+            );
+          }
+        }
+      ]
     });
-    toast.present();
+
+    await alert.present();
   }
 
   async ionViewWillEnter() {

@@ -12,7 +12,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class PedidoPage implements OnInit {
 
-  filterSelected: number = 0;
+  filterSelected: number = -1;
   onFilters: boolean = true;
   pedidos: PedidoResponse[];
   allPedidos: PedidoResponse[];
@@ -61,7 +61,7 @@ export class PedidoPage implements OnInit {
   }
 
   getTitle(): string{
-    return this.filterSelected === 0 ? "Pendentes" :  this.filterSelected === 1 ? "Á Caminho" :  this.filterSelected === 2 ? "Entregues" :  "Cancelados";
+    return this.filterSelected === -1 ? "Todos" : this.filterSelected === 0 ? "Pendentes" :  this.filterSelected === 1 ? "Á Caminho" :  this.filterSelected === 2 ? "Entregues" :  "Cancelados";
   }
 
   async ionViewWillEnter() {

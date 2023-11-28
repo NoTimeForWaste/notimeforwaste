@@ -11,22 +11,23 @@ import { ClienteService } from 'src/app/services/cliente/cliente.service';
 export class PerfilPage implements OnInit {
 
 
-  
+
   cliente: Cliente;
   constructor(private clienteService: ClienteService, private navController: NavController) {
     this.cliente = new Cliente();
     console.log(this.cliente)
 
-   }
+  }
 
-
-  ngOnInit() {
+  async ionViewWillEnter() {
     this.cliente = this.clienteService.getClienteLogado();
+  }
+  ngOnInit() {
   }
 
 
 
-  logout(){
+  logout() {
     this.clienteService.setClienteLogado(new Cliente());
     this.navController.navigateBack("cliente/login");
   }

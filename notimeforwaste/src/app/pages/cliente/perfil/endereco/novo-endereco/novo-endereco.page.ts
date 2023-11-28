@@ -8,6 +8,7 @@ import { Cliente } from 'src/app/model/cliente';
 import { Endereco } from 'src/app/model/endereco';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 import { EnderecoService } from 'src/app/services/endereco.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import { IClienteEndereco } from 'src/app/types/IClienteEndereco';
 import { IEndereco } from 'src/app/types/IEndereco';
 
@@ -23,7 +24,7 @@ export class NovoEnderecoPage implements OnInit {
   formGroup: FormGroup;
   cliente: Cliente;
 
-  constructor(private clienteService: ClienteService, private toastController: ToastController, private navController: NavController, private enderecoService: EnderecoService, private fBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private http: HttpClient) {
+  constructor(private clienteService: ClienteService, private navController: NavController, private enderecoService: EnderecoService, private fBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private http: HttpClient, protected utilsService: UtilsService) {
     this.endereco = new Endereco();
     this.cliente = new Cliente();
     this.formGroup = this.fBuilder.group(
@@ -111,29 +112,21 @@ export class NovoEnderecoPage implements OnInit {
 
           this.clienteService.postClienteEndereco(clienteEndereco).subscribe({
             next: (res) => {
-              this.exibirMensagem("Endereço salvo com sucesso!")
+              this.utilsService.messageDisplaySuccess("Endereço salvo com sucesso!")
               this.navController.navigateBack("/cliente/endereco")
             },
             error: (error) => {
               console.log(error);
-              this.exibirMensagem("Erro ao salvar endereço!");
+              this.utilsService.messageDisplayError("Erro ao salvar endereço!");
             }
           })
         },
         error: (error) => {
           console.log(error);
-          this.exibirMensagem("Erro ao salvar endereço!");
+          this.utilsService.messageDisplayError("Erro ao salvar endereço!");
         }
       })
     }
-  }
-
-  async exibirMensagem(texto: string) {
-    const toast = await this.toastController.create({
-      message: texto,
-      duration: 1500
-    });
-    toast.present();
   }
 
   ngOnInit() {

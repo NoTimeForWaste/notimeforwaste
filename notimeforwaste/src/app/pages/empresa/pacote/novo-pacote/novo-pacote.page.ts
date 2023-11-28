@@ -105,7 +105,7 @@ export class NovoPacotePage implements OnInit {
         formaPagamento.selecionado = this.pacoteExistente.formasPagamentos.some(fp => fp.idFormaPagamento === formaPagamento.idFormaPagamento);
       });
     })
-  }
+  } 
 
   toggleFormaPagamento(forma: FormaPagamento) {
     if (forma.selecionado) {
@@ -170,7 +170,7 @@ export class NovoPacotePage implements OnInit {
 
   async alterarPacote() {
     try {
-      console.log(this.pacoteExistente.foto.idFoto);
+      // console.log(this.pacoteExistente.foto.idFoto);
       // if (this.foto.document != null) {
       //   this.fotoService.put(this.foto.idFoto, this.foto.document!).subscribe({
       //     next: (foto) => {

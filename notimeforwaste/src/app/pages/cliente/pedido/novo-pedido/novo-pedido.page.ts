@@ -52,6 +52,7 @@ export class NovoPedidoPage implements OnInit {
   isDelivery() {
     return this.formGroup.value.formaEntrega === 1;
   }
+
   async ionViewWillEnter() {
     let id = this.activatedRoute.snapshot.params['idPacote'];
     if (id != null) {
@@ -94,10 +95,6 @@ export class NovoPedidoPage implements OnInit {
 
   back() {
     this.navController.navigateBack('/cliente/detalhes-pacote/' + this.pacote.idPacote);
-  }
-
-  enderecoToString(endereco: Endereco): string {
-    return endereco.rua + " " + endereco.numero + ", " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado;
   }
 
   selecionarEndereco(endereco: Endereco) {
@@ -156,7 +153,7 @@ export class NovoPedidoPage implements OnInit {
       initialBreakpoint: 0.8
     });
     await modal.present();
-    await this.carregarEnderecos();
+    this.carregarEnderecos();
   }
-  
+
 }

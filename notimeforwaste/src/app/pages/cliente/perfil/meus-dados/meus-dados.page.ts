@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
 import { Cliente } from 'src/app/model/cliente';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-meus-dados',
@@ -16,7 +17,7 @@ export class MeusDadosPage implements OnInit {
   formGroup: FormGroup;
   cliente: Cliente;
 
-  constructor(private fBuilder: FormBuilder, private clienteService: ClienteService, private toastController: ToastController ) { 
+  constructor(protected utilsService: UtilsService, private fBuilder: FormBuilder, private clienteService: ClienteService, private toastController: ToastController ) { 
     this.cliente =  this.clienteService.getClienteLogado();
     this.formGroup = this.fBuilder.group(
       {
@@ -48,23 +49,18 @@ export class MeusDadosPage implements OnInit {
       next: (cliente) => {
         this.cliente = <Cliente>(cliente);
         this.clienteService.setClienteLogado(this.cliente);
-        this.exibirMensagem("Alterado com sucesso");
+        this.utilsService.messageDisplaySuccess("Alterado com sucesso");
       },
       error: (error) => {
         console.log(error)
-        this.exibirMensagem("Erro ao alterar;")
+        this.utilsService.messageDisplayError("Erro ao alterar;")
       }
     })
   }
 
   
-  async exibirMensagem(texto: string) {
-    const toast = await this.toastController.create({
-      message: texto,
-      duration: 1500
-    });
-    toast.present();
-  }
+
+  
   
   isInvalid(): boolean {
     return this.cliente.nmCliente === this.formGroup.value.nome && this.cliente.senha === this.formGroup.value.senha;
